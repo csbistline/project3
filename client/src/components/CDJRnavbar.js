@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap'
 const CDJRnavbar = () => {
     return (
         <Navbar>
-            <Nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{ "box-shadow": "0px 4px 2px -1px rgba(38,37,38,1)" }}>
+            <Nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{ "boxShadow": "0px 4px 2px -1px rgba(38,37,38,1)" }}>
                 <a className="navbar-brand" href="#">
                     <img src="./assets/img/logo.png" width="300" height="50" alt="dealerLogo" />
                 </a>
