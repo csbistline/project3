@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Micheal Scot",
+    "image": "../img/PartsMgr.jpg",
+    "specialty": "Parts and Inventory Manager",
+    "contact": "prisonMike@parts.com"
+  },
+  {
+    "id": 2,
+    "name": "Dwight Schrute",
+    "image": "../img/AsstMgr.jpg",
+    "specialty": "Brakes and Body Specialist",
+    "contact": "recyClops@parts.com"
+  },
+  {
+    "id": 3,
+    "name": "Andy Dwyer",
+    "image": "../img/tuneUp.jpg",
+    "specialty": "Lube and Tune Specialist",
+    "contact": "nardDog@parts.com"
+  },
+  {
+    "id": 4,
+    "name": "Jim Halpert",
+    "image": "../img/tran.jpg",
+    "specialty": "Engine and Trans Specialist",
+    "contact": "bigTuna@parts.com"
+  },
+  {
+    "id": 5,
+    "name": "Stanley Hudson",
+    "image": "../img/Vintage.jpg",
+    "specialty": "Classic and Custom Specialist",
+    "contact": "newsFlash@parts.com"
+  },
+  
+  {
+    "id": 6,
+    "name": "Kevin Malone",
+    "image": "../img/Tires.jpg",
+    "specialty": "Wheel and Tire Specialist",
+    "contact": "secretSanta@parts.com"
+  }
+ 
+]
