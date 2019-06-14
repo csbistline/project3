@@ -22,14 +22,11 @@ const CDJRnavbar = () => {
                         <Nav.Link href="#service">SERVICE</Nav.Link>
                         <Nav.Link href="#collision">COLLISION</Nav.Link>
                         <Nav.Link href="#about">ABOUT</Nav.Link>
-
-
+                    </Nav>
+                    <Nav className="navbar-text">
+                            Parts: <br /> 615-538-9033
                     </Nav>
                     <Nav>
-                        <span className="navbar-text ml-auto">
-                            <p>Parts
-                            <br />615-538-9033</p>
-                        </span>
                         <div className="btn-toolbar ml-auto" role="toolbar" aria-label="Toolbar with button groups">
                             <div className="btn-group ml-2" role="group" aria-label="First group">
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-calendar"> SERVICE</i></button>
@@ -37,7 +34,6 @@ const CDJRnavbar = () => {
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-envelope"> CONTACT</i></button>
                             </div>
                         </div>
-
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
