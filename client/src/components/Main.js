@@ -16,11 +16,6 @@ const Main = () => {
                             accessories, and engines. Whether you are looking for 4 wheel parts or truck accessories Franklin Chrysler
                             Dodge Jeep Ram can help you! We have, or can order, what you are looking for. We keep a large selection of
                 auto parts, and our Mopar part specialists will help you find the right fit for your specialty part needs.</p>
-                        <div className="ml-auto">
-                            <a className="btn btn-primary mr-1" href="#">PARTS TEAM Login</a>
-                            <a href="/team" className="btn btn-primary mr-1">Meet the TEAM</a>
-                            <a className="btn btn-primary mr-1" href="#">Request a Part</a>
-                        </div>
                     </div>
                 </div>
 

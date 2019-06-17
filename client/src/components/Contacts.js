@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button"
 
 const Contacts = () => {
     return (
@@ -42,13 +44,17 @@ const Contacts = () => {
                     </table>
                 </div>
             </div>
-
+            <div className="ml-auto">
+                <Link to="/team"><Button variant="primary" className="mr-1">Meet the TEAM</Button></Link>
+                <Link to="#"><Button variant="primary" className="mr-1">Request a Part</Button></Link>
+                <Link to="#"><Button variant="primary" className="mr-1">PARTS TEAM Login</Button></Link>
+            </div>
             <div>
                 <br />
                 <h3>Franklin Chrysler Dodge Jeep Ram</h3>
                 <address>
                     1124 Murfreesboro Rd
-                    <br /> 
+                    <br />
                     Franklin, TN 37064
                 </address>
 
