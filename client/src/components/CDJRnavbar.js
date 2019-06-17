@@ -18,7 +18,7 @@ const CDJRnavbar = () => {
                         <Nav.Link href="#specials">SPECIALS</Nav.Link>
                         <Nav.Link href="#selltrade">SELL & TRADE</Nav.Link>
                         <Nav.Link href="#financelease">FINANCE & LEASE</Nav.Link>
-                        <Nav.Link href="#parts">PARTS</Nav.Link>
+                        <Nav.Link href="/">PARTS</Nav.Link>
                         <Nav.Link href="#service">SERVICE</Nav.Link>
                         <Nav.Link href="#collision">COLLISION</Nav.Link>
                         <Nav.Link href="#about">ABOUT</Nav.Link>

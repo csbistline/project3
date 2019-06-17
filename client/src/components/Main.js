@@ -17,9 +17,9 @@ const Main = () => {
                             Dodge Jeep Ram can help you! We have, or can order, what you are looking for. We keep a large selection of
                 auto parts, and our Mopar part specialists will help you find the right fit for your specialty part needs.</p>
                         <div className="ml-auto">
-                            <button type="button" className="btn btn-primary btn-lg mr-1">PARTS TEAM Login</button>
-                            <button type="button" className="btn btn-primary btn-lg mr-1">Meet the TEAM</button>
-                            <button type="button" className="btn btn-primary btn-lg mr-1">Request a Part</button>
+                            <a className="btn btn-primary mr-1" href="#">PARTS TEAM Login</a>
+                            <a href="/team" className="btn btn-primary mr-1">Meet the TEAM</a>
+                            <a className="btn btn-primary mr-1" href="#">Request a Part</a>
                         </div>
                     </div>
                 </div>
