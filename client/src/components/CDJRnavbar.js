@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 
 const CDJRnavbar = () => {
     return (
-        <div>
+        <div className="mb-5">
             <Navbar collapseOnSelect expand="xl" bg="light" variant="light" fixed="top" style={{ "boxShadow": "0px 4px 2px -1px rgba(38,37,38,1)" }}>
                 <Navbar.Brand href="#home">
                     <img src="./assets/img/logo.png" width="300" height="50" alt="dealerLogo" />

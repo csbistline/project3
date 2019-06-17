@@ -1,19 +1,20 @@
 import React from "react";
-import "./style.css";
+import Card from "react-bootstrap/Card"
 
 function PartsSpecCard(props) {
   return (
-    <div className="card">
-      <div className="card-img-top">
-        <img alt={props.name} src={props.image} />
-      </div>
-      <div className="card-body">
-        <h5 className="card-title">{props.name}</h5>
-        <h4 className="card-title">{props.specialty}</h4>
-        <p className="card-text">Contact: {props.contact}</p> 
-      </div>
-    </div>
+    <Card className="m-1" style={{ width: '16rem' }}>
+      <Card.Img variant="top" alt={props.name} src={props.image} />
+      <Card.Body>
+        <Card.Title>{props.name}</Card.Title>
+        <Card.Subtitle>{props.specialty}</Card.Subtitle>
+        <Card.Text>Contact: {props.contact}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 }
 
 export default PartsSpecCard;
+
+
+
