@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 const CDJRnavbar = () => {
     return (
@@ -37,9 +37,6 @@ const CDJRnavbar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-
-
-
         </div>
     );
 };
