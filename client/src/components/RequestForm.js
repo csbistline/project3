@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PartsSpecCard from "./PartsSpecCard";
-import PartsSpec from "../PartsSpec.json";
+// import PartsSpecCard from "./PartsSpecCard";
+// import PartsSpec from "../PartsSpec.json";
 import Contacts from "./Contacts";
+import Button from "react-bootstrap/Button"
 
 
 class RequestForm extends Component {
@@ -93,7 +94,9 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="vin">Vin Number</label>
+                                    <label for="vin">Vin Number</label>  
+                                  {/* insert modal link */}
+                                  <Button variant="link"> Where's my Vin?</Button>
                                     <input type="vin"
                                         class="form-control"
                                         value={this.state.vin}
@@ -105,7 +108,7 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="vin">vehicle Year</label>
+                                    <label for="vin">Vehicle Year</label>
                                     <input type="year"
                                         class="form-control"
                                         value={this.state.year}
@@ -117,7 +120,7 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="make">vehicle Make</label>
+                                    <label for="make">Vehicle Make</label>
                                     <input type="make"
                                         class="form-control"
                                         value={this.state.make}
@@ -129,7 +132,7 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="model">vehicle Model</label>
+                                    <label for="model">Vehicle Model</label>
                                     <input type="model"
                                         class="form-control"
                                         value={this.state.model}
