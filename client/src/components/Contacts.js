@@ -46,7 +46,7 @@ const Contacts = () => {
             </div>
             <div className="ml-auto">
                 <Link to="/team"><Button variant="primary" className="mr-1">Meet the TEAM</Button></Link>
-                <Link to="#"><Button variant="primary" className="mr-1">Request a Part</Button></Link>
+                <Link to="/request"><Button variant="primary" className="mr-1">Request a Part</Button></Link>
                 <Link to="#"><Button variant="primary" className="mr-1">PARTS TEAM Login</Button></Link>
             </div>
             <div>
