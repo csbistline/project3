@@ -34,33 +34,49 @@ class RequestForm extends Component {
                     <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around">
 
                         <div className="jumbotron">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
+                            <h1 class="display-4">Parts Request Form</h1>
+                            <p class="lead">Enter your contact and vehicle information below and a parts specicalist will get back to your shortly.</p>
+                            <hr class="my-4"></hr>
+                                <form>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="firstName" class="form-control" id="firstName" placeholder="First Name"></input>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="lastName" class="form-control" id="firstName" placeholder="First Name"></input>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email address</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vin">Vin Number</label>
+                                        <input type="vin" class="form-control" id="vin" placeholder="VIN #"></input>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="message">Write your message here...</label>
+                                        <textarea class="form-control" id="message" rows="4"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
 
                         </div>
-                    </div>
-                    <div className="col-sm-4 pt-4">
-                        <Contacts />
+                        </div>
+                        <div className="col-sm-4 pt-4">
+                            <Contacts />
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
-    }
-}
-
+                );
+            }
+        }
+        
 export default RequestForm;
