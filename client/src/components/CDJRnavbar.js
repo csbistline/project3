@@ -13,18 +13,18 @@ const CDJRnavbar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="#home"><span className="sr-only">(current)</span><i className="fas fa-home"></i> HOME</Nav.Link>
-                        <Nav.Link href="#new">NEW</Nav.Link>
+                        {/* <Nav.Link href="#new">NEW</Nav.Link>
                         <Nav.Link href="#used">USED</Nav.Link>
                         <Nav.Link href="#specials">SPECIALS</Nav.Link>
                         <Nav.Link href="#selltrade">SELL & TRADE</Nav.Link>
-                        <Nav.Link href="#financelease">FINANCE & LEASE</Nav.Link>
-                        <Nav.Link href="/">PARTS</Nav.Link>
+                        <Nav.Link href="#financelease">FINANCE & LEASE</Nav.Link> */}
+                        <Nav.Link active href="/">PARTS</Nav.Link>
                         <Nav.Link href="#service">SERVICE</Nav.Link>
                         <Nav.Link href="#collision">COLLISION</Nav.Link>
-                        <Nav.Link href="#about">ABOUT</Nav.Link>
+                        {/* <Nav.Link href="#about">ABOUT</Nav.Link> */}
                     </Nav>
                     <Nav className="navbar-text">
-                            Parts: <br /> 615-538-9033
+                            Parts: 615-538-9033
                     </Nav>
                     <Nav>
                         <div className="btn-toolbar ml-auto" role="toolbar" aria-label="Toolbar with button groups">
