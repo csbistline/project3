@@ -29,10 +29,10 @@ These instructions will get you a copy of the project up and running on your loc
 ## Data Flow and Project Wire Frames
 
 * _Project Design WireFrame_
-![Image of Wireframe](client\public\assets\misc\partswireframe.png)
+  ![Image of Wireframe](https://github.com/csbistline/project3/blob/fe6e931bdeab0c4aff4271d84edc2292282ce2f1/client/public/assets/misc/partswireframe.PNG)
 
 * _Project UI DataFlow_
-![Image of Dataflow](client\public\assets\misc\UIdataFlowChart.png)
+  ![Image of Dataflow](https://github.com/csbistline/project3/blob/dafa2e567cc740dd1d483837ff84022037401d4a/client/public/assets/misc/UIdataFlowChart.png)
 
 ## Authors
 
