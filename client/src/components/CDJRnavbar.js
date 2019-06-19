@@ -28,13 +28,13 @@ const CDJRnavbar = () => {
                     <Nav className="navbar-text">
                             Parts: 615-538-9033
                     </Nav>
-                    <Nav>
+                    <Nav className="navbar-text">
                         <div className="ml-auto">
                             <div className="ml-2">
                             <Breadcrumb>
-                                <Breadcrumb.Item active><i className="fa fa-calendar"> SERVICE</i></Breadcrumb.Item>
-                                <Breadcrumb.Item active><i className="fa fa-map-marker"> MAP</i></Breadcrumb.Item>
-                                <Breadcrumb.Item active><i className="fa fa-envelope"> CONTACT</i></Breadcrumb.Item>
+                                <Breadcrumb.Item active><i className="fa fa-calendar"></i> SERVICE</Breadcrumb.Item>
+                                <Breadcrumb.Item active><i className="fa fa-map-marker"></i> MAP</Breadcrumb.Item>
+                                <Breadcrumb.Item active><i className="fa fa-envelope"></i> CONTACT</Breadcrumb.Item>
                                 </Breadcrumb>
                             </div>
                             </div>
