@@ -41,7 +41,7 @@ class RequestForm extends Component {
 
                         <div className="jumbotron">
                             <h1 class="display-4">Parts Request Form</h1>
-                            <p class="lead">Enter your contact and vehicle information below and a parts specicalist will get back to your shortly.</p>
+                            <p class="lead">Enter your contact and vehicle information below and a Parts Specialist will get back to you shortly.</p>
                             <hr class="my-4"></hr>
                             <form>
 
