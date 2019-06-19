@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 // import PartsSpecCard from "./PartsSpecCard";
 // import PartsSpec from "../PartsSpec.json";
 import Contacts from "./Contacts";
-import Button from "react-bootstrap/Button"
+// import Button from "react-bootstrap/Button"
+
+import vinModal from "./vinModal";
 
 
 class RequestForm extends Component {
@@ -39,7 +41,7 @@ class RequestForm extends Component {
 
                         <div className="jumbotron">
                             <h1 class="display-4">Parts Request Form</h1>
-                            <p class="lead">Enter your contact and vehicle information below and a parts specicalist will get back to your shortly.</p>
+                            <p class="lead">Enter your contact and vehicle information below and a Parts Specialist will get back to you shortly.</p>
                             <hr class="my-4"></hr>
                             <form>
 
@@ -96,7 +98,7 @@ class RequestForm extends Component {
                                 <div class="form-group">
                                     <label for="vin">Vin Number</label>  
                                   {/* insert modal link */}
-                                  <Button variant="link"> Where's my Vin?</Button>
+                                  <vinModal />
                                     <input type="vin"
                                         class="form-control"
                                         value={this.state.vin}
