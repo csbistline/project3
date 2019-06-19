@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button"
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 const Contacts = () => {
     return (
@@ -45,9 +46,14 @@ const Contacts = () => {
                 </div>
             </div>
             <div className="ml-auto">
-                <Link to="/team"><Button variant="primary" className="mr-1">Meet the TEAM</Button></Link>
+                <ButtonGroup>
+                    <Link to="/team"><Button variant="primary">Meet the Team</Button></Link>
+                    <Link to="/request"><Button variant="info">Request a Part</Button></Link>
+                    <Link to="#"><Button variant="primary">Team Login</Button></Link>
+                </ButtonGroup>
+                {/* <Link to="/team"><Button variant="primary" className="mr-1">Meet the TEAM</Button></Link>
                 <Link to="/request"><Button variant="primary" className="mr-1">Request a Part</Button></Link>
-                <Link to="#"><Button variant="primary" className="mr-1">PARTS TEAM Login</Button></Link>
+                <Link to="#"><Button variant="primary" className="mr-1">PARTS TEAM Login</Button></Link> */}
             </div>
             <div>
                 <br />

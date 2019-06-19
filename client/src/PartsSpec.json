@@ -18,14 +18,14 @@
     "name": "Andy Dwyer",
     "image": "./assets/img/tuneUp.jpg",
     "specialty": "Lube and Tune Specialist",
-    "contact": "nardDog@parts.com"
+    "contact": "nardDog1@parts.com"
   },
   {
     "id": 4,
     "name": "Jim Halpert",
     "image": "./assets/img/tran.jpg",
     "specialty": "Engine and Trans Specialist",
-    "contact": "bigTuna@parts.com"
+    "contact": "bigTunaXP@parts.com"
   },
   {
     "id": 5,
