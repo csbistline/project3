@@ -1,3 +1,4 @@
 module.exports = {
-  PartsRequest: require("./PartsRequest")
+  PartsRequest: require("./PartsRequest"),
+  Note: require("./Note")
 };
