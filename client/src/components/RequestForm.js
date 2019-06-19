@@ -15,7 +15,7 @@ class RequestForm extends Component {
         lastName: "",
         phoneNum: "",
         email: "",
-        VIN: "",
+        vin: "",
         year: "",
         make: "",
         model: "",
