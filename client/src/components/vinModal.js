@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {Button, Modal} from 'react-bootstrap';
 
 
@@ -46,5 +45,5 @@ class vinModal extends React.Component {
       );
     }
   }
- 
+ render(<vinModal />);
   export default vinModal;
