@@ -46,6 +46,7 @@ class RequestForm extends Component {
                                     <label for="firstName">First Name</label>
                                     <input type="firstName"
                                         class="form-control"
+                                        name="firstName"
                                         value={this.state.firstName}
                                         onChange={this.handleInputChange}
                                         id="firstName"
@@ -58,6 +59,7 @@ class RequestForm extends Component {
                                     <label for="lastName">Last Name</label>
                                     <input type="lastName"
                                         class="form-control"
+                                        name="lastName"
                                         value={this.state.lastName}
                                         onChange={this.handleInputChange}
                                         id="firstName"
@@ -70,6 +72,7 @@ class RequestForm extends Component {
                                     <label for="phoneNum">Phone Number</label>
                                     <input type="phoneNum"
                                         class="form-control"
+                                        name="phoneNum"
                                         value={this.state.phoneNum}
                                         onChange={this.handleInputChange}
                                         id="phoneNum"
@@ -82,6 +85,7 @@ class RequestForm extends Component {
                                     <label for="email">Email address</label>
                                     <input type="email"
                                         class="form-control"
+                                        name="email"
                                         value={this.state.email}
                                         onChange={this.handleInputChange}
                                         id="email"
@@ -96,6 +100,7 @@ class RequestForm extends Component {
                                     <label for="vin">Vin Number</label>
                                     <input type="vin"
                                         class="form-control"
+                                        name="vin"
                                         value={this.state.vin}
                                         onChange={this.handleInputChange}
                                         id="vin"
@@ -108,6 +113,7 @@ class RequestForm extends Component {
                                     <label for="vin">vehicle Year</label>
                                     <input type="year"
                                         class="form-control"
+                                        name="year"
                                         value={this.state.year}
                                         onChange={this.handleInputChange}
                                         id="year"
@@ -120,6 +126,7 @@ class RequestForm extends Component {
                                     <label for="make">vehicle Make</label>
                                     <input type="make"
                                         class="form-control"
+                                        name="make"
                                         value={this.state.make}
                                         onChange={this.handleInputChange}
                                         id="make"
@@ -132,6 +139,7 @@ class RequestForm extends Component {
                                     <label for="model">vehicle Model</label>
                                     <input type="model"
                                         class="form-control"
+                                        name="model"
                                         value={this.state.model}
                                         onChange={this.handleInputChange}
                                         id="model"
