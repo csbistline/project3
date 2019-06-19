@@ -7,7 +7,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb'
 const CDJRnavbar = () => {
     return (
         <div className="mb-5">
-            <Navbar collapseOnSelect expand="xl" bg="light" variant="light" fixed="top" style={{ "boxShadow": "0px 4px 2px -1px rgba(38,37,38,1)" }}>
+            <Navbar collapseOnSelect expand="xl" bg="light" variant="light" fixed="top" style={{ "boxShadow": "0px 4px 2px -1px rgba(38,37,38,1)"}}>
                 <Navbar.Brand href="#home">
                     <img src="./assets/img/logo.png" width="300" height="50" alt="dealerLogo" />
                 </Navbar.Brand>

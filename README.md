@@ -28,19 +28,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Data Flow and Project Wire Frames
 
-(insert links and images)
+* _Project Design WireFrame_
+![Image of Wireframe](client\public\assets\misc\partswireframe.png)
+
+* _Project UI DataFlow_
+![Image of Dataflow](client\public\assets\misc\UIdataFlowChart.png)
 
 ## Authors
 
-* **each  Member Name** - *Roles* - [github link](https://github.com/PurpleBooth)
+* **Chris Blistine** - *Roles* - [csbistline github](https://github.com/csbistline)
 
-* **each  Member Name** - *Roles* - [github link](https://github.com/PurpleBooth)
+* **Kevin Bailey** - *Roles* - [redSW20 github](https://github.com/redSW20)
 
-* **each  Member Name** - *Roles* - [github link](https://github.com/PurpleBooth)
+* **Brendan Gutleber** - *Roles* - [GutleberB94 github](https://github.com/GutleberB94)
 
-* **each  Member Name** - *Roles* - [github link](https://github.com/PurpleBooth)
+* **Alexandr 'Sasha' Peters** - *Roles* - [merpig github](https://github.com/merpig)
 
-* **each  Member Name** - *Roles* - [github link](https://github.com/PurpleBooth)
+* **Andy Pack** - *Roles* - [ThePackPater github](https://github.com/ThePackPater)
 
 ## Acknowledgments
 
