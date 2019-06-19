@@ -1,9 +1,9 @@
 import React from 'react';
-
 import {Button, Modal} from 'react-bootstrap';
+import Image from 'react-bootstrap/Image'
 
 
-class vinModal extends React.Component {
+class VinModal extends React.Component {
     constructor(props, context) {
       super(props, context);
   
@@ -26,15 +26,15 @@ class vinModal extends React.Component {
     render() {
       return (
         <>
-          <Button variant="primary" onClick={this.handleShow}>
-            Locate VIN #
+          <Button variant="link" className="vinLink" onClick={this.handleShow}>
+              Locate VIN #
           </Button>
   
           <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Common Vin # Locations</Modal.Title>
             </Modal.Header>
-            <Modal.Body><img src={"../../public/assets/img/vinData.jpg"} alt="Vin Location" /></Modal.Body>
+            <Modal.Body><Image fluid src={"https://static.carmd.com/CMSResources/image/VIN-location.jpg"} alt="Vin Location" /></Modal.Body>
             <Modal.Footer>
               <Button variant="primary" onClick={this.handleClose}>
                 Close
@@ -46,5 +46,4 @@ class vinModal extends React.Component {
       );
     }
   }
- 
-  export default vinModal;
+  export default VinModal;

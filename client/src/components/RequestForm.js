@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Contacts from "./Contacts";
 // import Button from "react-bootstrap/Button"
 
-import vinModal from "./vinModal";
+import VinModal from "./vinModal";
 
 
 class RequestForm extends Component {
@@ -102,7 +102,7 @@ class RequestForm extends Component {
                                 <div class="form-group">
                                     <label for="vin">Vin Number</label>  
                                   {/* insert modal link */}
-                                  <vinModal />
+                                  <VinModal />
                                     <input type="vin"
                                         class="form-control"
                                         name="vin"
@@ -158,7 +158,7 @@ class RequestForm extends Component {
                                     <textarea class="form-control" id="message" rows="4"></textarea>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary" className="myButton">Submit</button>
                             </form>
 
                         </div>
