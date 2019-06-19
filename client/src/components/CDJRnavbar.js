@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 const CDJRnavbar = () => {
     return (
@@ -27,13 +28,21 @@ const CDJRnavbar = () => {
                             Parts: 615-538-9033
                     </Nav>
                     <Nav>
-                        <div className="btn-toolbar ml-auto" role="toolbar" aria-label="Toolbar with button groups">
-                            <div className="btn-group ml-2" role="group" aria-label="First group">
+                        <div className="ml-auto">
+                            <div className="ml-2">
+                            <Breadcrumb>
+                                <Breadcrumb.Item active><i className="fa fa-calendar"> SERVICE</i></Breadcrumb.Item>
+                                <Breadcrumb.Item active><i className="fa fa-map-marker"> MAP</i></Breadcrumb.Item>
+                                <Breadcrumb.Item active><i className="fa fa-envelope"> CONTACT</i></Breadcrumb.Item>
+                                </Breadcrumb>
+                            </div>
+                            </div>
+                            {/* <div className="ml-2" role="group" aria-label="First group">
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-calendar"> SERVICE</i></button>
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-map-marker"> MAP</i></button>
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-envelope"> CONTACT</i></button>
-                            </div>
-                        </div>
+                            </div> */}
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
