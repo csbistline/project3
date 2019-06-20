@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var PartsRequestSchema = new Schema({
     status:{
-        type: String, default: 'requested' 
+        type: String, default: "requested" 
     },
     firstName: {
         type: String,
