@@ -3,8 +3,6 @@ const db = require("../models");
 // Defining methods for the techsController
 module.exports = {
     findAll: function (req, res) {
-        console.log("finding all techs");
-        console.log(req.query);
         db.Tech
             .find(req.query)
             .then(dbModel => res.json(dbModel))

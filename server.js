@@ -26,7 +26,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 // testing db connection
-mongoose.connection.on("open", function (ref) {
+/*mongoose.connection.on("open", function (ref) {
     console.log("Connected to mongo server.");
     //trying to get collection names
     mongoose.connection.db.listCollections().toArray(function (err, names) {
@@ -37,7 +37,7 @@ mongoose.connection.on("open", function (ref) {
         console.log("info: ", err);
         console.log("info: ", info);
     });
-});
+});*/
 
 // Send every other request to the React app
 // Define any API routes before this runs

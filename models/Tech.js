@@ -8,7 +8,7 @@ const TechSchema = new Schema({
     specialty: { type: String, required: true },
     contact: { type: String, required: true },
     permission: { type: String, required: true },
-});
+}, { collection: "Tech" });
 
 const Tech = mongoose.model("Tech", TechSchema);
 
