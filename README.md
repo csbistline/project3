@@ -1,53 +1,76 @@
 # Final Project VBC
 
-Udpating the Parts UI for Franklin Dodge Website (add details)
+**Udpating the Parts Interface for Franklin Chrysler Dodge Jeep Ram Website by:**
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-* Software needed and how to install (might refer to react readme)
-
-### Installing
-
-* A step by step series of examples that tell you how to get a development env running
+* Matching the Front End Style of the current site
+* Creating a Customer Query Form that takes in the customer and vehvile data
+* Send collected data to the Parts Manager to be assigned to a specific Parts Specialist
+* The Parts Specialist recieves the assigned Query as a workorder
+* An auto generated email is sent to the customer when assigned with a time table to completion
+* Finally once Query has been completed it is reurned to the Parts Manger to be checked and deleted
+* [Check Out the DataFlowChart & WireFrame](##Data-Flow-and-Project-Wire-Frames)
 
 ## Deployment
 
 * [Heroku](http://) - Deployment Link
 
+_<https://parts-manager-hi5.herokuapp.com/>_
+
 ## Technologies
 
-* [React](http://) - The web framework used
-* [Mongo](https://) - Database
-* [Express](https://) - Used to generate
-* [Adobe](https://) - Used to generate
-* [React-Bootstrap](https://) - Used to generate
+* [Mongo](www.npmjs.com/package/mongodb) - Used for Database
+* [Express](https://www.npmjs.com/package/express) - Used for routes, to handling requests, and views
+* [React](https://github.com/reactjs/reactjs.org) - The web framework used
+* [Node](https://www.npmjs.com/package/node) - Used for developing server-side and networking
+* [Axios](https://www.npmjs.com/package/axios) - Used for API
+* [React-Bootstrap](https://react-bootstrap.github.io/) - Used to generate front end styling
+* [Github-ProjectMgr](https://github.com/features/project-management/) - Used to assign roles, set benchmarks, manage code flow
+* [Adobe](https://www.adobe.io/apis/creativecloud/xd.html) - Used to generate design wireframes
+* [Code2Flow](https://code2flow.com/) - Used to generate Data flow chart
+* [Heroku](https://devcenter.heroku.com/categories/reference) - Used for App deployment
 
 ## Data Flow and Project Wire Frames
 
-* _Project Design WireFrame_
-![Image of Wireframe](client\public\assets\misc\partswireframe.png)
+* **_Project Design WireFrame_**
+  
+ ![Image of Wireframe](https://github.com/csbistline/project3/blob/fe6e931bdeab0c4aff4271d84edc2292282ce2f1/client/public/assets/misc/partswireframe.PNG)
 
-* _Project UI DataFlow_
-![Image of Dataflow](client\public\assets\misc\UIdataFlowChart.png)
+* **_Project UI DataFlow_**
+  
+ ![Image of Dataflow](https://github.com/csbistline/project3/blob/dafa2e567cc740dd1d483837ff84022037401d4a/client/public/assets/misc/UIdataFlowChart.png)
 
 ## Authors
 
-* **Chris Blistine** - *Roles* - [csbistline github](https://github.com/csbistline)
+* **Chris Blistine** - *React Architect* - [Csbistline github](https://github.com/csbistline)
 
-* **Kevin Bailey** - *Roles* - [redSW20 github](https://github.com/redSW20)
+* **Kevin Bailey** - *Authentication Master* - [RedSW20 github](https://github.com/redSW20)
 
-* **Brendan Gutleber** - *Roles* - [GutleberB94 github](https://github.com/GutleberB94)
+* **Brendan Gutleber** - *Customer Query and API Ninja* - [GutleberB94 github](https://github.com/GutleberB94)
 
-* **Alexandr 'Sasha' Peters** - *Roles* - [merpig github](https://github.com/merpig)
+* **Alexandr 'Sasha' Peters** - *DataBase Guru* - [Merpig github](https://github.com/merpig)
 
-* **Andy Pack** - *Roles* - [ThePackPater github](https://github.com/ThePackPater)
+* **Andy Pack** - *PreDesign, Front End, and ReadMe Monster* - [ThePackPater github](https://github.com/ThePackPater)
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Hat tip to Franklin Chrysler Dodge Jeep Ram for the Project Inspiration!!!!
+
+## Getting Started
+
+This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+
+The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+
+### Installing
+
+Start by installing front and backend dependencies. While in this directory, run the following command:
+
+* npm install
+
+This should install node modules within the server and the client folder.
+
+After both installations complete, run the following command in your terminal:
+
+* npm start
+
+Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.

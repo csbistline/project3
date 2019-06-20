@@ -13,14 +13,16 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-/* UPDATE THIS ONCE ROUTING HAS BEEN CREATED
 // Add routes, both API and view
 const routes = require("./routes");
 app.use(routes);
-*/
+
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
+//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/partsTeam");
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds239967.mlab.com:39967/heroku_c1l5p733`;
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Send every other request to the React app
 // Define any API routes before this runs
