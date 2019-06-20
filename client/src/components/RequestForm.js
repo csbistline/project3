@@ -46,7 +46,7 @@ class RequestForm extends Component {
         })
             .catch(err => console.log(err));
     };
-}
+
 
 render() {
     return (
