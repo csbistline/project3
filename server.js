@@ -13,11 +13,10 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-/* UPDATE THIS ONCE ROUTING HAS BEEN CREATED
 // Add routes, both API and view
 const routes = require("./routes");
 app.use(routes);
-*/
+
 
 // Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URI || `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds239967.mlab.com:39967/heroku_c1l5p733`;
