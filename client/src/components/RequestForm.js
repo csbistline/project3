@@ -176,7 +176,7 @@ class RequestForm extends Component {
                                 <button type="submit"
                                     className="btn btn-primary"
                                     className="myButton"
-                                    {/* do we want to have the button disabled if all fields are not filled in? disabled={}*/}
+                                    // do we want to have the button disabled if all fields are not filled in? disabled={}
                                     onClick={this.sendFormData}
                                 >Submit</button>
                             </form>
