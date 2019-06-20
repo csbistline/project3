@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 import PartsSpecCard from "./PartsSpecCard";
-import PartsSpec from "../PartsSpec.json";
 import Contacts from "./Contacts";
+import API from "../utils/techsAPI"
 
 
 class PartsTeam extends Component {
 
     state = {
-        team: PartsSpec
+        team: []
     }
+
+    componentDidMount() {
+        this.loadTechs();
+    }
+
+    loadTechs = () => {
+        API.getTechs()
+            .then(res => {
+                console.log(res);
+                console.log(res.data)
+                this.setState({ team: res.data })
+            })
+            .catch(err => console.log(err));
+    };
 
     render() {
         return (
