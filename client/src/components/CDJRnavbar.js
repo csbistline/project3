@@ -35,7 +35,7 @@ const CDJRnavbar = () => {
                             <i className="fa fa-map-marker"></i> MAP___/___
                             <i className="fa fa-envelope"></i> CONTACT__ */}
                             <Breadcrumb>
-                            <Breadcrumb.Item active><i class="fas fa-phone-square"></i> Parts: 615-538-9033 </Breadcrumb.Item>
+                            <Breadcrumb.Item active><i className="fas fa-phone-square"></i> Parts: 615-538-9033 </Breadcrumb.Item>
                                 <Breadcrumb.Item active><i className="fa fa-calendar"></i> SERVICE </Breadcrumb.Item>
                                 <Breadcrumb.Item active><i className="fa fa-map-marker"></i> MAP </Breadcrumb.Item>
                                 <Breadcrumb.Item active><i className="fa fa-envelope"></i> CONTACT </Breadcrumb.Item>

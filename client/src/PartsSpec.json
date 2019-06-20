@@ -4,43 +4,47 @@
     "name": "Micheal Scot",
     "image": "./assets/img/PartsMgr.jpg",
     "specialty": "Parts and Inventory Manager",
-    "contact": "prisonMike@parts.com"
+    "contact": "prisonMike@parts.com",
+    "permission": "admin"
   },
   {
     "id": 2,
     "name": "Dwight Schrute",
     "image": "./assets/img/AsstMgr.jpg",
     "specialty": "Brakes and Body Specialist",
-    "contact": "recyClops@parts.com"
+    "contact": "recyClops@parts.com",
+    "permission": "tech"
   },
   {
     "id": 3,
     "name": "Andy Dwyer",
     "image": "./assets/img/tuneUp.jpg",
     "specialty": "Lube and Tune Specialist",
-    "contact": "nardDog1@parts.com"
+    "contact": "nardDog1@parts.com",
+    "permission": "tech"
   },
   {
     "id": 4,
     "name": "Jim Halpert",
     "image": "./assets/img/tran.jpg",
     "specialty": "Engine and Trans Specialist",
-    "contact": "bigTunaXP@parts.com"
+    "contact": "bigTunaXP@parts.com",
+    "permission": "tech"
   },
   {
     "id": 5,
     "name": "Stanley Hudson",
     "image": "./assets/img/Vintage.jpg",
     "specialty": "Classic and Custom Specialist",
-    "contact": "newsFlash@parts.com"
+    "contact": "newsFlash@parts.com",
+    "permission": "tech"
   },
-  
   {
     "id": 6,
     "name": "Kevin Malone",
     "image": "./assets/img/Tires.jpg",
     "specialty": "Wheel and Tire Specialist",
-    "contact": "secretSanta@parts.com"
+    "contact": "secretSanta@parts.com",
+    "permission": "tech"
   }
- 
 ]
