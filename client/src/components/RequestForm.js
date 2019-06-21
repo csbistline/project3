@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import VinModal from "./vinModal";
-//import techsAPI from "../utils/techsAPI"
+import partsAPI from "../utils/partsAPI"
 
 
 class RequestForm extends Component {
@@ -10,7 +10,7 @@ class RequestForm extends Component {
 
         firstName: "",
         lastName: "",
-        phoneNum: "",
+        phoneNumber: "",
         email: "",
         vin: "",
         year: "",
@@ -29,14 +29,14 @@ class RequestForm extends Component {
             [name]: value
         });
     };
-/*
+
     sendFormData = event => {
         event.preventDefault();
 
-        techsAPI.sendData({
+        partsAPI.savePartsRequest({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            phoneNum: this.state.phoneNum,
+            phoneNumber: this.state.phoneNumber,
             email: this.state.email,
             vin: this.state.vin,
             year: this.state.year,
@@ -46,7 +46,7 @@ class RequestForm extends Component {
         })
             .catch(err => console.log(err));
     };
-*/
+
 
     render() {
         return (
@@ -87,13 +87,13 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="phoneNum">Phone Number</label>
+                                    <label htmlFor="phoneNumber">Phone Number</label>
                                     <input type="text"
                                         className="form-control"
-                                        name="phoneNum"
-                                        value={this.state.phoneNum}
+                                        name="phoneNumber"
+                                        value={this.state.phoneNumber}
                                         onChange={this.handleInputChange}
-                                        id="phoneNum"
+                                        id="phoneNumber"
                                         placeholder="(555) 555 - 5555">
 
                                     </input>

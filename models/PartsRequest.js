@@ -52,7 +52,7 @@ var PartsRequestSchema = new Schema({
 },
 {
     timestamps: true
-});
+}, { collection: "PartsRequest" });
 
 // This creates our model from the above schema, using mongoose's model method
 var PartsRequest = mongoose.model("PartsRequest", PartsRequestSchema);
