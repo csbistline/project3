@@ -60,10 +60,10 @@ class RequestForm extends Component {
                             <hr className="my-4"></hr>
                             <form>
 
-                                <div classNames="form-group">
-                                    <label forHTML="firstName">First Name</label>
-                                    <input type="firstName"
-                                        classclassName="form-control"
+                                <div className="form-group">
+                                    <label htmlFor="firstName">First Name</label>
+                                    <input type="text"
+                                        className="form-control"
                                         name="firstName"
                                         value={this.state.firstName}
                                         onChange={this.handleInputChange}
@@ -73,9 +73,9 @@ class RequestForm extends Component {
                                     </input>
                                 </div>
 
-                                <div classclassName="form-group">
-                                    <label forHTML="lastName">Last Name</label>
-                                    <input type="lastName"
+                                <div className="form-group">
+                                    <label htmlFor="lastName">Last Name</label>
+                                    <input type="text"
                                         className="form-control"
                                         name="lastName"
                                         value={this.state.lastName}
@@ -87,8 +87,8 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="phoneNum">Phone Number</label>
-                                    <input type="phoneNum"
+                                    <label htmlFor="phoneNum">Phone Number</label>
+                                    <input type="text"
                                         className="form-control"
                                         name="phoneNum"
                                         value={this.state.phoneNum}
@@ -100,7 +100,7 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="email">Email address</label>
+                                    <label htmlFor="email">Email address</label>
                                     <input type="email"
                                         className="form-control"
                                         name="email"
@@ -111,14 +111,14 @@ class RequestForm extends Component {
                                         placeholder="Enter email">
 
                                     </input>
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="vin">Vin Number</label>
+                                    <label htmlFor="vin">Vin Number</label>
                                     {/* insert modal link */}
                                     <VinModal />
-                                    <input type="vin"
+                                    <input type="text"
                                         className="form-control"
                                         name="vin"
                                         value={this.state.vin}
@@ -130,8 +130,8 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="vin">Vehicle Year</label>
-                                    <input type="year"
+                                    <label htmlFor="vin">Vehicle Year</label>
+                                    <input type="number"
                                         className="form-control"
                                         name="year"
                                         value={this.state.year}
@@ -143,8 +143,8 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="make">Vehicle Make</label>
-                                    <input type="make"
+                                    <label htmlFor="make">Vehicle Make</label>
+                                    <input type="text"
                                         className="form-control"
                                         name="make"
                                         value={this.state.make}
@@ -156,8 +156,8 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="model">Vehicle Model</label>
-                                    <input type="model"
+                                    <label htmlFor="model">Vehicle Model</label>
+                                    <input type="text"
                                         className="form-control"
                                         name="model"
                                         value={this.state.model}
@@ -169,13 +169,12 @@ class RequestForm extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label forHTML="message">Write your message here...</label>
+                                    <label htmlFor="message">Write your message here...</label>
                                     <textarea className="form-control" id="message" rows="4"></textarea>
                                 </div>
 
                                 <button type="submit"
-                                    className="btn btn-primary"
-                                    className="myButton"
+                                    className="btn btn-primary myButton"
                                     // do we want to have the button disabled if all fields are not filled in? disabled={}
                                     onClick={this.sendFormData}
                                 >Submit</button>
