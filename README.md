@@ -12,7 +12,7 @@
 
 ## Deployment
 
-* [Heroku](http://) - Deployment Link
+* [Hi5App](https://parts-manager-hi5.herokuapp.com) - Deployment Link
 
 _<https://parts-manager-hi5.herokuapp.com/>_
 
@@ -50,6 +50,8 @@ _<https://parts-manager-hi5.herokuapp.com/>_
 * **Alexandr 'Sasha' Peters** - *DataBase Guru* - [Merpig github](https://github.com/merpig)
 
 * **Andy Pack** - *PreDesign, Front End, and ReadMe Monster* - [ThePackPater github](https://github.com/ThePackPater)
+
+ ![TeamLogo](https://github.com/csbistline/project3/blob/AndyP/client/public/assets/misc/Hi5.png)
 
 ## Acknowledgments
 
