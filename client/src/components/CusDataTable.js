@@ -1,4 +1,4 @@
-import moment from 'moment'; // Example for onSort prop
+// import moment from 'moment'; // Example for onSort prop
 import React from 'react'; // Import React
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import 'node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
@@ -51,3 +51,4 @@ class CusQueryTable extends React.Component {
     }
   }
 
+export default CusQueryTable;
