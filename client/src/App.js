@@ -4,7 +4,11 @@ import CDJRnavbar from "./components/CDJRnavbar";
 import Wrapper from "./components/Wrapper";
 import Main from "./components/Main";
 import PartsTeam from "./components/PartsTeam";
-import RequestForm from './components/RequestForm'
+import RequestForm from "./components/RequestForm";
+import SelectTech from "./components/SelectTech";
+import LoginForm from "./components/LoginForm";
+
+// import YourComponent from "./components/YourComponent";
 
 class App extends Component {
     render() {
@@ -17,7 +21,9 @@ class App extends Component {
                             <Route exact path="/" component={Main} />
                             <Route exact path="/team" component={PartsTeam} />
                             <Route exact path="/request" component={RequestForm} />
-                        { /*< Route exact path="/???" component={???} /> */ }
+                            <Route exact path="/select" component={SelectTech} />
+                            <Route exact path="/login" component={LoginForm} />
+                            {/* <Route exact path="/test" component={YourComponent} /> */}
                         </Switch>
                     </Wrapper>
                 </div>

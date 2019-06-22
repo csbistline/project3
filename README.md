@@ -10,9 +10,23 @@
 * Finally once Query has been completed it is reurned to the Parts Manger to be checked and deleted
 * [Check Out the DataFlowChart & WireFrame](##Data-Flow-and-Project-Wire-Frames)
 
+## Authors
+
+* **Chris Blistine** - *React Architect* - [Csbistline github](https://github.com/csbistline)
+
+* **Kevin Bailey** - *Authentication Master* - [RedSW20 github](https://github.com/redSW20)
+
+* **Brendan Gutleber** - *Customer Query and API Ninja* - [GutleberB94 github](https://github.com/GutleberB94)
+
+* **Alexandr 'Sasha' Peters** - *DataBase Guru* - [Merpig github](https://github.com/merpig)
+
+* **Andy Pack** - *PreDesign, Front End, and ReadMe Monster* - [ThePackPater github](https://github.com/ThePackPater)
+
+ ![TeamLogo](https://github.com/csbistline/project3/blob/59ab4c928fa4b71d77a23fe75f12c78e5defcd78/client/public/assets/misc/Hi5.png)
+
 ## Deployment
 
-* [Heroku](http://) - Deployment Link
+* [Hi5App](https://parts-manager-hi5.herokuapp.com) - Deployment Link
 
 _<https://parts-manager-hi5.herokuapp.com/>_
 
@@ -38,18 +52,6 @@ _<https://parts-manager-hi5.herokuapp.com/>_
 * **_Project UI DataFlow_**
   
  ![Image of Dataflow](https://github.com/csbistline/project3/blob/dafa2e567cc740dd1d483837ff84022037401d4a/client/public/assets/misc/UIdataFlowChart.png)
-
-## Authors
-
-* **Chris Blistine** - *React Architect* - [Csbistline github](https://github.com/csbistline)
-
-* **Kevin Bailey** - *Authentication Master* - [RedSW20 github](https://github.com/redSW20)
-
-* **Brendan Gutleber** - *Customer Query and API Ninja* - [GutleberB94 github](https://github.com/GutleberB94)
-
-* **Alexandr 'Sasha' Peters** - *DataBase Guru* - [Merpig github](https://github.com/merpig)
-
-* **Andy Pack** - *PreDesign, Front End, and ReadMe Monster* - [ThePackPater github](https://github.com/ThePackPater)
 
 ## Acknowledgments
 

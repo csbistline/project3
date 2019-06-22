@@ -41,7 +41,6 @@ class PartsTeam extends Component {
                                 />
                             ))}
                         </div>
-                    <div className="col-md-1 pt-4"></div>    
 
                     <div className="col-sm-4 pt-4">
                         <Contacts />
