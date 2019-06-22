@@ -46,6 +46,7 @@ class RequestForm extends Component {
             
         })
         .then(res => {
+            // clears form fields
             this.setState({ firstName: "" });
             this.setState({ lastName: "" });
             this.setState({ phoneNumber: "" });
@@ -58,15 +59,6 @@ class RequestForm extends Component {
         })
             .catch(err => console.log(err));
     };
-    /*
-        showConfirmModal = event => {
-            event.preventDefault();
-    
-            <ConfirmModal show={true} />
-    
-    
-        }
-    */
 
     render() {
         return (
