@@ -43,18 +43,30 @@ class RequestForm extends Component {
             make: this.state.make,
             model: this.state.model,
             message: this.state.firstName
+            
+        })
+        .then(res => {
+            this.setState({ firstName: "" });
+            this.setState({ lastName: "" });
+            this.setState({ phoneNumber: "" });
+            this.setState({ email: "" });
+            this.setState({ vin: "" });
+            this.setState({ year: "" });
+            this.setState({ make: "" });
+            this.setState({ model: "" });
+            this.setState({ message: "" });
         })
             .catch(err => console.log(err));
     };
-/*
-    showConfirmModal = event => {
-        event.preventDefault();
-
-        <ConfirmModal show={true} />
-
-
-    }
-*/
+    /*
+        showConfirmModal = event => {
+            event.preventDefault();
+    
+            <ConfirmModal show={true} />
+    
+    
+        }
+    */
 
     render() {
         return (
@@ -73,7 +85,7 @@ class RequestForm extends Component {
                                     <input type="text"
                                         className="form-control"
                                         name="firstName"
-                                        value={this.state.firstName}
+                                        value={this.state.firstName || ""}
                                         onChange={this.handleInputChange}
                                         id="firstName"
                                         placeholder="First Name">
@@ -178,10 +190,15 @@ class RequestForm extends Component {
 
                                 <div className="form-group">
                                     <label htmlFor="message">Write your message here...</label>
-                                    <textarea className="form-control" id="message" rows="4"></textarea>
+                                    <textarea className="form-control"
+                                    name="message"
+                                    value={this.state.message}
+                                    onChange={this.handleInputChange} 
+                                    id="message" 
+                                    rows="4"></textarea>
                                 </div>
 
-                                <ConfirmModal formData={this.state}/>
+                                <ConfirmModal formData={this.state} sendData={this.sendFormData} />
                             </form>
 
                         </div>
