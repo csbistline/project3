@@ -186,7 +186,7 @@ class RequestForm extends Component {
 
                         </div>
                     </div>
-                    <div className="col-sm-4 pt-4">
+                    <div className="col-md-4 pt-4">
                         <Contacts />
                     </div>
                 </div>

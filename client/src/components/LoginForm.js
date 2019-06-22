@@ -64,7 +64,7 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Last Name</label>
+                                  <label htmlFor="password">Password</label>
                                   <input type="password"
                                       className="form-control"
                                       name="password"
@@ -85,7 +85,7 @@ class LoginForm extends Component {
 
                       </div>
                   </div>
-                  <div className="col-sm-4 pt-4">
+                  <div className="col-md-4 pt-4">
                       <Contacts />
                   </div>
               </div>
