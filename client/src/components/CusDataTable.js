@@ -15,9 +15,6 @@ class CusDataTable extends Component {
               <th>Customer Phone</th>
               <th>Customer Email</th>
               <th>Vin</th>
-              <th>Vehicle Year</th>
-              <th>Vehicle Make</th>
-              <th>Vehicle Model</th>
               <th>Assign Tech</th>
               <th>Query Status</th>
             </tr>
@@ -29,10 +26,8 @@ class CusDataTable extends Component {
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <Button variant="link">Assign Tech</Button>
+              {/* link to specific QueryCard */}
+              <Button variant="link">View Query/Assign Tech</Button>
               <td></td>
             </tr>
             <tr>
@@ -40,10 +35,7 @@ class CusDataTable extends Component {
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <Button variant="link">Assign Tech</Button>
+              <Button variant="link">View Query/Assign Tech</Button>
               <td></td>
             </tr>
           </tbody>

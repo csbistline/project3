@@ -1,8 +1,8 @@
 import React from "react";
 import ListGroup from 'react-bootstrap/ListGroup'
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-// import Modal from 'react-bootstrap';
+// import Button from "react-bootstrap/Button";
+import SelectTechModal from './SelectTechModal';
 
 
 function QueryCard(props) {
@@ -22,10 +22,12 @@ function QueryCard(props) {
                             <ListGroup.Item>
                                 ADDL INFO:{props.message}
                             </ListGroup.Item>
+                            <ListGroup.Item>TECH ASSIGNED:</ListGroup.Item>
                         </ListGroup>
                         <br></br>
                         {/* INSERT MODAL TRIGGER  */}
-                <Button variant="primary">Assign Tech</Button>
+                        <SelectTechModal />
+                {/* <Button variant="primary">Assign Tech</Button> */}
             </Card.Body>
         </Card>
 
