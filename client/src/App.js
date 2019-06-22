@@ -6,7 +6,7 @@ import Main from "./components/Main";
 import PartsTeam from "./components/PartsTeam";
 import RequestForm from "./components/RequestForm";
 import SelectTech from "./components/SelectTech";
-// import YourComponent from "./components/YourComponent";
+// import INSERTCOMPONENTNAME from "./components/INSERTCOMPONENTNAME";
 
 class App extends Component {
     render() {
@@ -20,7 +20,7 @@ class App extends Component {
                             <Route exact path="/team" component={PartsTeam} />
                             <Route exact path="/request" component={RequestForm} />
                             <Route exact path="/select" component={SelectTech} />
-                            {/* <Route exact path="/test" component={YourComponent} /> */}
+                            {/* <Route exact path="/test" component={INSERTCOMPONENTNAME} /> */}
                         </Switch>
                     </Wrapper>
                 </div>
