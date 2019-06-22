@@ -28,7 +28,7 @@ class PartsTeam extends Component {
         return (
             <div>
                 <div className="row pt-4" >
-                    <div className="col-md-7 pt-4 d-flex flex-wrap justify-content-around">
+                    <div className="col-md-6 pt-4 d-flex flex-wrap justify-content-around">
 
                             {this.state.team.map(tech => (
                                 <PartsSpecCard
