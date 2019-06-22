@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
+import ConfirmModal from "./ConfirmModal"
 
 
 class RequestForm extends Component {
@@ -30,8 +31,7 @@ class RequestForm extends Component {
         });
     };
 
-    sendFormData = event => {
-        event.preventDefault();
+    sendFormData = () => {
 
         partsAPI.savePartsRequest({
             firstName: this.state.firstName,
@@ -43,10 +43,30 @@ class RequestForm extends Component {
             make: this.state.make,
             model: this.state.model,
             message: this.state.firstName
+            
+        })
+        .then(res => {
+            this.setState({ firstName: "" });
+            this.setState({ lastName: "" });
+            this.setState({ phoneNumber: "" });
+            this.setState({ email: "" });
+            this.setState({ vin: "" });
+            this.setState({ year: "" });
+            this.setState({ make: "" });
+            this.setState({ model: "" });
+            this.setState({ message: "" });
         })
             .catch(err => console.log(err));
     };
-
+    /*
+        showConfirmModal = event => {
+            event.preventDefault();
+    
+            <ConfirmModal show={true} />
+    
+    
+        }
+    */
 
     render() {
         return (
@@ -65,7 +85,7 @@ class RequestForm extends Component {
                                     <input type="text"
                                         className="form-control"
                                         name="firstName"
-                                        value={this.state.firstName}
+                                        value={this.state.firstName || ""}
                                         onChange={this.handleInputChange}
                                         id="firstName"
                                         placeholder="First Name">
@@ -170,14 +190,15 @@ class RequestForm extends Component {
 
                                 <div className="form-group">
                                     <label htmlFor="message">Write your message here...</label>
-                                    <textarea className="form-control" id="message" rows="4"></textarea>
+                                    <textarea className="form-control"
+                                    name="message"
+                                    value={this.state.message}
+                                    onChange={this.handleInputChange} 
+                                    id="message" 
+                                    rows="4"></textarea>
                                 </div>
 
-                                <button type="submit"
-                                    className="btn btn-primary myButton"
-                                    // do we want to have the button disabled if all fields are not filled in? disabled={}
-                                    onClick={this.sendFormData}
-                                >Submit</button>
+                                <ConfirmModal formData={this.state} sendData={this.sendFormData} />
                             </form>
 
                         </div>
