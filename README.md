@@ -22,7 +22,7 @@
 
 * **Andy Pack** - *PreDesign, Front End, and ReadMe Monster* - [ThePackPater github](https://github.com/ThePackPater)
 
- ![TeamLogo](https://github.com/csbistline/project3/blob/AndyP/client/public/assets/misc/Hi5.png)
+ ![TeamLogo](https://github.com/csbistline/project3/blob/59ab4c928fa4b71d77a23fe75f12c78e5defcd78/client/public/assets/misc/Hi5.png)
 
 ## Deployment
 
