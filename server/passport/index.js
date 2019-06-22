@@ -5,7 +5,7 @@ const User = require("../user/index");
 passport.serializeUser((user, done) => {
     console.log("serialize ... caled");    
     console.log(user);
-    console.log(==========);
+    console.log("==========");
     done(null, {_id: user._id})
 });
 
@@ -17,7 +17,7 @@ passport.deserializeUser((id, done) =>{
         (err, user) => {
             console.log("======DESERIALIZE USER CALLED======");
             console.log(user);
-            console.log(===========);
+            console.log("===========");
             done(null, user)            
         }
     )    

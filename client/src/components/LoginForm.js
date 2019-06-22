@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
+import axios from "axios"
+import Wrapper from "./Wrapper";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 
 class LoginForm extends Component {
 
   state = {
 
-      username: "",
-      password: ""
+    loggedIn: false,
+    user: null
 
   }
 
@@ -22,7 +27,62 @@ class LoginForm extends Component {
 
   sendFormData = event => {
       event.preventDefault();
-
+		console.log('handleSubmit')
+		this.props._login(this.state.username, this.state.password)
+		this.setState({
+			redirectTo: '/'
+		})
+    };
+    
+    componentDidMount() {
+        axios.get('/auth/user').then(response => {
+            console.log(response.data)
+            if (!!response.data.user) {
+                console.log('THERE IS A USER')
+                this.setState({
+                    loggedIn: true,
+                    user: response.data.user
+                })
+            } else {
+                this.setState({
+                    loggedIn: false,
+                    user: null
+                })
+            }
+        })
+    };
+    
+    _logout(event) {
+        event.preventDefault()
+        console.log('logging out')
+        axios.post('/auth/logout').then(response => {
+            console.log(response.data)
+            if (response.status === 200) {
+                this.setState({
+                    loggedIn: false,
+                    user: null
+                })
+            }
+        })
+    };
+    
+    _login(username, password) {
+        axios
+            .post('/auth/login', {
+                username,
+                password
+            })
+            .then(response => {
+                console.log(response)
+                if (response.status === 200) {
+                    // update the state
+                    this.setState({
+                        loggedIn: true,
+                        user: response.data.user
+                    })
+                }
+            })
+    };
       /*partsAPI.savePartsRequest({
           firstName: this.state.firstName,
           lastName: this.state.lastName,
@@ -35,7 +95,7 @@ class LoginForm extends Component {
           message: this.state.firstName
       })
           .catch(err => console.log(err));*/
-  };
+
 
 
   render() {
@@ -76,6 +136,25 @@ class LoginForm extends Component {
                                   </input>
                               </div>
 
+                                                                <div className="App">
+                                                                    <Wrapper user={this.state.user} />
+                                                                    {/* LINKS to our different 'pages' */}
+                                                                    <Wrapper _logout={this._logout} loggedIn={this.state.loggedIn} />
+                                                                    {/*  ROUTES */}
+                                                                    {/* <Route exact path="/" component={Home} /> */}
+                                                                    <Route exact path="/" render={() => <Wrapper user={this.state.user} />} />
+                                                                    <Route
+                                                                        exact
+                                                                        path="/login"
+                                                                        render={() =>
+                                                                            <LoginForm
+                                                                                _login={this._login}
+                                                                            />}
+                                                                    />
+                                                                    {/* <Route exact path="/signup" component={SignupForm} /> */}
+                                                                    {/* <LoginForm _login={this._login} /> */}
+                                                                </div>
+
                               <button type="submit"
                                   className="btn btn-primary myButton"
                                   // do we want to have the button disabled if all fields are not filled in? disabled={}
@@ -92,6 +171,14 @@ class LoginForm extends Component {
           </div>
       );
   }
-}
+
+
+
+render() {
+    return (
+        
+        )
+    }
+};
 
 export default LoginForm;
