@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
+import ConfirmModal from "./ConfirmModal"
 
 
 class RequestForm extends Component {
@@ -30,8 +31,7 @@ class RequestForm extends Component {
         });
     };
 
-    sendFormData = event => {
-        event.preventDefault();
+    sendFormData = () => {
 
         partsAPI.savePartsRequest({
             firstName: this.state.firstName,
@@ -46,7 +46,15 @@ class RequestForm extends Component {
         })
             .catch(err => console.log(err));
     };
+/*
+    showConfirmModal = event => {
+        event.preventDefault();
 
+        <ConfirmModal show={true} />
+
+
+    }
+*/
 
     render() {
         return (
@@ -173,11 +181,7 @@ class RequestForm extends Component {
                                     <textarea className="form-control" id="message" rows="4"></textarea>
                                 </div>
 
-                                <button type="submit"
-                                    className="btn btn-primary myButton"
-                                    // do we want to have the button disabled if all fields are not filled in? disabled={}
-                                    onClick={this.sendFormData}
-                                >Submit</button>
+                                <ConfirmModal formData={this.state}/>
                             </form>
 
                         </div>
