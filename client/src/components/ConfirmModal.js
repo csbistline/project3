@@ -47,7 +47,7 @@ class ConfirmModal extends React.Component {
     render() {
         return (
             <>
-                <Button className="confirmBtn" onClick={this.handleShow}>
+                <Button className="confirmBtn myButton" onClick={this.handleShow}>
                     submit
           </Button>
                 <Modal show={this.state.show} onHide={this.handleClose}>
