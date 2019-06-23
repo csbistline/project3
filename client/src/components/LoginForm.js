@@ -51,7 +51,7 @@ class LoginForm extends Component {
                           <form>
 
                               <div className="form-group">
-                                  <label htmlFor="username">First Name</label>
+                                  <label htmlFor="username">UserName</label>
                                   <input type="text"
                                       className="form-control"
                                       name="username"

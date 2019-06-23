@@ -7,7 +7,9 @@ import PartsTeam from "./components/PartsTeam";
 import RequestForm from "./components/RequestForm";
 import SelectTech from "./components/SelectTech";
 import LoginForm from "./components/LoginForm";
-// import YourComponent from "./components/YourComponent";
+import CusQuery from "./components/CusQuery";
+import CusDataTable from "./components/CusDataTable";
+// import YourCompnent from "./components/YourComponent";
 
 class App extends Component {
     render() {
@@ -22,6 +24,8 @@ class App extends Component {
                             <Route exact path="/request" component={RequestForm} />
                             <Route exact path="/select" component={SelectTech} />
                             <Route exact path="/login" component={LoginForm} />
+                            <Route exact path="/CusQuery" component={CusQuery} />
+                            <Route exact path="/CusDataTable" component={CusDataTable} />
                             {/* <Route exact path="/test" component={YourComponent} /> */}
 
                         </Switch>

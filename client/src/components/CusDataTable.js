@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/partsAPI";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
 
@@ -42,10 +43,12 @@ class CusDataTable extends Component {
               <td className="align-middle">{Query.vin}</td>
               <td className="align-middle">
               {/* link to specific QueryCard */}
+              <Link to="/CusQuery">
               <Button variant="link"
                  data-id={Query._id}>
                  View Query/Assign Tech
               </Button>
+              </Link>
               </td>
               <td>Status Toggle</td>
             </tr>

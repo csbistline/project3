@@ -43,7 +43,7 @@ class SelectTech extends Component {
                                 key={tech._id}>
                                 <td className="align-middle">
                                     <Button 
-                                        variant="primary" 
+                                        className="btn btn-primary myButton" 
                                         size="sm" 
                                         data-id={tech._id}
                                     >
