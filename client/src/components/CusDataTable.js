@@ -37,7 +37,7 @@ class CusDataTable extends Component {
           <tbody>
             {this.state.CusPartsQuery.map(Query =>(
             <tr  key={Query._id}>
-              <td className="align-middle">{Query.firstName}{Query.lastName}</td>
+              <td className="align-middle">{Query.firstName} {Query.lastName}</td>
               <td className="align-middle">{Query.phoneNumber}</td>
               <td className="align-middle">{Query.email}</td>
               <td className="align-middle">{Query.vin}</td>
