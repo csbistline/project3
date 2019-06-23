@@ -27,7 +27,7 @@ class SelectTechModal extends React.Component {
     render() {
       return (
         <>
-          <Button variant="primary" onClick={this.handleShow}>
+          <Button className="btn btn-primary myButton" onClick={this.handleShow}>
               Assign Tech
           </Button>
   

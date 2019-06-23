@@ -21,7 +21,19 @@ class ConfirmModal extends React.Component {
     }
 
     handleShow() {
-        this.setState({ show: true });
+        if (this.validate())
+            this.setState({ show: true });
+    }
+
+    validate() {
+        if(
+            this.props.formData.firstName.trim() != "" &&
+            this.props.formData.lastName.trim() != "" &&
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.props.formData.email)
+        ){
+            return true;
+        }
+        return false;
     }
 
     confirmAndSendData = event => {
@@ -35,7 +47,7 @@ class ConfirmModal extends React.Component {
     render() {
         return (
             <>
-                <Button className="confirmBtn" onClick={this.handleShow}>
+                <Button className="confirmBtn myButton" onClick={this.handleShow}>
                     submit
           </Button>
                 <Modal show={this.state.show} onHide={this.handleClose}>
