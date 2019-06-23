@@ -7,19 +7,17 @@ import Table from 'react-bootstrap/Table'
 class CusDataTable extends Component {
   state = {
     CusPartsQuery: []
-}
-componentDidMount() {
-    this.loadPartsQuery();
-}
-loadPartsQuery = () => {
-    API.getPartsRequests()
+  }
+    componentDidMount() {
+      this.loadPartsQuery();
+  }
+    loadPartsQuery = () => {
+      API.getPartsRequests()
         .then(res => {
-            console.log(res);
-            console.log(res.data)
             this.setState({ CusPartsQuery: res.data })
         })
         .catch(err => console.log(err));
-};
+  };
   render() {
     return(
       <div className="containerFluid">
@@ -52,14 +50,6 @@ loadPartsQuery = () => {
               <td>Status Toggle</td>
             </tr>
             ))}
-            {/* <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <Button variant="link">View Query/Assign Tech</Button>
-              <td></td>
-            </tr> */}
           </tbody>
         </Table>
         </div>
