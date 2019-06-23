@@ -1,17 +1,16 @@
 import React, {Component} from "react";
 import QueryCard from "./QueryCard";
 import API from "../utils/partsAPI";
-import SelectTechModal from './SelectTechModal';
 
 class CusQuery extends Component {
     state = {
         assignTech: []
     }
     componentDidMount() {
-        this.loadQueryId();
+        this.loadQuery();
     }
-    loadQueryId = () => {
-        API.getPartsRequest()
+    loadQuery = () => {
+        API.getPartsRequests()
         .then(res=> {
             this.setState({assignTech: res.data})
         })
@@ -19,22 +18,21 @@ class CusQuery extends Component {
     };
     render() {
         return(
-            <div className="jumbotron-fluid">
-                {this.state.assignTech.map(AsgTech=>(
-                    <QueryCard
-                        firstname={AsgTech.firstName}
-                        lastname={AsgTech.lastName}
-                        phone={AsgTech.phoneNumber}
-                        email={AsgTech.email}
-                        vin={AsgTech.vin}
-                        year={AsgTech.year}
-                        make={AsgTech.make}
-                        model={AsgTech.model}
-                        msg={AsgTech.message}
-                    />
-                ))}
-            <br></br>
-            <SelectTechModal />
+            <div className="jumbotron">
+                {this.state.assignTech.map(Query =>(
+                <QueryCard
+                    id={Query.id}
+                    firstName={Query.firstName}
+                    lastName={Query.lastName}
+                    phoneNumber={Query.phoneNumber}
+                    email={Query.email}
+                    vin={Query.vin}
+                    year={Query.year}
+                    make={Query.make}
+                    model={Query.model}
+                    message={Query.message}
+                />
+            ))}
         </div>
         );
     }
