@@ -27,8 +27,8 @@ class ConfirmModal extends React.Component {
 
     validate() {
         if(
-            this.props.formData.firstName.trim() != "" &&
-            this.props.formData.lastName.trim() != "" &&
+            this.props.formData.firstName.trim() !== "" &&
+            this.props.formData.lastName.trim() !== "" &&
             /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.props.formData.email)
         ){
             return true;
@@ -57,7 +57,7 @@ class ConfirmModal extends React.Component {
                     <Modal.Body>
                         <p><b>First Name: </b>{this.props.formData.firstName}</p>
                         <p><b>Last Name: </b>{this.props.formData.lastName}</p>
-                        <p><b>Phone Number: </b>{this.props.formData.phoneNum}</p>
+                        <p><b>Phone Number: </b>{this.props.formData.phoneNumber}</p>
                         <p><b>Email: </b>{this.props.formData.email}</p>
                         <p><b>VIN #: </b>{this.props.formData.vin}</p>
                         <p><b>Vehicle Year: </b>{this.props.formData.year}</p>

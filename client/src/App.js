@@ -27,7 +27,6 @@ class App extends Component {
                             <Route exact path="/CusQuery" component={CusQuery} />
                             <Route exact path="/CusDataTable" component={CusDataTable} />
                             {/* <Route exact path="/test" component={YourComponent} /> */}
-
                         </Switch>
                     </Wrapper>
                 </div>

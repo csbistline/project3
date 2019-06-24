@@ -42,10 +42,11 @@ class RequestForm extends Component {
             year: this.state.year,
             make: this.state.make,
             model: this.state.model,
-            message: this.state.firstName
+            message: this.state.message
             
         })
         .then(res => {
+            // clears form fields
             this.setState({ firstName: "" });
             this.setState({ lastName: "" });
             this.setState({ phoneNumber: "" });
@@ -58,15 +59,6 @@ class RequestForm extends Component {
         })
             .catch(err => console.log(err));
     };
-    /*
-        showConfirmModal = event => {
-            event.preventDefault();
-    
-            <ConfirmModal show={true} />
-    
-    
-        }
-    */
 
     render() {
         return (
