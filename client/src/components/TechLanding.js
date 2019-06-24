@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
 
 
-class CusDataTable extends Component {
+class TechLanding extends Component {
   state = {
     CusPartsQuery: []
   }
@@ -43,10 +43,10 @@ class CusDataTable extends Component {
               <td className="align-middle">{Query.vin}</td>
               <td className="align-middle">
               {/* link to specific QueryCard */}
-              <Link to="/CusQuery">
+              <Link to="/">
               <Button variant="link"
                  data-id={Query._id}>
-                 View Query/Assign Tech
+                 View Query
               </Button>
               </Link>
               </td>
@@ -58,4 +58,4 @@ class CusDataTable extends Component {
         </div>
         )}};
 
-export default CusDataTable;
+export default TechLanding;
