@@ -7,8 +7,8 @@ import PartsTeam from "./components/PartsTeam";
 import RequestForm from "./components/RequestForm";
 import SelectTech from "./components/SelectTech";
 import LoginForm from "./components/LoginForm";
-import CusQuery from "./components/CusQuery";
-import CusDataTable from "./components/CusDataTable";
+import MgrLanding from "./components/MgrLanding";
+import TechLanding from "./components/TechLanding";
 import AutoReply from "./components/AutoReply";
 // import YOURCOMPONENT from "./components/YOURCOMPONENT";
 
@@ -25,8 +25,8 @@ class App extends Component {
                             <Route exact path="/request" component={RequestForm} />
                             <Route exact path="/select" component={SelectTech} />
                             <Route exact path="/login" component={LoginForm} />
-                            <Route exact path="/CusQuery" component={CusQuery} />
-                            <Route exact path="/CusDataTable" component={CusDataTable} />
+                            <Route exact path="/MgrLanding" component={MgrLanding} />
+                            <Route exact path="/TechLanding" component={TechLanding} />
                             <Route exact path="/AutoReply" component={AutoReply} />
                             {/* <Route exact path="/YOURCOMPONENT" component={YOURCOMPONENT} /> */}
 

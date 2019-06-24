@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import QueryCard from "./QueryCard";
 import API from "../utils/partsAPI";
 
-class CusQuery extends Component {
+class MgrLanding extends Component {
     state = {
         assignTech: []
     }
@@ -38,4 +38,4 @@ class CusQuery extends Component {
     }
 };
 
-    export default CusQuery;
+    export default MgrLanding;

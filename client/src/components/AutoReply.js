@@ -12,7 +12,7 @@ class AutoReply extends Component {
 render() {   
     return (
         <Jumbotron>
-            <Image className="mx-auto d-block" src="./assets/img/logo.png" width="30%" height="auto" alt="dealerLogo" fluid />
+            <Image className="mx-auto d-block" src="./assets/img/logo.png" width="50%" height="auto" alt="dealerLogo" fluid />
             <hr className="my-4"></hr>
 
             <h2>Hello (Insert Customer Name),</h2>
