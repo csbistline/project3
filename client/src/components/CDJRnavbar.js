@@ -9,7 +9,7 @@ const CDJRnavbar = () => {
         <div className="mb-5">
             <Navbar collapseOnSelect expand="xl" bg="light" variant="light" fixed="top" style={{ "boxShadow": "0px 4px 2px -1px rgba(38,37,38,1)"}}>
                 <Navbar.Brand href="#home">
-                    <img src="./assets/img/logo.png" width="300" height="50" alt="dealerLogo" />
+                    <img src="./assets/img/logo.png" width="100%" height="auto" alt="dealerLogo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
