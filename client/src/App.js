@@ -9,7 +9,8 @@ import SelectTech from "./components/SelectTech";
 import LoginForm from "./components/LoginForm";
 import CusQuery from "./components/CusQuery";
 import CusDataTable from "./components/CusDataTable";
-// import YourCompnent from "./components/YourComponent";
+import AutoReply from "./components/AutoReply";
+// import YOURCOMPONENT from "./components/YOURCOMPONENT";
 
 class App extends Component {
     render() {
@@ -26,7 +27,9 @@ class App extends Component {
                             <Route exact path="/login" component={LoginForm} />
                             <Route exact path="/CusQuery" component={CusQuery} />
                             <Route exact path="/CusDataTable" component={CusDataTable} />
-                            {/* <Route exact path="/test" component={YourComponent} /> */}
+                            <Route exact path="/AutoReply" component={AutoReply} />
+                            {/* <Route exact path="/YOURCOMPONENT" component={YOURCOMPONENT} /> */}
+
                         </Switch>
                     </Wrapper>
                 </div>
