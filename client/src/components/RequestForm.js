@@ -42,7 +42,7 @@ class RequestForm extends Component {
             year: this.state.year,
             make: this.state.make,
             model: this.state.model,
-            message: this.state.firstName
+            message: this.state.message
             
         })
         .then(res => {
