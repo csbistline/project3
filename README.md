@@ -8,7 +8,9 @@
 * The Parts Specialist recieves the assigned Query as a workorder
 * An auto generated email is sent to the customer when assigned with a time table to completion
 * Finally once Query has been completed it is reurned to the Parts Manger to be checked and deleted
-* [Check Out the DataFlowChart & WireFrame](##Data-Flow-and-Project-Wire-Frames)
+* [Check Out the DataFlowChart & WireFrame](##-Data-Flow-and-Project-Wire-Frames)
+
+![TeamLogo](https://github.com/csbistline/project3/blob/59ab4c928fa4b71d77a23fe75f12c78e5defcd78/client/public/assets/misc/Hi5.png)
 
 ## Authors
 
@@ -21,8 +23,6 @@
 * **Alexandr 'Sasha' Peters** - *DataBase Guru* - [Merpig github](https://github.com/merpig)
 
 * **Andy Pack** - *PreDesign, Front End, and ReadMe Monster* - [ThePackPater github](https://github.com/ThePackPater)
-
- ![TeamLogo](https://github.com/csbistline/project3/blob/59ab4c928fa4b71d77a23fe75f12c78e5defcd78/client/public/assets/misc/Hi5.png)
 
 ## Deployment
 
