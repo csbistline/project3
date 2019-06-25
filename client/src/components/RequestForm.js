@@ -80,7 +80,8 @@ class RequestForm extends Component {
                                         value={this.state.firstName || ""}
                                         onChange={this.handleInputChange}
                                         id="firstName"
-                                        placeholder="First Name">
+                                        placeholder="First Name"
+                                        required>
 
                                     </input>
                                 </div>
@@ -93,7 +94,8 @@ class RequestForm extends Component {
                                         value={this.state.lastName}
                                         onChange={this.handleInputChange}
                                         id="firstName"
-                                        placeholder="Last Name">
+                                        placeholder="Last Name"
+                                        required>
 
                                     </input>
                                 </div>
@@ -106,7 +108,8 @@ class RequestForm extends Component {
                                         value={this.state.phoneNumber}
                                         onChange={this.handleInputChange}
                                         id="phoneNumber"
-                                        placeholder="(555) 555 - 5555">
+                                        placeholder="(555) 555 - 5555"
+                                        required>
 
                                     </input>
                                 </div>
@@ -120,7 +123,8 @@ class RequestForm extends Component {
                                         onChange={this.handleInputChange}
                                         id="email"
                                         aria-describedby="emailHelp"
-                                        placeholder="Enter email">
+                                        placeholder="Enter email"
+                                        required>
 
                                     </input>
                                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -136,7 +140,8 @@ class RequestForm extends Component {
                                         value={this.state.vin}
                                         onChange={this.handleInputChange}
                                         id="vin"
-                                        placeholder="VIN #">
+                                        placeholder="VIN #"
+                                        required>
 
                                     </input>
                                 </div>
@@ -149,7 +154,8 @@ class RequestForm extends Component {
                                         value={this.state.year}
                                         onChange={this.handleInputChange}
                                         id="year"
-                                        placeholder="Year">
+                                        placeholder="Year"
+                                        required>
 
                                     </input>
                                 </div>
@@ -162,7 +168,8 @@ class RequestForm extends Component {
                                         value={this.state.make}
                                         onChange={this.handleInputChange}
                                         id="make"
-                                        placeholder="Make">
+                                        placeholder="Make"
+                                        required>
 
                                     </input>
                                 </div>
@@ -175,7 +182,8 @@ class RequestForm extends Component {
                                         value={this.state.model}
                                         onChange={this.handleInputChange}
                                         id="model"
-                                        placeholder="Model">
+                                        placeholder="Model"
+                                        required>
 
                                     </input>
                                 </div>
