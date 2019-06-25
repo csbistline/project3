@@ -1,8 +1,9 @@
 import React, {Component} from "react";
+import Nav from 'react-bootstrap/Nav'
 import QueryCard from "./QueryCard";
 import API from "../utils/partsAPI";
 
-class MgrLanding extends Component {
+class MgrDashboard extends Component {
     state = {
         assignTech: []
     }
@@ -19,6 +20,20 @@ class MgrLanding extends Component {
     render() {
         return(
             <div className="jumbotron">
+                {/* <br /> */}
+                <h1>Welcome Back (Insert Mgr Name)</h1>
+                <hr className="my-4"></hr>
+                <Nav variant="tabs" defaultActiveKey="/requested">
+                    <Nav.Item>
+                        <Nav.Link eventKey="requested" title="Requested">Requested</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="assigned" title="Assigned">Assigned</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="completed" title="Completed">Completed</Nav.Link>
+                    </Nav.Item>
+                </Nav>
                 {this.state.assignTech.map(Query =>(
                 <QueryCard
                     id={Query.id}
@@ -38,4 +53,4 @@ class MgrLanding extends Component {
     }
 };
 
-    export default MgrLanding;
+    export default MgrDashboard;
