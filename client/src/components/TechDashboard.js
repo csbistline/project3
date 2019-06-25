@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
 
 
-class TechLanding extends Component {
+class TechDashboard extends Component {
   state = {
     CusPartsQuery: []
   }
@@ -22,6 +22,9 @@ class TechLanding extends Component {
   render() {
     return(
       <div className="containerFluid">
+        <br />
+        <h1>Welcome Back (Insert Tech Name)</h1>
+        <hr className="my-4"></hr>
         <br></br>
         <Table striped bordered hover>
           <thead>
@@ -43,7 +46,7 @@ class TechLanding extends Component {
               <td className="align-middle">{Query.vin}</td>
               <td className="align-middle">
               {/* link to specific QueryCard */}
-              <Link to="/">
+              <Link to="/WorkOrder">
               <Button variant="link"
                  data-id={Query._id}>
                  View Query
@@ -58,4 +61,4 @@ class TechLanding extends Component {
         </div>
         )}};
 
-export default TechLanding;
+export default TechDashboard;
