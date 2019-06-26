@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+require("dotenv").config();
 
 
 class ConfirmModal extends React.Component {
@@ -43,6 +44,7 @@ class ConfirmModal extends React.Component {
         this.setState({ show: false });
 
     }
+
 
     render() {
         return (
