@@ -26,7 +26,9 @@ function QueryCard(props) {
                         <ListGroup.Item>TECH ASSIGNED:</ListGroup.Item>
                     </ListGroup>
                     <br></br>
-                    <SelectTechModal />
+                    <SelectTechModal 
+                    {...props}
+                    />
             </Card.Body>
         </Card>
         </div>
