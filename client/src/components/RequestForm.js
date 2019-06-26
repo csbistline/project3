@@ -102,7 +102,7 @@ class RequestForm extends Component {
 
                                     <div className="form-group">
                                         <label htmlFor="phoneNumber">Phone Number</label>
-                                        <input type="text"
+                                        <input type="tel"
                                             className="form-control"
                                             name="phoneNumber"
                                             value={this.state.phoneNumber}
