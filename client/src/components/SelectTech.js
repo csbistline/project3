@@ -8,7 +8,7 @@ class SelectTech extends Component {
 
     state = {
         team: [],
-        selectedRequest = ""
+        selectedRequest: ""
     }
 
     componentDidMount() {
