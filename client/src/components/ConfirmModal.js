@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import confirmEmail from './Email'
 require("dotenv").config();
-
 
 class ConfirmModal extends React.Component {
 
@@ -43,25 +43,25 @@ class ConfirmModal extends React.Component {
         this.props.sendData();
         this.setState({ show: false });
 
-        this.sendConfirmEmail();
+        
 
     }
-
-    sendConfirmEmail = () => {
-
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: `${process.env.email_user}`,
-            Password: `${process.env.email_pass}`,
-            To: `${this.props.formData.email}`,
-            From: `gutlberb@gmail.com`,
-            Subject: `Parts Request Confirmation`,
-            Body: `The parts team has recieved your request and we reach you to you as soon as possible.`
-        }).then(
-            message => alert(message)
-        );
-
-    }
+ 
+        sendConfirmEmail = () => {
+    
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: `${process.env.email_user}`,
+                Password: `${process.env.email_pass}`,
+                To: `${this.props.formData.email}`,
+                From: `gutlberb@gmail.com`,
+                Subject: `Parts Request Confirmation`,
+                Body: `The parts team has recieved your request and we reach you to you as soon as possible.`
+            }).then(
+                message => alert(message)
+            );
+    
+        }
 
     render() {
         return (
