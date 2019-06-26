@@ -63,8 +63,7 @@ class RequestForm extends Component {
     render() {
         return (
             <div>
-                <div className="wrapper animated bounceInLeft">
-                    <div className="row pt-4" >
+                    <div className="row pt-4 animated bounceInLeft" >
                         <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around">
 
                             <div className="jumbotron">
@@ -204,7 +203,7 @@ class RequestForm extends Component {
 
                             </div>
                         </div>
-                    </div>
+            
                     <div className="col-md-4 pt-4">
                         <Contacts />
                     </div>
