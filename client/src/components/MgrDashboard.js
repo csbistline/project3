@@ -19,7 +19,7 @@ class MgrDashboard extends Component {
     };
     render() {
         return(
-            <div className="jumbotron">
+            <div >
                 {/* <br /> */}
                 <h1>Welcome Back (Insert Mgr Name)</h1>
                 <hr className="my-4"></hr>
