@@ -36,16 +36,17 @@ class MgrDashboard extends Component {
                 </Nav>
                 {this.state.assignTech.map(Query =>(
                 <QueryCard
-                    id={Query.id}
-                    firstName={Query.firstName}
-                    lastName={Query.lastName}
-                    phoneNumber={Query.phoneNumber}
-                    email={Query.email}
-                    vin={Query.vin}
-                    year={Query.year}
-                    make={Query.make}
-                    model={Query.model}
-                    message={Query.message}
+                    {...Query}
+                    // id={Query._id}
+                    // firstName={Query.firstName}
+                    // lastName={Query.lastName}
+                    // phoneNumber={Query.phoneNumber}
+                    // email={Query.email}
+                    // vin={Query.vin}
+                    // year={Query.year}
+                    // make={Query.make}
+                    // model={Query.model}
+                    // message={Query.message}
                 />
             ))}
         </div>
