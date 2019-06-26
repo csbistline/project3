@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import confirmEmail from './Email'
+const messagebird = require('messagebird')(`26lIXcDBIE9CNKO9iMWe6qeb0`);
 require("dotenv").config();
 
 class ConfirmModal extends React.Component {
@@ -11,6 +11,7 @@ class ConfirmModal extends React.Component {
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.confirmAndSendData = this.confirmAndSendData.bind(this);
+        this.sendConfrimText = this.sendConfrimText.bind(this);
 
         this.state = {
             show: false,
@@ -42,27 +43,44 @@ class ConfirmModal extends React.Component {
 
         this.props.sendData();
         this.setState({ show: false });
+        this.sendConfrimText();
 
-        
 
     }
- 
-        sendConfirmEmail = () => {
-    
-            Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: `${process.env.email_user}`,
-                Password: `${process.env.email_pass}`,
-                To: `${this.props.formData.email}`,
-                From: `gutlberb@gmail.com`,
-                Subject: `Parts Request Confirmation`,
-                Body: `The parts team has recieved your request and we reach you to you as soon as possible.`
-            }).then(
-                message => alert(message)
-            );
-    
-        }
 
+    sendConfrimText = () => {
+        messagebird.messages.create({
+            originator: '+17328564308',
+            recipients: `+17328564308`,
+            body: 'We have recieved your parts request!'
+        },
+            function (err, response) {
+                if (err) {
+                    console.log("ERROR:");
+                    console.log(err);
+                } else {
+                    console.log("SUCCESS:");
+                    console.log(response);
+                }
+            });
+    }
+/*
+    sendConfirmEmail = () => {
+
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: `${process.env.email_user}`,
+            Password: `${process.env.email_pass}`,
+            To: `${this.props.formData.email}`,
+            From: `gutlberb@gmail.com`,
+            Subject: `Parts Request Confirmation`,
+            Body: `The parts team has recieved your request and we reach you to you as soon as possible.`
+        }).then(
+            message => alert(message)
+        );
+
+    }
+*/
     render() {
         return (
             <>
