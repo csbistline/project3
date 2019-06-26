@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import API from "../utils/techsAPI";
+import partsAPI from "../utils/partsAPI";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 class SelectTech extends Component {
 
     state = {
-        team: []
+        team: [],
+        selectedRequest = ""
     }
 
     componentDidMount() {
