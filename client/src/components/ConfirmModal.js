@@ -27,11 +27,11 @@ class ConfirmModal extends React.Component {
     }
 
     validate() {
-        if(
+        if (
             this.props.formData.firstName.trim() !== "" &&
             this.props.formData.lastName.trim() !== "" &&
             /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.props.formData.email)
-        ){
+        ) {
             return true;
         }
         return false;
@@ -43,8 +43,25 @@ class ConfirmModal extends React.Component {
         this.props.sendData();
         this.setState({ show: false });
 
+        this.sendConfirmEmail();
+
     }
 
+    sendConfirmEmail = () => {
+
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: `${process.env.email_user}`,
+            Password: `${process.env.email_pass}`,
+            To: `${this.props.formData.email}`,
+            From: `gutlberb@gmail.com`,
+            Subject: `Parts Request Confirmation`,
+            Body: `The parts team has recieved your request and we reach you to you as soon as possible.`
+        }).then(
+            message => alert(message)
+        );
+
+    }
 
     render() {
         return (
@@ -71,7 +88,7 @@ class ConfirmModal extends React.Component {
                         <Button variant="primary" onClick={this.confirmAndSendData}>
                             Confirm
               </Button>
-              <Button variant="danger" onClick={this.handleClose}>
+                        <Button variant="danger" onClick={this.handleClose}>
                             Cancel
               </Button>
 
