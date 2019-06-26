@@ -11,7 +11,8 @@ class LoginForm extends Component {
   state = {
 
     loggedIn: false,
-    user: null
+    username: "",
+    password: ""
 
   }
 
@@ -125,7 +126,7 @@ class LoginForm extends Component {
 
                               <div className="form-group">
                                   <label htmlFor="password">Last Name</label>
-                                  <input type="password"
+                                  <input type="current-password"
                                       className="form-control"
                                       name="password"
                                       value={this.state.password}
@@ -135,25 +136,6 @@ class LoginForm extends Component {
 
                                   </input>
                               </div>
-
-                                                                <div className="App">
-                                                                    <Wrapper user={this.state.user} />
-                                                                    {/* LINKS to our different 'pages' */}
-                                                                    <Wrapper _logout={this._logout} loggedIn={this.state.loggedIn} />
-                                                                    {/*  ROUTES */}
-                                                                    {/* <Route exact path="/" component={Home} /> */}
-                                                                    <Route exact path="/" render={() => <Wrapper user={this.state.user} />} />
-                                                                    <Route
-                                                                        exact
-                                                                        path="/login"
-                                                                        render={() =>
-                                                                            <LoginForm
-                                                                                _login={this._login}
-                                                                            />}
-                                                                    />
-                                                                    {/* <Route exact path="/signup" component={SignupForm} /> */}
-                                                                    {/* <LoginForm _login={this._login} /> */}
-                                                                </div>
 
                               <button type="submit"
                                   className="btn btn-primary myButton"
@@ -174,11 +156,7 @@ class LoginForm extends Component {
 
 
 
-render() {
-    return (
-        
-        )
-    }
+
 };
 
 export default LoginForm;
