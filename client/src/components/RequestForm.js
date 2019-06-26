@@ -63,8 +63,8 @@ class RequestForm extends Component {
     render() {
         return (
             <div>
-                    <div className="row pt-4 animated bounceInLeft" >
-                        <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around">
+                    <div className="row pt-4 " >
+                        <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around animated bounceInLeft">
 
                             <div className="jumbotron">
                                 <h1 className="display-4">Parts Request Form</h1>
