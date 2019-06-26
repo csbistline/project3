@@ -36,7 +36,9 @@ class SelectTechModal extends React.Component {
               <Modal.Title>Parts Specialists</Modal.Title>
             </Modal.Header>
                 <Modal.Body>
-                    <SelectTech />
+                    <SelectTech 
+                    {...this.props}
+                    />
                 </Modal.Body>
             <Modal.Footer>
               {/* <Button variant="primary" onClick={this.handleClose}>

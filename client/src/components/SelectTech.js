@@ -8,7 +8,7 @@ class SelectTech extends Component {
 
     state = {
         team: [],
-        selectedRequest: ""
+        selectedRequest: this.props._id
     }
 
     componentDidMount() {
@@ -24,6 +24,13 @@ class SelectTech extends Component {
             })
             .catch(err => console.log(err));
     };
+
+    updateParts = (id,assignee) => {
+        partsAPI.updatePartsRequestAssigned(id,assignee)
+            .then(res => {
+                console.log(res);
+            })
+    }
 
     render() {
         return (
@@ -48,6 +55,7 @@ class SelectTech extends Component {
                                         className="btn btn-primary myButton" 
                                         size="sm" 
                                         data-id={tech._id}
+                                        onClick={() => this.updateParts(this.state.selectedRequest,tech._id)}
                                     >
                                         Select
                                     </Button>
