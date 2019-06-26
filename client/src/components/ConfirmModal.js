@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
-const messagebird = require('messagebird')(`26lIXcDBIE9CNKO9iMWe6qeb0`);
+const messagebird = require('messagebird')(`o1iRCJWUbe3c3smoFWogpPlwq`);
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 class ConfirmModal extends React.Component {
@@ -12,6 +13,7 @@ class ConfirmModal extends React.Component {
         this.handleClose = this.handleClose.bind(this);
         this.confirmAndSendData = this.confirmAndSendData.bind(this);
         this.sendConfrimText = this.sendConfrimText.bind(this);
+        this.sendConfirmEmail = this.sendConfirmEmail.bind(this);
 
         this.state = {
             show: false,
@@ -44,7 +46,7 @@ class ConfirmModal extends React.Component {
         this.props.sendData();
         this.setState({ show: false });
         this.sendConfrimText();
-
+        this.sendConfirmEmail();
 
     }
 
@@ -64,23 +66,43 @@ class ConfirmModal extends React.Component {
                 }
             });
     }
-/*
+
     sendConfirmEmail = () => {
+        console.log("email: " + process.env.EMAIL_USER);
+        console.log("pass: " + process.env.EMAIL_PASS);
 
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: `${process.env.email_user}`,
-            Password: `${process.env.email_pass}`,
-            To: `${this.props.formData.email}`,
-            From: `gutlberb@gmail.com`,
-            Subject: `Parts Request Confirmation`,
-            Body: `The parts team has recieved your request and we reach you to you as soon as possible.`
-        }).then(
-            message => alert(message)
-        );
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: "smtp.elasticemail.com",
+            port: 2525,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: process.env.EMAIL_USER, // generated ethereal user
+                pass: process.env.EMAIL_PASS // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
 
+        // send mail with defined transport object
+        let info = transporter.sendMail({
+            from: '"High 5 Productions!" <gutleberb@gmail.com>', // sender address
+            to: this.props.formData.email, // list of receivers
+            subject: "Parts Request Recieved ✔", // Subject line
+            text: "Hello world?", // plain text body
+            html: "<b>Hello world?</b>" // html body
+        });
+
+        console.log("Message sent: %s", info.messageId);
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+        // Preview only available when sending through an Ethereal account
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     }
-*/
+
+
     render() {
         return (
             <>
