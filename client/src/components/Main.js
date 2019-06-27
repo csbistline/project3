@@ -1,6 +1,6 @@
 import React from 'react';
 import Contacts from "./Contacts"
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 
 const Main = () => {
     return (
