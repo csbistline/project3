@@ -3,6 +3,7 @@ const db = require("../models");
 // Defining methods for the partsController
 module.exports = {
     findAll: function (req, res) {
+        console.log(req.query);
         db.PartsRequest
             .find(req.query)
             .then(dbModel => res.json(dbModel))

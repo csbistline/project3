@@ -8,10 +8,10 @@ class MgrDashboard extends Component {
         assignTech: []
     }
     componentDidMount() {
-        this.loadQuery();
+        this.loadQuery("requested");
     }
-    loadQuery = () => {
-        API.getPartsRequests()
+    loadQuery = (status) => {
+        API.getPartsRequests(status)
         .then(res=> {
             this.setState({assignTech: res.data})
         })
@@ -26,13 +26,31 @@ class MgrDashboard extends Component {
              
                 <Nav variant="tabs" defaultActiveKey="/requested" style={{"background":"#DCDCDC"}}>
                     <Nav.Item className="tabs">
-                        <Nav.Link className="tabs" eventKey="requested" title="Requested">Requested</Nav.Link>
+                        <Nav.Link 
+                            eventKey="requested" 
+                            title="Requested"
+                            onClick={() => this.loadQuery("requested")}
+                            >
+                            Requested
+                        </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="tabs">
-                        <Nav.Link eventKey="assigned" title="Assigned">Assigned</Nav.Link>
+                        <Nav.Link 
+                            eventKey="assigned" 
+                            title="Assigned"
+                            onClick={() => this.loadQuery("assigned")}
+                            >
+                            Assigned
+                        </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="tabs">
-                        <Nav.Link eventKey="completed" title="Completed">Completed</Nav.Link>
+                        <Nav.Link 
+                            eventKey="completed" 
+                            title="Completed"
+                            onClick={() => this.loadQuery("completed")}
+                            >
+                            Completed
+                        </Nav.Link>
                     </Nav.Item>
                 </Nav>
                 {this.state.assignTech.map(Query =>(
