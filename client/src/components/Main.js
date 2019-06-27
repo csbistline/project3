@@ -10,7 +10,7 @@ const Main = () => {
                 <div className="col-md-8 pt-4">
                     <div className="container">
                         <img className="img-fluid mx-auto d-block" src="./assets/img/serviceImg02.jpg" alt="Franklin Chrysler Dodge Jeep Ram in Franklin TN Service" />
-                        <div className="container">
+                        <div className="container col-md-10">
                         <h3><strong>Franklin Chrysler Dodge Jeep Ram Parts Department</strong></h3>
                         <p>Mopar provides authentic OEM parts for your Chrysler, Dodge, Jeep, RAM, FIAT or SRT vehicle.
                 We also offer OEM accessories and performance parts for your vehicle to make sure it's customized to your heart's desire.</p>
