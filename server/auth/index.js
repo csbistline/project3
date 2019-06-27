@@ -5,7 +5,7 @@ const passport = require("../passport");
 
 //Getting basic user info
 router.get("/user", (req, res, next) => {
-    console.log(=====user!!=====);
+    console.log(user);
     console.log(req.user);
     if (req.user) {
         return res.json({user: req.user})
@@ -21,7 +21,10 @@ router.post(
         console.log(req.body);
         console.log("===========");
         next()
-    }
+        console.log("check me");
+        
+    })
+
     passport.authenticate("local"),
     (req, res) => {
         console.log("POST to /login");
@@ -32,8 +35,7 @@ router.post(
             delete cleanUser.local.password            
         }
         res.json({user: cleanUser})
-    }
-);
+    };
 
 router.post("/signup", (req,res) => {
     const {username, password} = req.body

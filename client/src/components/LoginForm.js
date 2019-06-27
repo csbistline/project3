@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import axios from "axios"
-import Wrapper from "./Wrapper";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import Wrapper from "./Wrapper";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 
@@ -28,8 +28,10 @@ class LoginForm extends Component {
 
   sendFormData = event => {
       event.preventDefault();
-		console.log('handleSubmit')
-		this.props._login(this.state.username, this.state.password)
+        console.log('handleSubmit')
+        console.log(this.state.username);
+        console.log(this.state.password);      
+		this._login(this.state.username, this.state.password)
 		this.setState({
 			redirectTo: '/'
 		})
@@ -56,7 +58,7 @@ class LoginForm extends Component {
     _logout(event) {
         event.preventDefault()
         console.log('logging out')
-        axios.post('/auth/logout').then(response => {
+        axios.post('/api/logout').then(response => {
             console.log(response.data)
             if (response.status === 200) {
                 this.setState({
@@ -112,7 +114,7 @@ class LoginForm extends Component {
                           <form>
 
                               <div className="form-group">
-                                  <label htmlFor="username">First Name</label>
+                                  <label htmlFor="username">User Name</label>
                                   <input type="text"
                                       className="form-control"
                                       name="username"
@@ -125,7 +127,7 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Last Name</label>
+                                  <label htmlFor="password">Password</label>
                                   <input type="current-password"
                                       className="form-control"
                                       name="password"
