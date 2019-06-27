@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
     // Gets all parts requests
-    getPartsRequests: function() {
-        return axios.get("/api/parts");
+    getPartsRequests: function(status) {
+        return axios.get("/api/parts?status=" + status);
     },
     // Gets the parts request with the given id
     getPartsRequest: function(id) {
