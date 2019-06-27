@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
-import axios from "axios"
+import axios from "axios";
 // import Wrapper from "./Wrapper";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -129,15 +129,15 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Password</label>
+                                  <label htmlFor="password current-password">Password</label>
 
-                                  <input type="password"
+                                  <input type="password current-password"
 
-                                      className="form-control"
-                                      name="password"
+                                      className="form-control current-password"
+                                      name="password current-password"
                                       value={this.state.password}
                                       onChange={this.handleInputChange}
-                                      id="password"
+                                      id="password current-password"
                                       placeholder="Password">
 
                                   </input>

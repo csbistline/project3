@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
+import axios from "axios";
 
-class LoginForm extends Component {
+
+class Register extends Component {
 
   state = {
 
@@ -14,32 +16,32 @@ class LoginForm extends Component {
 
   }
 
-  handleInputChange = event => {
-      // Getting the value and name of the input which triggered the change
-      const { name, value } = event.target;
-
-      // Updating the input's state
-      this.setState({
-          [name]: value
-      });
+  handleChange(event) {
+    this.setState({
+        [event.target.name]: event.target.value
+    })
   };
 
-  sendFormData = event => {
-      event.preventDefault();
-
-      /*partsAPI.savePartsRequest({
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          phoneNumber: this.state.phoneNumber,
-          email: this.state.email,
-          vin: this.state.vin,
-          year: this.state.year,
-          make: this.state.make,
-          model: this.state.model,
-          message: this.state.firstName
-      })
-          .catch(err => console.log(err));*/
-  };
+  handleSubmit(event) {
+    event.preventDefault()
+    // TODO - validate!
+    axios
+        .post('/auth/signup', {
+            username: this.state.contact,
+            password: this.state.password
+        })
+        .then(response => {
+            console.log(response)
+            if (!response.data.errmsg) {
+                console.log('youre good')
+                this.setState({
+                    redirectTo: '/login'
+                })
+            } else {
+                console.log('duplicate')
+            }
+        })
+};
 
 
   render() {
@@ -55,12 +57,14 @@ class LoginForm extends Component {
                           <form>
 
                               <div className="form-group">
-                                  <label htmlFor="username">Email</label>
+                                  <label htmlFor="Email">Email</label>
                                   <input type="text"
                                       className="form-control"
                                       name="contact"
                                       value={this.state.contact}
-                                      onChange={this.handleInputChange}
+                                      onChange={(event) => {
+                                          this.handleChange(event)
+                                      }}
                                       id="contact"
                                       placeholder="Email">
 
@@ -70,10 +74,12 @@ class LoginForm extends Component {
                               <div className="form-group">
                                   <label htmlFor="password">Password</label>
                                   <input type="password"
-                                      className="form-control"
+                                      className="form-control new-password"
                                       name="password"
                                       value={this.state.password}
-                                      onChange={this.handleInputChange}
+                                      onChange={(event) => {
+                                        this.handleChange(event)
+                                    }}
                                       id="password"
                                       placeholder="Password">
 
@@ -86,7 +92,9 @@ class LoginForm extends Component {
                                       className="form-control"
                                       name="name"
                                       value={this.state.name}
-                                      onChange={this.handleInputChange}
+                                      onChange={(event) => {
+                                        this.handleChange(event)
+                                    }}
                                       id="name"
                                       placeholder="Name">
 
@@ -99,7 +107,9 @@ class LoginForm extends Component {
                                       className="form-control"
                                       name="specialty"
                                       value={this.state.specialty}
-                                      onChange={this.handleInputChange}
+                                      onChange={(event) => {
+                                        this.handleChange(event)
+                                    }}
                                       id="specialty"
                                       placeholder="Specialty">
 
@@ -112,7 +122,9 @@ class LoginForm extends Component {
                                       className="form-control"
                                       name="permission"
                                       value={this.state.permission}
-                                      onChange={this.handleInputChange}
+                                      onChange={(event) => {
+                                        this.handleChange(event)
+                                    }}
                                       id="permission"
                                       placeholder="Tech, Admin">
 
@@ -125,7 +137,9 @@ class LoginForm extends Component {
                                       className="form-control"
                                       name="image"
                                       value={this.state.image}
-                                      onChange={this.handleInputChange}
+                                      onChange={(event) => {
+                                        this.handleChange(event)
+                                    }}
                                       id="image"
                                       placeholder="i.e. './assets/img/PartsMgr.jpg'">
 
@@ -135,7 +149,9 @@ class LoginForm extends Component {
                               <button type="submit"
                                   className="btn btn-primary myButton"
                                   // do we want to have the button disabled if all fields are not filled in? disabled={}
-                                  onClick={this.sendFormData}
+                                  onClick={(event) => {
+                                    this.handleSubmit(event)
+                                }}
                               >Submit</button>
                           </form>
 
@@ -150,4 +166,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default Register;
