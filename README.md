@@ -47,7 +47,6 @@ _<https://parts-manager-hi5.herokuapp.com/>_
 * [NodeMailer](https://nodemailer.com/about/) - Used to generate autoReply Email
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) - Used for Authentication
 
-
 ## Data Flow and Project Wire Frames
 
 * **_Project Design WireFrame_**
