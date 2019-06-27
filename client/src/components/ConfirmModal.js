@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 const messagebird = require('messagebird')(`o1iRCJWUbe3c3smoFWogpPlwq`);
-const nodemailer = require("nodemailer");
+const axios = require("axios");
 require("dotenv").config();
 
 class ConfirmModal extends React.Component {
@@ -68,40 +68,30 @@ class ConfirmModal extends React.Component {
     }
 
     sendConfirmEmail = () => {
-        console.log("email: " + process.env.EMAIL_USER);
-        console.log("pass: " + process.env.EMAIL_PASS);
 
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp.elasticemail.com",
-            port: 2525,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: process.env.EMAIL_USER, // generated ethereal user
-                pass: process.env.EMAIL_PASS // generated ethereal password
-            },
-            tls: {
-                rejectUnauthorized: false
+        axios({
+            method: "POST",
+            url: "/api/sendEmail",
+            data: {
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                phoneNumber: this.state.phoneNumber,
+                email: this.state.email,
+                vin: this.state.vin,
+                year: this.state.year,
+                make: this.state.make,
+                model: this.state.model,
+                message: this.state.message
             }
-        });
+        }).then((response) => {
+            if (response.data.msg === 'success') {
+                alert("Message Sent.");
 
-        // send mail with defined transport object
-        let info = transporter.sendMail({
-            from: '"High 5 Productions!" <gutleberb@gmail.com>', // sender address
-            to: this.props.formData.email, // list of receivers
-            subject: "Parts Request Recieved ✔", // Subject line
-            text: "Hello world?", // plain text body
-            html: "<b>Hello world?</b>" // html body
-        });
-
-        console.log("Message sent: %s", info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-        // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+            } else if (response.data.msg === 'fail') {
+                alert("Message failed to send.")
+            }
+        })
     }
-
 
     render() {
         return (
