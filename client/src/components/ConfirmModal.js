@@ -72,7 +72,7 @@ class ConfirmModal extends React.Component {
 
         axios({
             method: "POST",
-            url: "http://localhost:3002/sendEmail",
+            url: "/api/sendEmail",
             data: {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
