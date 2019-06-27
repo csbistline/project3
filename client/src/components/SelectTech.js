@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import API from "../utils/techsAPI";
+import partsAPI from "../utils/partsAPI";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 class SelectTech extends Component {
 
     state = {
-        team: []
+        team: [],
+        selectedRequest: this.props._id
     }
 
     componentDidMount() {
@@ -22,6 +24,13 @@ class SelectTech extends Component {
             })
             .catch(err => console.log(err));
     };
+
+    updateParts = (id,assignee) => {
+        partsAPI.updatePartsRequestAssigned(id,assignee)
+            .then(res => {
+                console.log(res);
+            })
+    }
 
     render() {
         return (
@@ -43,9 +52,10 @@ class SelectTech extends Component {
                                 key={tech._id}>
                                 <td className="align-middle">
                                     <Button 
-                                        variant="primary" 
+                                        className="btn btn-primary myButton" 
                                         size="sm" 
                                         data-id={tech._id}
+                                        onClick={() => this.updateParts(this.state.selectedRequest,tech._id)}
                                     >
                                         Select
                                     </Button>

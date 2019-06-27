@@ -27,9 +27,8 @@ class PartsTeam extends Component {
     render() {
         return (
             <div>
-                <div className="row pt-4" >
-                    <div className="col-md-6 pt-4 d-flex flex-wrap justify-content-around">
-
+                <div className="row pt-lg-4" >
+                    <div className="col-md-8 pt-lg-4 d-flex flex-wrap justify-content-around animated bounceInDown">
                             {this.state.team.map(tech => (
                                 <PartsSpecCard
                                     id={tech.id}
@@ -41,9 +40,8 @@ class PartsTeam extends Component {
                                 />
                             ))}
                         </div>
-                    <div className="col-md-1 pt-4"></div>    
 
-                    <div className="col-sm-4 pt-4">
+                    <div className="col-md-4 pt-4">
                         <Contacts />
                     </div>
                 </div>

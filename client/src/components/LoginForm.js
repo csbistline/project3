@@ -105,16 +105,18 @@ class LoginForm extends Component {
       return (
           <div>
               <div className="row pt-4" >
-                  <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around">
+                  <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around  animated bounceInUp">
 
                       <div className="jumbotron">
-                          <h1 className="display-4">Team Login Form</h1>
+                          <h1 className="display-4"><b>Team Login Form</b></h1>
                           <p className="lead">Enter your username/password below to login.</p>
                           <hr className="my-4"></hr>
                           <form>
 
                               <div className="form-group">
-                                  <label htmlFor="username">User Name</label>
+
+                                  <label htmlFor="username">UserName</label>
+
                                   <input type="text"
                                       className="form-control"
                                       name="username"
@@ -128,7 +130,9 @@ class LoginForm extends Component {
 
                               <div className="form-group">
                                   <label htmlFor="password">Password</label>
-                                  <input type="current-password"
+
+                                  <input type="password"
+
                                       className="form-control"
                                       name="password"
                                       value={this.state.password}
@@ -148,7 +152,7 @@ class LoginForm extends Component {
 
                       </div>
                   </div>
-                  <div className="col-sm-4 pt-4">
+                  <div className="col-md-4 pt-4">
                       <Contacts />
                   </div>
               </div>

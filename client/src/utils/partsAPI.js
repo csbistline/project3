@@ -9,6 +9,9 @@ export default {
     getPartsRequest: function(id) {
         return axios.get("/api/parts/" + id);
     },
+    updatePartsRequestAssigned: function(id, assignee) {
+        return axios.put("/api/parts/" + id, {assignee: assignee});
+    },
     // Deletes the parts request with the given id
     deletePartsRequest: function(id) {
         return axios.delete("/api/parts/" + id);

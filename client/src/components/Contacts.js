@@ -8,7 +8,7 @@ const Contacts = () => {
         <div>
             <div>
                 <div>
-                    <img className="img-fluid mx-auto" src="./assets/img/moparAtYourService.png" alt="Franklin Chrysler Dodge Jeep Ram in Franklin TN Mopar At Your Service" style={{ "margin": "1%" }} />
+                    <img className="img-fluid" src="./assets/img/moparAtYourService.png" alt="Franklin Chrysler Dodge Jeep Ram in Franklin TN Mopar At Your Service" style={{ "margin": "1%" }} />
                     <h4><b>Parts Hours</b></h4>
                     <hr />
                     <table className="table table-condensed" style={{ "tableLayout": "fixed" }}>
