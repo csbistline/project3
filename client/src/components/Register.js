@@ -81,7 +81,7 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Name</label>
+                                  <label htmlFor="Name">Name</label>
                                   <input type="text"
                                       className="form-control"
                                       name="name"
@@ -94,7 +94,7 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Specialty</label>
+                                  <label htmlFor="Specialty">Specialty</label>
                                   <input type="text"
                                       className="form-control"
                                       name="specialty"
@@ -107,7 +107,7 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Role</label>
+                                  <label htmlFor="role">Role</label>
                                   <input type="text"
                                       className="form-control"
                                       name="permission"
@@ -120,7 +120,7 @@ class LoginForm extends Component {
                               </div>
 
                               <div className="form-group">
-                                  <label htmlFor="password">Image</label>
+                                  <label htmlFor="image">Image</label>
                                   <input type="text"
                                       className="form-control"
                                       name="image"

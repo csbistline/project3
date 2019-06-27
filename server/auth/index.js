@@ -5,7 +5,7 @@ const passport = require("../passport");
 
 //Getting basic user info
 router.get("/user", (req, res, next) => {
-    console.log(user);
+    // console.log(user);
     console.log(req.user);
     if (req.user) {
         return res.json({user: req.user})
