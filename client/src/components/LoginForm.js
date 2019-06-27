@@ -45,7 +45,7 @@ class LoginForm extends Component {
                   <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around  animated bounceInUp">
 
                       <div className="jumbotron">
-                          <h1 className="display-4">Team Login Form</h1>
+                          <h1 className="display-4"><b>Team Login Form</b></h1>
                           <p className="lead">Enter your username/password below to login.</p>
                           <hr className="my-4"></hr>
                           <form>
