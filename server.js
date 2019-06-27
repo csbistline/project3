@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const nodemailer = require("nodemailer")
 const PORT = process.env.PORT || 3001;
 const passport = require("./server/passport");
 
@@ -13,6 +14,42 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
+
+// send confirmation email
+app.post('/api/sendEmail', (req, res) => {
+    var data = req.body;
+
+    var smtpTransport = nodemailer.createTransport({
+        host: 'smtp.elasticemail.com',
+        port: 2525,
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    var mailOptions = {
+        from: `gutleberb@gmail.com`,
+        to: data.email,
+        subject: 'We Recieved your parts request',
+        html: `<p>${data.name}</p>
+            <p>${data.email}</p>
+            <p>${data.message}</p>`
+    };
+
+    smtpTransport.sendMail(mailOptions,
+        (error, response) => {
+            if (error) {
+                res.send(error)
+            } else {
+                res.send('Success')
+            }
+            smtpTransport.close();
+        });
+})
 
 // Add routes, both API and view
 const routes = require("./routes");
@@ -48,41 +85,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
         console.log("info: ", info);
     });
 });*/
-// send confirmation email
-app.post('/api/sendEmail', (req, res) => {
-    var data = req.body;
 
-    var smtpTransport = nodemailer.createTransport({
-        service: 'smtp.elasticemail.com',
-        port: 2525,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
-
-    var mailOptions = {
-        from: `gutleberb@gmail.com`,
-        to: data.email,
-        subject: 'We Recieved your parts request',
-        html: `<p>${data.name}</p>
-            <p>${data.email}</p>
-            <p>${data.message}</p>`
-    };
-
-    smtpTransport.sendMail(mailOptions,
-        (error, response) => {
-            if (error) {
-                res.send(error)
-            } else {
-                res.send('Success')
-            }
-            smtpTransport.close();
-        });
-})
 
 
 // Send every other request to the React app
