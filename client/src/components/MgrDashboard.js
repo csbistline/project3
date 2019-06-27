@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Nav from 'react-bootstrap/Nav'
+import {Nav} from 'react-bootstrap'
 import QueryCard from "./QueryCard";
 import API from "../utils/partsAPI";
 
@@ -23,6 +23,7 @@ class MgrDashboard extends Component {
                 <br />
                 <h1>Welcome Back (Insert Mgr Name)</h1>
                 <hr className="my-4"></hr>
+             
                 <Nav variant="tabs" defaultActiveKey="/requested" style={{"background":"#DCDCDC"}}>
                     <Nav.Item className="tabs">
                         <Nav.Link className="tabs" eventKey="requested" title="Requested">Requested</Nav.Link>
