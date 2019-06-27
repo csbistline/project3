@@ -40,8 +40,12 @@ _<https://parts-manager-hi5.herokuapp.com/>_
 * [React-Bootstrap](https://react-bootstrap.github.io/) - Used to generate front end styling
 * [Github-ProjectMgr](https://github.com/features/project-management/) - Used to assign roles, set benchmarks, manage code flow
 * [Adobe](https://www.adobe.io/apis/creativecloud/xd.html) - Used to generate design wireframes
+* [LucidChart](https://www.lucidchart.com/) - Used to generate Login DataFlow
 * [Code2Flow](https://code2flow.com/) - Used to generate Data flow chart
 * [Heroku](https://devcenter.heroku.com/categories/reference) - Used for App deployment
+* [MessageBird](https://www.messagebird.com/en/) - Used to generate ext conformation
+* [NodeMailer](https://nodemailer.com/about/) - Used to generate autoReply Email
+* [Bcrypt](https://www.npmjs.com/package/bcrypt) - Used for Authentication
 
 ## Data Flow and Project Wire Frames
 

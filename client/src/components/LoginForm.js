@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
+import axios from "axios"
+// import Wrapper from "./Wrapper";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 
 class LoginForm extends Component {
 
   state = {
 
-      username: "",
-      password: ""
+    loggedIn: false,
+    username: "",
+    password: ""
 
   }
 
@@ -22,7 +28,64 @@ class LoginForm extends Component {
 
   sendFormData = event => {
       event.preventDefault();
-
+        console.log('handleSubmit')
+        console.log(this.state.username);
+        console.log(this.state.password);      
+		this._login(this.state.username, this.state.password)
+		this.setState({
+			redirectTo: '/'
+		})
+    };
+    
+    componentDidMount() {
+        axios.get('/auth/user').then(response => {
+            console.log(response.data)
+            if (!!response.data.user) {
+                console.log('THERE IS A USER')
+                this.setState({
+                    loggedIn: true,
+                    user: response.data.user
+                })
+            } else {
+                this.setState({
+                    loggedIn: false,
+                    user: null
+                })
+            }
+        })
+    };
+    
+    _logout(event) {
+        event.preventDefault()
+        console.log('logging out')
+        axios.post('/api/logout').then(response => {
+            console.log(response.data)
+            if (response.status === 200) {
+                this.setState({
+                    loggedIn: false,
+                    user: null
+                })
+            }
+        })
+    };
+    
+    _login(username, password) {
+        axios
+            .post('/auth/login', {
+                username,
+                password
+            })
+            .then(response => {
+                console.log(response)
+                if (response.status === 200) {
+                    // update the state
+                    this.setState({
+                        loggedIn: true,
+                        user: response.data.user
+                    })
+                }
+            })
+    };
       /*partsAPI.savePartsRequest({
           firstName: this.state.firstName,
           lastName: this.state.lastName,
@@ -35,23 +98,25 @@ class LoginForm extends Component {
           message: this.state.firstName
       })
           .catch(err => console.log(err));*/
-  };
+
 
 
   render() {
       return (
           <div>
               <div className="row pt-4" >
-                  <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around">
+                  <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around  animated bounceInUp">
 
                       <div className="jumbotron">
-                          <h1 className="display-4">Team Login Form</h1>
+                          <h1 className="display-4"><b>Team Login Form</b></h1>
                           <p className="lead">Enter your username/password below to login.</p>
                           <hr className="my-4"></hr>
                           <form>
 
                               <div className="form-group">
+
                                   <label htmlFor="username">UserName</label>
+
                                   <input type="text"
                                       className="form-control"
                                       name="username"
@@ -65,7 +130,9 @@ class LoginForm extends Component {
 
                               <div className="form-group">
                                   <label htmlFor="password">Password</label>
+
                                   <input type="password"
+
                                       className="form-control"
                                       name="password"
                                       value={this.state.password}
@@ -92,6 +159,10 @@ class LoginForm extends Component {
           </div>
       );
   }
-}
+
+
+
+
+};
 
 export default LoginForm;

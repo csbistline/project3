@@ -65,9 +65,8 @@ class RequestForm extends Component {
             <div>
                     <div className="row pt-4 " >
                         <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around animated bounceInLeft">
-
                             <div className="jumbotron">
-                                <h1 className="display-4">Parts Request Form</h1>
+                                <h1 className="display-4"><b>Parts Request Form</b></h1>
                                 <p className="lead">Enter your contact and vehicle information below and a Parts Specialist will get back to you shortly.</p>
                                 <hr className="my-4"></hr>
                                 <form>

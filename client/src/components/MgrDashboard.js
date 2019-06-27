@@ -19,33 +19,34 @@ class MgrDashboard extends Component {
     };
     render() {
         return(
-            <div className="jumbotron">
-                {/* <br /> */}
+            <div >
+                <br />
                 <h1>Welcome Back (Insert Mgr Name)</h1>
                 <hr className="my-4"></hr>
-                <Nav variant="tabs" defaultActiveKey="/requested">
-                    <Nav.Item>
-                        <Nav.Link eventKey="requested" title="Requested">Requested</Nav.Link>
+                <Nav variant="tabs" defaultActiveKey="/requested" style={{"background":"#DCDCDC"}}>
+                    <Nav.Item className="tabs">
+                        <Nav.Link className="tabs" eventKey="requested" title="Requested">Requested</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    <Nav.Item className="tabs">
                         <Nav.Link eventKey="assigned" title="Assigned">Assigned</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    <Nav.Item className="tabs">
                         <Nav.Link eventKey="completed" title="Completed">Completed</Nav.Link>
                     </Nav.Item>
                 </Nav>
                 {this.state.assignTech.map(Query =>(
                 <QueryCard
-                    id={Query.id}
-                    firstName={Query.firstName}
-                    lastName={Query.lastName}
-                    phoneNumber={Query.phoneNumber}
-                    email={Query.email}
-                    vin={Query.vin}
-                    year={Query.year}
-                    make={Query.make}
-                    model={Query.model}
-                    message={Query.message}
+                    {...Query}
+                    // id={Query._id}
+                    // firstName={Query.firstName}
+                    // lastName={Query.lastName}
+                    // phoneNumber={Query.phoneNumber}
+                    // email={Query.email}
+                    // vin={Query.vin}
+                    // year={Query.year}
+                    // make={Query.make}
+                    // model={Query.model}
+                    // message={Query.message}
                 />
             ))}
         </div>
