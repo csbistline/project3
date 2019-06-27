@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const passport = require("./server/passport");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +17,15 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 const routes = require("./routes");
 app.use(routes);
+
+//Passport Addon
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+
 
 
 // Connect to the Mongo DB
