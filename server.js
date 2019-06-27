@@ -49,42 +49,41 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
     });
 });*/
 // send confirmation email
-app.post('/api/sendEmail', (req,res) => {
+app.post('/api/sendEmail', (req, res) => {
     var data = req.body;
-  
-  var smtpTransport = nodemailer.createTransport({
-    service: 'smtp.elasticemail.com',
-    port: 2525,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    },
-    tls:{
-        rejectUnauthorized: false
-    }
-  });
-  
-  var mailOptions = {
-    from: `gutleberb@gmail.com`,
-    to: data.email,
-    subject: 'We Recieved your parts request',
-    html: `<p>${data.name}</p>
+
+    var smtpTransport = nodemailer.createTransport({
+        service: 'smtp.elasticemail.com',
+        port: 2525,
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    var mailOptions = {
+        from: `gutleberb@gmail.com`,
+        to: data.email,
+        subject: 'We Recieved your parts request',
+        html: `<p>${data.name}</p>
             <p>${data.email}</p>
             <p>${data.message}</p>`
-  };
-  
-  smtpTransport.sendMail(mailOptions,
-  (error, response) => {
-    if(error) {
-      res.send(error)
-    }else {
-      res.send('Success')
-    }
-    smtpTransport.close();
-  });
-  
-  })
-  
+    };
+
+    smtpTransport.sendMail(mailOptions,
+        (error, response) => {
+            if (error) {
+                res.send(error)
+            } else {
+                res.send('Success')
+            }
+            smtpTransport.close();
+        });
+})
+
 
 // Send every other request to the React app
 // Define any API routes before this runs
