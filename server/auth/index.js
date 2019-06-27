@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require("../user/index.js");
 const passport = require("../passport");
 
+const db = require("../../models");
+
 //Getting basic user info
 router.get("/user", (req, res, next) => {
     // console.log(user);
@@ -38,22 +40,32 @@ router.post(
     };
 
 router.post("/signup", (req,res) => {
-    const {username, password} = req.body
+    console.log(req.body);
+    // const {username, password} = req.body
     //Validate
-    User.findOne({"local.username": username }, (err, userMatch) =>{
+    db.Tech.findOne({contact: req.body.contact}, (err, userMatch) =>{
         if (userMatch) {
             return res.json({
                 error: `Already a user with the username: ${username}`
             })
         };
-        const newUser = new User({
+        /*
+        const newUser = {
             "local.username": username,
             "local.password": password,
-        });
+        };
+        db.Tech
+            .create(newUser)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+        
+
         newUser.save((err, savedUser) =>{
             if (err) return res.json(err)
             return res.json(savedUser)
-        });
+        }); */
+        console.log("user should be saved here");
+        
     })
 });
 

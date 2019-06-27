@@ -28,7 +28,11 @@ class Register extends Component {
     axios
         .post('/auth/signup', {
             username: this.state.contact,
-            password: this.state.password
+            password: this.state.password,
+            specialty: this.state.specialty,
+            name: this.state.name,
+            permission: this.state.permission,
+            image: this.state.image
         })
         .then(response => {
             console.log(response)
@@ -39,6 +43,8 @@ class Register extends Component {
                 })
             } else {
                 console.log('duplicate')
+                console.log(response.data.errmsg);
+                
             }
         })
 };
