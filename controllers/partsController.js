@@ -22,7 +22,6 @@ module.exports = {
     },
     update: function (req, res) {
         console.log(req.body);
-        req.body.status = "assigned";
         db.PartsRequest
             .findOneAndUpdate({ _id: req.params.id }, {$set:req.body}, {new: true})
             .then(dbModel => res.json(dbModel))
