@@ -2,7 +2,7 @@
 
 **Udpating the Parts Interface for Franklin Chrysler Dodge Jeep Ram Website by:**
 
-* Creating a Customer Query Form that takes in the customer and vehvile data
+* Creating a Customer Query Form that takes in the customer and vehicle data
 * Send collected data to the Parts Manager to be assigned to a specific Parts Specialist
 * The Parts Specialist recieves the assigned Query as a workorder
 * An auto generated email is sent to the customer when assigned with a time table to completion
