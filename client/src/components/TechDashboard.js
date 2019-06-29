@@ -17,11 +17,11 @@ class TechDashboard extends Component {
 
     componentDidMount() {
         this.loadTech(this.state.techID);
-        this.loadPartsQuery(this.state.techID);
+        this.loadPartsQuery(this.state.techID, "assigned");
     };
 
-    loadPartsQuery = (tech) => {
-        partsAPI.getPartsRequestsByTech(tech)
+    loadPartsQuery = (tech, status) => {
+        partsAPI.getPartsRequestsByTechAndStatus(tech, status)
             .then(res => {
                 this.setState({ CusPartsQuery: res.data })
             })
@@ -43,6 +43,27 @@ class TechDashboard extends Component {
                 <h1>{this.state.techObj.name}'s dashboard</h1>
                 <hr className="my-4"></hr>
 
+                <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: "#ececec" }}>
+                    <Nav.Item className="tabs">
+                        <Nav.Link
+                            eventKey="assigned"
+                            title="Assigned"
+                            onClick={() => this.loadPartsQuery(this.state.techID, "assigned")}
+                        >
+                            Assigned
+                        </Nav.Link>
+                    </Nav.Item>
+
+                    <Nav.Item className="tabs">
+                        <Nav.Link
+                            eventKey="completed"
+                            title="Completed"
+                            onClick={() => this.loadPartsQuery(this.state.techID, "completed")}
+                        >
+                            Completed
+                        </Nav.Link>
+                    </Nav.Item>
+                </Nav>
 
                 <Table striped bordered hover>
                     <thead>
