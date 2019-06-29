@@ -38,7 +38,8 @@ class MgrDashboard extends Component {
 
                 <h1>{this.state.techObj.name}'s dashboard</h1>
                 <hr className="my-4"></hr>
-                <Nav variant="tabs" defaultActiveKey="/requested" style={{background:"#ececec"}}>
+             
+                <Nav variant="tabs" defaultActiveKey="/requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="requested"
