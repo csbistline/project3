@@ -33,9 +33,6 @@ function QueryCard(props) {
                     </ListGroup>
                     <br></br>
                     {modal}
-                    {/*<SelectTechModal 
-                    {...props}
-                    />*/}
             </Card.Body>
         </Card>
         </div>
