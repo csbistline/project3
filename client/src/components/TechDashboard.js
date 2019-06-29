@@ -118,7 +118,7 @@ class TechDashboard extends Component {
                                     </Link>
                                 </td>
                                 <td className="align-middle">
-                                    {(Query.status === "completed") ? "" :
+                                    {(Query.status === "completed") ? "COMPLETED" :
 
                                     <Button 
                                         className="btn btn-primary myButton" 
