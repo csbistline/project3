@@ -5,6 +5,9 @@ export default {
     getPartsRequests: function(status) {
         return axios.get("/api/parts?status=" + status);
     },
+    getPartsRequestsByTech: function(tech) {
+        return axios.get("/api/parts?assignee=" + tech);
+    },
     // Gets the parts request with the given id
     getPartsRequest: function(id) {
         return axios.get("/api/parts/" + id);
