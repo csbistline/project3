@@ -3,25 +3,25 @@ import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
 import ConfirmModal from "./ConfirmModal"
-const axios = require("axios");
+const unirest = require("unirest");
 
 
 class RequestForm extends Component {
 
-    state = {
+        state = {
 
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        email: "",
-        vin: "",
-        year: "",
-        make: "",
-        model: "",
-        message: ""
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email: "",
+            vin: "",
+            year: "",
+            make: "",
+            model: "",
+            message: ""
 
-    }
-
+        }
+    
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = event.target;
@@ -32,7 +32,7 @@ class RequestForm extends Component {
         });
     };
 
-    validate() {
+    validate = () => {
 
         if (
             this.state.firstName.trim() !== "" &&
@@ -42,20 +42,21 @@ class RequestForm extends Component {
 
         ) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     vinCheck = (vinNum) => {
 
-        axios.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
+        unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
             .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
             .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
             .end(function (result) {
-                if (result.success === false) {
-                    return false
-                } else {
+                if (result.success === true) {
                     return true
+                } else {
+                    return false
                 }
             });
     }
