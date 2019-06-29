@@ -6,7 +6,6 @@ const Main = () => {
     return (
         <div>
             <div className="row pt-4">
-
                 <div className="col-md-8 pt-4">
                     <div className="container">
                         <img className="img-fluid mx-auto d-block" src="./assets/img/serviceImg02.jpg" alt="Franklin Chrysler Dodge Jeep Ram in Franklin TN Service" />
@@ -21,12 +20,9 @@ const Main = () => {
                     </div>
                     </div>
                 </div>
-
                 <div className="col-md-4 pt-4">
                     <Contacts />
-
                 </div>
-
             </div>
         </div>
     );
