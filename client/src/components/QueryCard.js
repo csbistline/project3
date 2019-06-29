@@ -2,6 +2,9 @@ import React from "react";
 import ListGroup from 'react-bootstrap/ListGroup'
 import Card from "react-bootstrap/Card";
 import SelectTechModal from './SelectTechModal';
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 
 
 function QueryCard(props) {
@@ -15,9 +18,14 @@ function QueryCard(props) {
         <div className="col-md-10 pt-4 d-flex flex-wrap justify-content-around">
 
         <Card style={{ width: '80%' }}>
-            <Card.Header as="h5"></Card.Header>
+            <Card.Header as="h5">Customer Parts Query</Card.Header>
                 <Card.Body>
-                    <Card.Title as="h5">Customer Parts Query</Card.Title>
+                    <Card.Title as="h6">
+                        {`Created on: `} 
+                        <Moment format="LLLL">
+                            {props.createdAt}
+                        </Moment>
+                    </Card.Title>
                     <ListGroup className="list-group">
                         <ListGroup.Item>NAME: {props.firstName} {props.lastName}</ListGroup.Item>
                         <ListGroup.Item>PHONE: {props.phoneNumber}</ListGroup.Item>
