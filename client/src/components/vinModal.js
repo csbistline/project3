@@ -36,7 +36,7 @@ class VinModal extends React.Component {
             </Modal.Header>
             <Modal.Body><Image fluid src={"https://static.carmd.com/CMSResources/image/VIN-location.jpg"} alt="Vin Location" /></Modal.Body>
             <Modal.Footer>
-              <Button variant="primary" onClick={this.handleClose}>
+              <Button className="myButton" variant="primary" onClick={this.handleClose}>
                 Close
               </Button>
              
