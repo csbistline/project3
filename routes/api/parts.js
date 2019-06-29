@@ -13,4 +13,10 @@ router
     .put(partsController.update)
     .delete(partsController.remove);
 
+router
+    .route("/:id&/:status")
+    .get(partsController.findById)
+    .put(partsController.update)
+    .delete(partsController.remove);
+
 module.exports = router;

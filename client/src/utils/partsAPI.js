@@ -8,6 +8,9 @@ export default {
     getPartsRequestsByTech: function(tech) {
         return axios.get("/api/parts?assignee=" + tech);
     },
+    getPartsRequestsByTechAndStatus: function(tech, status) {
+        return axios.get("/api/parts?assignee=" + tech + "&status=" + status);
+    },
     // Gets the parts request with the given id
     getPartsRequest: function(id) {
         return axios.get("/api/parts/" + id);
