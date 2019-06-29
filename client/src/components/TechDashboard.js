@@ -92,7 +92,6 @@ class TechDashboard extends Component {
                             <th>Customer Email</th>
                             <th>VIN</th>
                             <th>Details</th>
-                            <th>Query Status</th>
                             <th>Complete Order</th>
                         </tr>
                     </thead>
@@ -118,7 +117,6 @@ class TechDashboard extends Component {
                                         </Button>
                                     </Link>
                                 </td>
-                                <td className="align-middle">{Query.status}</td>
                                 <td className="align-middle">
                                     {(Query.status === "completed") ? "" :
 
