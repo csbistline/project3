@@ -23,7 +23,7 @@ class TechDashboard extends Component {
     return(
       <div className="containerFluid">
         <br />
-        <h1>Welcome Back (Insert Tech Name)</h1>
+        <h1>Welcome Back</h1>
         <hr className="my-4"></hr>
         <br></br>
         <Table striped bordered hover>
