@@ -15,8 +15,8 @@ export default {
     getPartsRequest: function(id) {
         return axios.get("/api/parts/" + id);
     },
-    updatePartsRequestAssigned: function(id, assignee) {
-        return axios.put("/api/parts/" + id, {assignee: assignee, status: "assigned"});
+    updatePartsRequestAssigned: function(id, assignee, assigneeName) {
+        return axios.put("/api/parts/" + id, {assignee: assignee, assigneeName: assigneeName,status: "assigned"});
     },
     updatePartsRequestCompleted: function(id) {
         return axios.put("/api/parts/" + id, {status: "completed"});
