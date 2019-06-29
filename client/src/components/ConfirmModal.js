@@ -33,7 +33,7 @@ class ConfirmModal extends React.Component {
         if (
             this.props.formData.firstName.trim() !== "" &&
             this.props.formData.lastName.trim() !== "" &&
-            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.props.formData.email)
+            /^\w+([-]?\w+)*@\w+([-]?\w+)*(\w{2,3})+$/.test(this.props.formData.email)
         ) {
             return true;
         }

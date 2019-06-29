@@ -39,7 +39,7 @@ class PartsTeam extends Component {
                                     contact={tech.contact}
                                 />
                             ))}
-                        </div>
+                    </div>
 
                     <div className="col-md-4 pt-4">
                         <Contacts />
