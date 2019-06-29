@@ -21,7 +21,7 @@ class MgrDashboard extends Component {
         return(
             <div >
                 <br />
-                <h1>Welcome Back (Insert Mgr Name)</h1>
+                <h1>Welcome Back</h1>
                 <hr className="my-4"></hr>
              
                 <Nav variant="tabs" defaultActiveKey="/requested" style={{background:"#ececec"}}>
