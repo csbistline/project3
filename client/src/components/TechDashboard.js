@@ -5,7 +5,8 @@ import techAPI from "../utils/techsAPI";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
-
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class TechDashboard extends Component {
 
@@ -68,6 +69,7 @@ class TechDashboard extends Component {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
+                            <th>Date Created</th>
                             <th>Customer Name</th>
                             <th>Customer Phone</th>
                             <th>Customer Email</th>
@@ -79,6 +81,11 @@ class TechDashboard extends Component {
                     <tbody>
                         {this.state.CusPartsQuery.map(Query => (
                             <tr key={Query._id}>
+                                <td className="align-middle">
+                                    <Moment format="YYYY/MM/DD">
+                                        {Query.createdAt}
+                                    </Moment>
+                                </td>
                                 <td className="align-middle">{Query.firstName} {Query.lastName}</td>
                                 <td className="align-middle">{Query.phoneNumber}</td>
                                 <td className="align-middle">{Query.email}</td>
