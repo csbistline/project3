@@ -3,6 +3,7 @@ import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
 import ConfirmModal from "./ConfirmModal"
+const axios = require("axios");
 
 
 class RequestForm extends Component {
@@ -32,10 +33,13 @@ class RequestForm extends Component {
     };
 
     validate() {
+
         if (
-            this.props.formData.firstName.trim() !== "" &&
-            this.props.formData.lastName.trim() !== "" &&
-            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.props.formData.email)
+            this.state.firstName.trim() !== "" &&
+            this.state.lastName.trim() !== "" &&
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) &&
+            this.vinCheck(this.state.vin)
+
         ) {
             return true;
         }
@@ -48,7 +52,11 @@ class RequestForm extends Component {
             .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
             .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
             .end(function (result) {
-                console.log(result.status, result.headers, result.body);
+                if (result.success === false) {
+                    return false
+                } else {
+                    return true
+                }
             });
     }
 
@@ -218,7 +226,7 @@ class RequestForm extends Component {
                                         rows="4"></textarea>
                                 </div>
 
-                                <ConfirmModal formData={this.state} sendData={this.sendFormData} />
+                                <ConfirmModal formData={this.state} sendData={this.sendFormData} validate={this.validate} />
                             </form>
 
                         </div>
