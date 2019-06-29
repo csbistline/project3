@@ -22,8 +22,7 @@ function QueryCard(props) {
                      as={Card.Header} eventKey="0"
                      >
                         <Card.Header as="h5" style={{background: '#ffff'}}>
-                        Customer Query:<br />   
-                        {props.firstName} {props.lastName}<br /> 
+                        Customer: {props.firstName} {props.lastName}<br /> 
                         {`Submitted: `} 
                             <Moment format="LLLL">
                             {props.createdAt}
