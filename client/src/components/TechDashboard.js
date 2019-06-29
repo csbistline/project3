@@ -37,7 +37,15 @@ class TechDashboard extends Component {
             })
     };
 
+    updateParts = (id) => {
+        partsAPI.updatePartsRequestCompleted(id)
+          .then(res => {
+              console.log(res);
+          });
+      };
+
     render() {
+        
         return (
             <div className="containerFluid">
                 <br />
@@ -80,6 +88,7 @@ class TechDashboard extends Component {
                     </thead>
                     <tbody>
                         {this.state.CusPartsQuery.map(Query => (
+                            
                             <tr key={Query._id}>
                                 <td className="align-middle">
                                     <Moment format="YYYY/MM/DD">
@@ -99,7 +108,16 @@ class TechDashboard extends Component {
                                         </Button>
                                     </Link>
                                 </td>
-                                <td className="align-middle">{Query.status}</td>
+                                <td className="align-middle">{Query.status}
+                                    {(Query.status === "completed") ? "" : <Button 
+                                        className="btn btn-primary myButton" 
+                                        size="sm"
+                                        onClick={() => this.updateParts(Query._id)}
+                                    >
+                                        Complete Order
+                                    </Button>}
+                            
+                                </td>
                             </tr>
                         ))}
                     </tbody>
