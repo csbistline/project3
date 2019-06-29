@@ -18,13 +18,18 @@ function QueryCard(props) {
         <div className="col-md-10 pt-4 d-flex flex-wrap justify-content-around">
             <Accordion defaultKey="0">
                 <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="0">
-                        <Card.Header as="h5">Customer Query:<br />   
+                    <Accordion.Toggle
+                     as={Card.Header} eventKey="0"
+                     >
+                        <Card.Header as="h5" style={{background: '#ffff'}}>
+                        Customer Query:<br />   
                         {props.firstName} {props.lastName}<br /> 
-                        {`Created: `} 
+                        {`Submitted: `} 
                             <Moment format="LLLL">
                             {props.createdAt}
                             </Moment>
+                            <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                                click box to expand/collapse</p>
                         </Card.Header>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
