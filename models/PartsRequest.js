@@ -10,6 +10,9 @@ var PartsRequestSchema = new Schema({
     assignee:{
         type: String, default: null 
     },
+    assigneeName:{
+        type: String, default: null
+    },
     firstName: {
         type: String,
         required: true
