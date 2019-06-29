@@ -7,7 +7,7 @@ export default {
     },
     // Gets the tech with the given id
     getTech: function(id) {
-        return axios.get("/api/tech/" + id);
+        return axios.get("/api/techs/" + id);
     },
     // Deletes the tech with the given id
     deleteTech: function(id) {

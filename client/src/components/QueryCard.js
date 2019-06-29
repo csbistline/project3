@@ -5,6 +5,12 @@ import SelectTechModal from './SelectTechModal';
 
 
 function QueryCard(props) {
+    let modal;
+    if(!props.assignee){
+        modal = <SelectTechModal 
+        {...props}
+        />
+    }
     return(
         <div className="col-md-10 pt-4 d-flex flex-wrap justify-content-around">
 
@@ -23,12 +29,10 @@ function QueryCard(props) {
                         <ListGroup.Item>
                             ADDL INFO: {props.message}
                         </ListGroup.Item>
-                        <ListGroup.Item>TECH ASSIGNED:</ListGroup.Item>
+                        <ListGroup.Item>TECH ASSIGNED: {props.assigneeName}</ListGroup.Item>
                     </ListGroup>
                     <br></br>
-                    <SelectTechModal 
-                    {...props}
-                    />
+                    {modal}
             </Card.Body>
         </Card>
         </div>
