@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav } from 'react-bootstrap'
+import { Nav, Image } from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment';
 import 'moment-timezone';
+// import QueryCard from "./QueryCard"
 
 class TechDashboard extends Component {
 
@@ -49,10 +50,18 @@ class TechDashboard extends Component {
         return (
             <div className="containerFluid">
                 <br />
-                <h1>{this.state.techObj.name}'s dashboard</h1>
+                <Image
+                    style={{width: '10rem', height: 'auto', marginLeft: '3%'}} 
+                    alt={this.state.techObj.name}
+                    src={this.state.techObj.image}
+                    thumbnail
+                />
+                <h1 style={{marginLeft: '3%'}}>
+                    {this.state.techObj.name}'s Dashboard
+                </h1>
                 <hr className="my-4"></hr>
 
-                <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: "#ececec" }}>
+                <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="assigned"
@@ -73,7 +82,7 @@ class TechDashboard extends Component {
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
-
+        
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -84,6 +93,7 @@ class TechDashboard extends Component {
                             <th>VIN</th>
                             <th>Details</th>
                             <th>Query Status</th>
+                            <th>Complete Order</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,8 +118,11 @@ class TechDashboard extends Component {
                                         </Button>
                                     </Link>
                                 </td>
-                                <td className="align-middle">{Query.status}
-                                    {(Query.status === "completed") ? "" : <Button 
+                                <td className="align-middle">{Query.status}</td>
+                                <td className="align-middle">
+                                    {(Query.status === "completed") ? "" :
+
+                                    <Button 
                                         className="btn btn-primary myButton" 
                                         size="sm"
                                         onClick={() => this.updateParts(Query._id)}

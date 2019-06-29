@@ -5,22 +5,25 @@ import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 
 
-class MgrDashboard extends Component {
+class TechDashboard2 extends Component {
+
     state = {
-        techID: "5d0bedf59fd8049a01950f58", //Michael Scot
+        techID: "5d0bedf59fd8049a01950f59",
         techObj: {},
-        assignTech: []
-    }
+        CusPartsQuery: []
+    };
+
     componentDidMount() {
         this.loadTech(this.state.techID);
-        this.loadQuery("requested");
-    }
-    loadQuery = (status) => {
-        partsAPI.getPartsRequests(status)
+        this.loadPartsQuery(this.state.techID, "assigned");
+    };
+
+    loadPartsQuery = (tech, status) => {
+        partsAPI.getPartsRequestsByTechAndStatus(tech, status)
             .then(res => {
-                this.setState({ assignTech: res.data })
+                this.setState({ CusPartsQuery: res.data })
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
     };
 
     loadTech = (tech) => {
@@ -30,6 +33,13 @@ class MgrDashboard extends Component {
                 this.setState({ techObj: res.data })
             })
     };
+
+    updateParts = (id) => {
+        partsAPI.updatePartsRequestCompleted(id)
+          .then(res => {
+              console.log(res);
+          });
+      };
 
     render() {
         return (
@@ -46,16 +56,7 @@ class MgrDashboard extends Component {
                 </h1>
                 <hr className="my-4"></hr>
                
-                <Nav variant="tabs" defaultActiveKey="/requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
-                    <Nav.Item className="tabs">
-                        <Nav.Link
-                            eventKey="requested"
-                            title="Requested"
-                            onClick={() => this.loadQuery("requested")}
-                        >
-                            Requested
-                        </Nav.Link>
-                    </Nav.Item>
+                <Nav variant="tabs" defaultActiveKey="/assigned" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="assigned"
@@ -65,7 +66,7 @@ class MgrDashboard extends Component {
                             Assigned
                         </Nav.Link>
                     </Nav.Item>
-                    <Nav.Item className="tabs">
+                    {/* <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="completed"
                             title="Completed"
@@ -73,7 +74,7 @@ class MgrDashboard extends Component {
                         >
                             Completed
                         </Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                 </Nav>
                 {this.state.assignTech.map(Query => (
                     <QueryCard
@@ -86,4 +87,4 @@ class MgrDashboard extends Component {
     }
 };
 
-export default MgrDashboard;
+export default TechDashboard2;
