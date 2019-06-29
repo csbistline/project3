@@ -35,9 +35,13 @@ app.post('/api/sendEmail', (req, res) => {
         from: `gutleberb@gmail.com`,
         to: data.email,
         subject: 'We Recieved your parts request',
-        html: `<p>${data.name}</p>
-            <p>${data.email}</p>
-            <p>${data.message}</p>`
+        html: `<p>Hello, ${data.name}</p>
+            <p>  Thank yout for your Parts Request.  
+            We will be in contact to complete your order within 24 hours. 
+            Please review the your work order below and reply to this email with any questions or corrections.  
+            We appreciate your Business and look forward to meeting all of your Parts and Service needs.</p>
+            <hr>
+            <p>Your request: ${data.message}</p>`
     };
 
     smtpTransport.sendMail(mailOptions,

@@ -3,24 +3,25 @@ import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
 import ConfirmModal from "./ConfirmModal"
+const unirest = require("unirest");
 
 
 class RequestForm extends Component {
 
-    state = {
+        state = {
 
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        email: "",
-        vin: "",
-        year: "",
-        make: "",
-        model: "",
-        message: ""
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email: "",
+            vin: "",
+            year: "",
+            make: "",
+            model: "",
+            message: ""
 
-    }
-
+        }
+    
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = event.target;
@@ -30,6 +31,35 @@ class RequestForm extends Component {
             [name]: value
         });
     };
+
+    validate = () => {
+
+        if (
+            this.state.firstName.trim() !== "" &&
+            this.state.lastName.trim() !== "" &&
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) &&
+            this.vinCheck(this.state.vin)
+
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    vinCheck = (vinNum) => {
+
+        unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
+            .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
+            .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
+            .end(function (result) {
+                if (result.success === true) {
+                    return true
+                } else {
+                    return false
+                }
+            });
+    }
 
     sendFormData = () => {
 
@@ -63,146 +93,146 @@ class RequestForm extends Component {
     render() {
         return (
             <div>
-                    <div className="row pt-4 " >
-                        <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around animated bounceInLeft">
-                            <div className="jumbotron">
-                                <h1 className="display-4"><b>Parts Request Form</b></h1>
-                                <p className="lead">Enter your contact and vehicle information below and a Parts Specialist will get back to you shortly.</p>
-                                <hr className="my-4"></hr>
-                                <form>
+                <div className="row pt-4 " >
+                    <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around animated bounceInLeft">
+                        <div className="jumbotron">
+                            <h1 className="display-4"><b>Parts Request Form</b></h1>
+                            <p className="lead">Enter your contact and vehicle information below and a Parts Specialist will get back to you shortly.</p>
+                            <hr className="my-4"></hr>
+                            <form>
 
-                                    <div className="form-group">
-                                        <label htmlFor="firstName">First Name</label>
-                                        <input type="text"
-                                            className="form-control"
-                                            name="firstName"
-                                            value={this.state.firstName || ""}
-                                            onChange={this.handleInputChange}
-                                            id="firstName"
-                                            placeholder="First Name"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="firstName">First Name</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        name="firstName"
+                                        value={this.state.firstName || ""}
+                                        onChange={this.handleInputChange}
+                                        id="firstName"
+                                        placeholder="First Name"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="lastName">Last Name</label>
-                                        <input type="text"
-                                            className="form-control"
-                                            name="lastName"
-                                            value={this.state.lastName}
-                                            onChange={this.handleInputChange}
-                                            id="firstName"
-                                            placeholder="Last Name"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="lastName">Last Name</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        name="lastName"
+                                        value={this.state.lastName}
+                                        onChange={this.handleInputChange}
+                                        id="firstName"
+                                        placeholder="Last Name"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="phoneNumber">Phone Number</label>
-                                        <input type="tel"
-                                            className="form-control"
-                                            name="phoneNumber"
-                                            value={this.state.phoneNumber}
-                                            onChange={this.handleInputChange}
-                                            id="phoneNumber"
-                                            placeholder="(555) 555 - 5555"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="phoneNumber">Phone Number</label>
+                                    <input type="tel"
+                                        className="form-control"
+                                        name="phoneNumber"
+                                        value={this.state.phoneNumber}
+                                        onChange={this.handleInputChange}
+                                        id="phoneNumber"
+                                        placeholder="(555) 555 - 5555"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="email">Email address</label>
-                                        <input type="email"
-                                            className="form-control"
-                                            name="email"
-                                            value={this.state.email}
-                                            onChange={this.handleInputChange}
-                                            id="email"
-                                            aria-describedby="emailHelp"
-                                            placeholder="Enter email"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="email">Email address</label>
+                                    <input type="email"
+                                        className="form-control"
+                                        name="email"
+                                        value={this.state.email}
+                                        onChange={this.handleInputChange}
+                                        id="email"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter email"
+                                        required>
 
-                                        </input>
-                                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                                    </div>
+                                    </input>
+                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="vin">Vin Number</label>
-                                        {/* insert modal link */}
-                                        <VinModal />
-                                        <input type="text"
-                                            className="form-control"
-                                            name="vin"
-                                            value={this.state.vin}
-                                            onChange={this.handleInputChange}
-                                            id="vin"
-                                            placeholder="VIN #"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="vin">Vin Number</label>
+                                    {/* insert modal link */}
+                                    <VinModal />
+                                    <input type="text"
+                                        className="form-control"
+                                        name="vin"
+                                        value={this.state.vin}
+                                        onChange={this.handleInputChange}
+                                        id="vin"
+                                        placeholder="VIN #"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="vin">Vehicle Year</label>
-                                        <input type="number"
-                                            className="form-control"
-                                            name="year"
-                                            value={this.state.year}
-                                            onChange={this.handleInputChange}
-                                            id="year"
-                                            placeholder="Year"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="vin">Vehicle Year</label>
+                                    <input type="number"
+                                        className="form-control"
+                                        name="year"
+                                        value={this.state.year}
+                                        onChange={this.handleInputChange}
+                                        id="year"
+                                        placeholder="Year"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="make">Vehicle Make</label>
-                                        <input type="text"
-                                            className="form-control"
-                                            name="make"
-                                            value={this.state.make}
-                                            onChange={this.handleInputChange}
-                                            id="make"
-                                            placeholder="Make"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="make">Vehicle Make</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        name="make"
+                                        value={this.state.make}
+                                        onChange={this.handleInputChange}
+                                        id="make"
+                                        placeholder="Make"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="model">Vehicle Model</label>
-                                        <input type="text"
-                                            className="form-control"
-                                            name="model"
-                                            value={this.state.model}
-                                            onChange={this.handleInputChange}
-                                            id="model"
-                                            placeholder="Model"
-                                            required>
+                                <div className="form-group">
+                                    <label htmlFor="model">Vehicle Model</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        name="model"
+                                        value={this.state.model}
+                                        onChange={this.handleInputChange}
+                                        id="model"
+                                        placeholder="Model"
+                                        required>
 
-                                        </input>
-                                    </div>
+                                    </input>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="message">Write your message here...</label>
-                                        <textarea className="form-control"
-                                            name="message"
-                                            value={this.state.message}
-                                            onChange={this.handleInputChange}
-                                            id="message"
-                                            rows="4"></textarea>
-                                    </div>
+                                <div className="form-group">
+                                    <label htmlFor="message">Write your message here...</label>
+                                    <textarea className="form-control"
+                                        name="message"
+                                        value={this.state.message}
+                                        onChange={this.handleInputChange}
+                                        id="message"
+                                        rows="4"></textarea>
+                                </div>
 
-                                    <ConfirmModal formData={this.state} sendData={this.sendFormData} />
-                                </form>
+                                <ConfirmModal formData={this.state} sendData={this.sendFormData} validate={this.validate} />
+                            </form>
 
-                            </div>
                         </div>
-            
+                    </div>
+
                     <div className="col-md-4 pt-4">
                         <Contacts />
                     </div>
