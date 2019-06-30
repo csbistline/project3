@@ -15,15 +15,14 @@ function QueryCard(props) {
         />
     }
     return(
-        <div className="col-md-10 pt-4 d-flex flex-wrap justify-content-around">
+        <div >
             <Accordion defaultKey="0">
                 <Card>
                     <Accordion.Toggle
                      as={Card.Header} eventKey="0"
                      >
                         <Card.Header as="h5" style={{background: '#ffff'}}>
-                        Customer Query:<br />   
-                        {props.firstName} {props.lastName}<br /> 
+                        Customer: {props.firstName} {props.lastName}<br /> 
                         {`Submitted: `} 
                             <Moment format="LLLL">
                             {props.createdAt}
@@ -34,12 +33,6 @@ function QueryCard(props) {
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                            {/* <Card.Title as="h6">
-                            {`Created on: `} 
-                                <Moment format="LLLL">
-                                    {props.createdAt}
-                                </Moment>
-                            </Card.Title> */}
                             <ListGroup className="list-group">
                                 <ListGroup.Item>NAME: {props.firstName} {props.lastName}</ListGroup.Item>
                                 <ListGroup.Item>PHONE: {props.phoneNumber}</ListGroup.Item>
