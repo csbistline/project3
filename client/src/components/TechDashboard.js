@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Image } from 'react-bootstrap'
+import { Nav, Image} from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment';
@@ -48,7 +48,7 @@ class TechDashboard extends Component {
     render() {
         
         return (
-            <div className="containerFluid">
+            <div className="containerFluid"  style={{marginTop: '5%'}}>
                 <br />
                 <Image
                     style={{width: '10rem', height: 'auto', marginLeft: '3%'}} 
@@ -82,7 +82,7 @@ class TechDashboard extends Component {
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
-        
+                
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -91,13 +91,17 @@ class TechDashboard extends Component {
                             <th>Customer Phone</th>
                             <th>Customer Email</th>
                             <th>VIN</th>
-                            <th>Details</th>
+                            <th>Vehicle Year</th>
+                            <th>Vehicle Make</th>
+                            <th>Vehicle Model</th>
+                            <th>Req Details</th>
                             <th>Complete Order</th>
                         </tr>
                     </thead>
+                   
                     <tbody>
                         {this.state.CusPartsQuery.map(Query => (
-                            
+                          
                             <tr key={Query._id}>
                                 <td className="align-middle">
                                     <Moment format="YYYY/MM/DD">
@@ -108,18 +112,12 @@ class TechDashboard extends Component {
                                 <td className="align-middle">{Query.phoneNumber}</td>
                                 <td className="align-middle">{Query.email}</td>
                                 <td className="align-middle">{Query.vin}</td>
-                                <td className="align-middle">
-                                    {/* link to specific QueryCard */}
-                                    <Link to="/WorkOrder">
-                                        <Button variant="link"
-                                            data-id={Query._id}>
-                                            View Query
-                                        </Button>
-                                    </Link>
-                                </td>
+                                <td className="align-middle">{Query.year}</td>
+                                <td className="align-middle">{Query.make}</td>
+                                <td className="align-middle">{Query.model}</td>
+                                <td className="align-middle">{Query.message}</td>
                                 <td className="align-middle">
                                     {(Query.status === "completed") ? "COMPLETED" :
-
                                     <Button 
                                         className="btn btn-primary myButton" 
                                         size="sm"
@@ -127,9 +125,8 @@ class TechDashboard extends Component {
                                     >
                                         Complete Order
                                     </Button>}
-                            
                                 </td>
-                            </tr>
+                           </tr>
                         ))}
                     </tbody>
                 </Table>
