@@ -33,6 +33,7 @@ class RequestForm extends Component {
             [name]: value
         });
     }
+    
 
     vinCheck = (vinNum) => {
 
@@ -47,7 +48,7 @@ class RequestForm extends Component {
                 }
             });
     }
-    
+
     sendFormData = event => {
         event.preventDefault();
         partsAPI.savePartsRequest({
