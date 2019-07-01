@@ -91,7 +91,7 @@ class RequestForm extends Component {
                         <ValidatorForm
                             ref="form"
                             onSubmit={this.handleSubmit}
-                            onError={alert("Errors")}
+                            //onError={alert("Errors")}
                         >
                             First Name
                                 <TextValidator
@@ -99,8 +99,8 @@ class RequestForm extends Component {
                                 label="firstName"
                                 name="firstName"
                                 value={this.state.firstName}
-                                validators={['required']}
-                                errorMessages={['Please enter your first name']}
+                                validators={['required', 'isString']}
+                                errorMessages={['Please enter your first name', 'not a valid name']}
                             />
                             Last Name
                                 <TextValidator
@@ -109,7 +109,7 @@ class RequestForm extends Component {
                                 name="lastName"
                                 value={this.state.lastName}
                                 validators={['required', 'isString']}
-                                errorMessages={['Please enter your last name']}
+                                errorMessages={['Please enter your last name', 'not a valid name']}
                             />
                             Phone Number
                                 <TextValidator
