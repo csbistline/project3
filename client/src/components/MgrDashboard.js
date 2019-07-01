@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav, Image } from 'react-bootstrap'
+import { Nav, Image, Row, Col } from 'react-bootstrap'
 import QueryCard from "./QueryCard";
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
@@ -33,7 +33,7 @@ class MgrDashboard extends Component {
 
     render() {
         return (
-            <div >
+            <div style={{ marginTop: '5%'}} >
                 <br />
                 <Image
                     style={{width: '10rem', height: 'auto', marginLeft: '3%'}} 
