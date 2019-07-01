@@ -22,18 +22,8 @@ class RequestForm extends Component {
         make: "",
         model: "",
         message: "",
-        errors: {
-            firstName: "",
-            lastName: "",
-            phoneNumber: "",
-            email: "",
-            vin: "",
-            year: "",
-            make: "",
-            model: "",
-            message: ""
-        }
     }
+
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = event.target;
@@ -72,8 +62,6 @@ class RequestForm extends Component {
             })
             .catch(err => console.log(err));
     };
-
-
 
     render() {
         return (
@@ -171,11 +159,9 @@ class RequestForm extends Component {
                                     rows="4"></textarea>
                             </div>
 
-
                             <ConfirmModal formData={this.state} sendData={this.sendFormData} />
 
                         </ValidatorForm>
-
 
                     </div>
                 </div>
