@@ -30,8 +30,8 @@ class ConfirmModal extends React.Component {
     }
 
 
-    confirmAndSendData = event => {
-        event.preventDefault();
+    confirmAndSendData = () => {
+
 
         this.props.sendData();
         this.setState({ show: false });
@@ -86,7 +86,7 @@ class ConfirmModal extends React.Component {
     render() {
         return (
             <>
-                <Button className="confirmBtn myButton"  onClick={this.handleShow}>
+                <Button className="confirmBtn myButton" type="submit" onClick={this.handleShow}>
                     submit
           </Button>
                 <Modal show={this.state.show} onHide={this.handleClose}>

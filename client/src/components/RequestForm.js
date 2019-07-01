@@ -5,7 +5,7 @@ import partsAPI from "../utils/partsAPI"
 import ConfirmModal from "./ConfirmModal"
 import { ValidatorForm } from 'react-form-validator-core';
 import TextValidator from "./TextValidate"
-import { isString } from 'util';
+import { Alert } from 'react-bootstrap';
 const unirest = require("unirest");
 
 
@@ -49,8 +49,8 @@ class RequestForm extends Component {
             });
     }
 
-    sendFormData = event => {
-        event.preventDefault();
+    sendFormData = () => {
+ 
         partsAPI.savePartsRequest({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -90,7 +90,8 @@ class RequestForm extends Component {
 
                         <ValidatorForm
                             ref="form"
-                            onSubmit={this.sendFormData}
+                            onSubmit={this.handleSubmit}
+                            onError={alert("Errors")}
                         >
                             First Name
                                 <TextValidator
@@ -174,7 +175,7 @@ class RequestForm extends Component {
                                     rows="4"></textarea>
                             </div>
 
-                            <ConfirmModal formData={this.state} sendData={this.sendFormData} />
+                            <ConfirmModal type="submit" formData={this.state} sendData={this.sendFormData} />
 
                         </ValidatorForm>
 
