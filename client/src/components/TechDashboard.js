@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Nav } from 'react-bootstrap'
+import { Nav, Image} from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment';
 import 'moment-timezone';
+// import QueryCard from "./QueryCard"
 
 class TechDashboard extends Component {
 
@@ -37,14 +38,31 @@ class TechDashboard extends Component {
             })
     };
 
-    render() {
-        return (
-            <div className="containerFluid">
-                <br />
-                <h1>{this.state.techObj.name}'s dashboard</h1>
-                <hr className="my-4"></hr>
+    updateParts = (id) => {
+        partsAPI.updatePartsRequestCompleted(id)
+          .then(res => {
+              console.log(res);
+          });
+      };
 
-                <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: "#ececec" }}>
+    render() {
+        
+        return (
+            <div className="containerFluid"  style={{marginTop: '5%'}}>
+                <div className="d-flex flex-wrap">
+                <br />
+                <Image
+                    style={{width: '5rem', height: 'auto', margin: '.5%'}} 
+                    alt={this.state.techObj.name}
+                    src={this.state.techObj.image}
+                    roundedCircle
+                />
+                <h1 style={{marginLeft: '1%', marginTop: '2%'}}>
+                    {this.state.techObj.name}'s Dashboard
+                </h1>
+                <hr className="my-4"></hr>
+                </div>
+                <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="assigned"
@@ -65,7 +83,7 @@ class TechDashboard extends Component {
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
-
+                
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -74,12 +92,24 @@ class TechDashboard extends Component {
                             <th>Customer Phone</th>
                             <th>Customer Email</th>
                             <th>VIN</th>
-                            <th>Details</th>
-                            <th>Query Status</th>
+                            <th>Vehicle Year</th>
+                            <th>Vehicle Make</th>
+                            <th>Vehicle Model</th>
+                            <th>Req Details</th>
+                            <th>Complete Order</th>
                         </tr>
                     </thead>
+                   
                     <tbody>
+
+                        <tr style={{background: 'lightgray'}}>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td><td></td>
+                        </tr>
+
                         {this.state.CusPartsQuery.map(Query => (
+                          
                             <tr key={Query._id}>
                                 <td className="align-middle">
                                     <Moment format="YYYY/MM/DD">
@@ -90,18 +120,29 @@ class TechDashboard extends Component {
                                 <td className="align-middle">{Query.phoneNumber}</td>
                                 <td className="align-middle">{Query.email}</td>
                                 <td className="align-middle">{Query.vin}</td>
+                                <td className="align-middle">{Query.year}</td>
+                                <td className="align-middle">{Query.make}</td>
+                                <td className="align-middle">{Query.model}</td>
+                                <td className="align-middle">{Query.message}</td>
                                 <td className="align-middle">
-                                    {/* link to specific QueryCard */}
-                                    <Link to="/WorkOrder">
-                                        <Button variant="link"
-                                            data-id={Query._id}>
-                                            View Query
-                                        </Button>
-                                    </Link>
+                                    {(Query.status === "completed") ? "COMPLETED" :
+                                    <Button 
+                                        className="btn btn-primary myButton" 
+                                        size="sm"
+                                        onClick={() => this.updateParts(Query._id)}
+                                    >
+                                        Complete Order
+                                    </Button>}
                                 </td>
-                                <td className="align-middle">{Query.status}</td>
-                            </tr>
+                           </tr>
                         ))}
+
+                        <tr style={{background: 'lightgray'}}>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td><td></td>
+                        </tr>
+  
                     </tbody>
                 </Table>
             </div>
