@@ -113,7 +113,7 @@ class RequestForm extends Component {
                                 label="phoneNumber "
                                 name="phoneNumber"
                                 value={this.state.phoneNumber}
-                                validators={['required', 'matchRegexp:^[0-9]$']}
+                                validators={['required', 'isNumber']}
                                 errorMessages={['Please enter your phone number', 'number is not valid']}
                             />
                             Email
@@ -140,7 +140,7 @@ class RequestForm extends Component {
                                 label="year"
                                 name="year"
                                 value={this.state.year}
-                                validators={['required', 'matchRegexp:^[0-9]$']}
+                                validators={['required', 'isNumber']}
                                 errorMessages={['Please enter your vehicles year', 'year is not valid']}
                             />
                             Vehicle Make
@@ -172,7 +172,8 @@ class RequestForm extends Component {
                             </div>
 
 
-                            <button className="btn-primary" type="submit">submit</button>
+                            <ConfirmModal formData={this.state} sendData={this.sendFormData} />
+
                         </ValidatorForm>
 
 
