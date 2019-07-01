@@ -49,18 +49,19 @@ class TechDashboard extends Component {
         
         return (
             <div className="containerFluid"  style={{marginTop: '5%'}}>
+                <div className="d-flex flex-wrap">
                 <br />
                 <Image
-                    style={{width: '10rem', height: 'auto', marginLeft: '3%'}} 
+                    style={{width: '5rem', height: 'auto', margin: '.5%'}} 
                     alt={this.state.techObj.name}
                     src={this.state.techObj.image}
-                    thumbnail
+                    roundedCircle
                 />
-                <h1 style={{marginLeft: '3%'}}>
+                <h1 style={{marginLeft: '1%', marginTop: '2%'}}>
                     {this.state.techObj.name}'s Dashboard
                 </h1>
                 <hr className="my-4"></hr>
-
+                </div>
                 <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
@@ -100,6 +101,13 @@ class TechDashboard extends Component {
                     </thead>
                    
                     <tbody>
+
+                        <tr style={{background: 'lightgray'}}>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td><td></td>
+                        </tr>
+
                         {this.state.CusPartsQuery.map(Query => (
                           
                             <tr key={Query._id}>
@@ -128,6 +136,13 @@ class TechDashboard extends Component {
                                 </td>
                            </tr>
                         ))}
+
+                        <tr style={{background: 'lightgray'}}>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td>
+                            <td></td><td></td><td></td><td></td>
+                        </tr>
+  
                     </tbody>
                 </Table>
             </div>
