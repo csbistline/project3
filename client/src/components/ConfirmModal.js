@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 const messagebird = require('messagebird')(`o1iRCJWUbe3c3smoFWogpPlwq`);
 const axios = require("axios");
 require("dotenv").config();
@@ -14,9 +12,8 @@ class ConfirmModal extends React.Component {
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.confirmAndSendData = this.confirmAndSendData.bind(this);
-        this.sendConfrimText = this.sendConfrimText.bind(this);
+        this.sendConfirmText = this.sendConfirmText.bind(this);
         this.sendConfirmEmail = this.sendConfirmEmail.bind(this);
-        this.notify = this.notify.bind(this);
 
         this.state = {
             show: false,
@@ -25,7 +22,6 @@ class ConfirmModal extends React.Component {
     }
 
 
-    notify = () => toast.success("Thank you for your request!");
 
     handleClose() {
         this.setState({ show: false });
@@ -40,16 +36,15 @@ class ConfirmModal extends React.Component {
 
     confirmAndSendData = () => {
 
-        this.notify();
         this.props.sendData();
         this.setState({ show: false });
         this.setState({ showConfrim: true })
-        this.sendConfrimText();
+        this.sendConfirmText();
         this.sendConfirmEmail();
 
     }
 
-    sendConfrimText = () => {
+    sendConfirmText = () => {
         messagebird.messages.create({
             originator: '+17328564308',
             recipients: `+17328564308`,
@@ -120,7 +115,6 @@ class ConfirmModal extends React.Component {
                         <Button variant="danger" onClick={this.handleClose}>
                             Cancel
               </Button>
-                        <ToastContainer />
                     </Modal.Footer>
                 </Modal>
 
