@@ -47,7 +47,7 @@ class MgrDashboard extends Component {
                 </h1>
                 <hr className="my-4"></hr>
                 </div>
-                <Nav variant="tabs" defaultActiveKey="/requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
+                <Nav variant="tabs" defaultActiveKey="requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="requested"
