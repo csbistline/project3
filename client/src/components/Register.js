@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Contacts from "./Contacts";
 import axios from "axios";
 
@@ -26,7 +26,7 @@ class Register extends Component {
     event.preventDefault()
     // TODO - validate!
     axios
-        .post('/auth/signup', {
+        .post("/auth/signup", {
             username: this.state.contact,
             password: this.state.password,
             specialty: this.state.specialty,
@@ -35,15 +35,15 @@ class Register extends Component {
             image: this.state.image
         })
         .then(response => {
-            console.log(response)
-            if (!response.data.errmsg) {
-                console.log('youre good')
+            console.log(response.data.error)
+            if (!response.data.error) {
+                console.log("you are sending")
                 this.setState({
-                    redirectTo: '/login'
+                    redirectTo: "/login"
                 })
             } else {
-                console.log('duplicate')
-                console.log(response.data.errmsg);
+                console.log("duplicate")
+                console.log(response.data.error);
                 
             }
         })

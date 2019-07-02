@@ -29,8 +29,8 @@ class LoginForm extends Component {
   sendFormData = event => {
       event.preventDefault();
         console.log('handleSubmit')
-        console.log(this.state.username);
-        console.log(this.state.password);      
+        // console.log(this.state.username);
+        // console.log(this.state.password);      
 		this._login(this.state.username, this.state.password)
 		this.setState({
 			redirectTo: '/'
@@ -131,13 +131,13 @@ class LoginForm extends Component {
                               <div className="form-group">
                                   <label htmlFor="password current-password">Password</label>
 
-                                  <input type="password current-password"
+                                  <input type="password"
 
                                       className="form-control current-password"
-                                      name="password current-password"
+                                      name="password"
                                       value={this.state.password}
                                       onChange={this.handleInputChange}
-                                      id="password current-password"
+                                      id="password"
                                       placeholder="Password">
 
                                   </input>

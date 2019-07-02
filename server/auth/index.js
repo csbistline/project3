@@ -23,7 +23,7 @@ router.post(
         console.log(req.body);
         console.log("===========");
         next()
-        console.log("check me");
+        // console.log("check me");
         
     })
 
@@ -41,19 +41,29 @@ router.post(
 
 router.post("/signup", (req,res) => {
     console.log(req.body);
+    const newUser = new User({
+        "local.username": req.body.username,
+        "local.password":  req.body.password,
+        "local.specialty":
+        req.body.specialty,
+        "local.name":
+        req.body.name,
+        "local.permission":
+        req.body.permission,
+    });
+    // console.log(newUser);
+    
     // const {username, password} = req.body
     //Validate
-    db.Tech.findOne({contact: req.body.contact}, (err, userMatch) =>{
-        if (userMatch) {
+    db.Tech.find({username: req.body.username}, (err, userMatch) =>{
+        if (userMatch.length) {
+            console.log("Ch3ck this: " + userMatch);
+            
             return res.json({
-                error: `Already a user with the username: ${username}`
+                error: `Already a user with the username: ${req.body.username}`
             })
         };
-        /*
-        const newUser = {
-            "local.username": username,
-            "local.password": password,
-        };
+        
         db.Tech
             .create(newUser)
             .then(dbModel => res.json(dbModel))
@@ -63,7 +73,7 @@ router.post("/signup", (req,res) => {
         newUser.save((err, savedUser) =>{
             if (err) return res.json(err)
             return res.json(savedUser)
-        }); */
+        }); 
         console.log("user should be saved here");
         
     })
