@@ -51,6 +51,7 @@ class LoginForm extends Component {
             })
             .then(res => {
                 console.log("in redirect phase");
+                sessionStorage.setItem("techID", this.state.loggedInUser._id);
                 this.renderRedirect();
             })
     };

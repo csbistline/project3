@@ -7,7 +7,7 @@ import techAPI from "../utils/techsAPI";
 
 class MgrDashboard extends Component {
     state = {
-        techID: "5d0bedf59fd8049a01950f58", //Michael Scot
+        techID: sessionStorage.getItem("techID"), //Michael Scot
         techObj: {},
         assignTech: []
     }
