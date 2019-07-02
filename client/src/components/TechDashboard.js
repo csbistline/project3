@@ -54,7 +54,7 @@ class TechDashboard extends Component {
                 <Image
                     style={{width: '5rem', height: 'auto', margin: '.5%'}} 
                     alt={this.state.techObj.name}
-                    src={this.state.techObj.image}
+                    src={this.state.techObj.image2}
                     roundedCircle
                 />
                 <h1 style={{marginLeft: '1%', marginTop: '2%'}}>
@@ -62,7 +62,7 @@ class TechDashboard extends Component {
                 </h1>
                 <hr className="my-4"></hr>
                 </div>
-                <Nav variant="tabs" defaultActiveKey="/assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)'}}>
+                <Nav variant="tabs" defaultActiveKey="assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="assigned"
