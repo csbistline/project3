@@ -18,43 +18,23 @@ if (process.env.NODE_ENV === "production") {
 // send confirmation email
 app.post('/api/sendEmail', (req, res) => {
     var data = req.body;
-
-    var smtpTransport = nodemailer.createTransport({
-        host: 'smtp.elasticemail.com',
-        port: 2525,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
-
-    var mailOptions = {
-        from: `gutleberb@gmail.com`,
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SG_API_KEY);
+    const msg = {
         to: data.email,
-        subject: 'We Recieved your parts request',
+        from: 'gutleberb@gmail.com',
+        subject: 'We recived your parts request!',
+
         html: `<p>Hello, ${data.name}</p>
-            <p>  Thank yout for your Parts Request.  
-            We will be in contact to complete your order within 24 hours. 
-            Please review the your work order below and reply to this email with any questions or corrections.  
-            We appreciate your Business and look forward to meeting all of your Parts and Service needs.</p>
-            <hr>
-            <p>Your request: ${data.message}</p>`
+      <p>  Thank yout for your Parts Request.  
+      We will be in contact to complete your order within 24 hours. 
+      Please review the your work order below and reply to this email with any questions or corrections.  
+      We appreciate your Business and look forward to meeting all of your Parts and Service needs.</p>
+      <hr>
+      <p>Your request: ${data.message}</p>`,
     };
-
-    smtpTransport.sendMail(mailOptions,
-        (error, response) => {
-            if (error) {
-                res.send(error)
-            } else {
-                res.send('Success')
-            }
-            smtpTransport.close();
-        });
-})
-
+    sgMail.send(msg);
+});
 // Add routes, both API and view
 const routes = require("./routes");
 app.use(routes);
