@@ -5,7 +5,6 @@ import partsAPI from "../utils/partsAPI"
 import ConfirmModal from "./ConfirmModal"
 import { ValidatorForm } from 'react-form-validator-core';
 import TextValidator from "./TextValidate"
-import { Alert } from 'react-bootstrap';
 const unirest = require("unirest");
 
 
