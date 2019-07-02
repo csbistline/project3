@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import axios from "axios";
+import { Redirect } from 'react-router';
+
 // import Wrapper from "./Wrapper";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -9,11 +11,10 @@ import axios from "axios";
 class LoginForm extends Component {
 
     state = {
-
         loggedIn: false,
         username: "",
-        password: ""
-
+        password: "",
+        loggedInUser: {}
     }
 
     handleInputChange = event => {
@@ -31,50 +32,39 @@ class LoginForm extends Component {
         console.log('handleSubmit')
         console.log(this.state.username);
         console.log(this.state.password);
-        this._login(this.state.username)
+        this._login(this.state.username, this.state.password)
     };
 
-    // componentDidMount() {
-    //     axios.get('/auth/user').then(response => {
-    //         console.log(response.data)
-    //         if (!!response.data.user) {
-    //             console.log('THERE IS A USER')
-    //             this.setState({
-    //                 loggedIn: true,
-    //                 user: response.data.user
-    //             })
-    //         } else {
-    //             this.setState({
-    //                 loggedIn: false,
-    //                 user: null
-    //             })
-    //         }
-    //     })
-    // };
-
-    // _logout(event) {
-    //     event.preventDefault()
-    //     console.log('logging out')
-    //     axios.post('/api/logout').then(response => {
-    //         console.log(response.data)
-    //         if (response.status === 200) {
-    //             this.setState({
-    //                 loggedIn: false,
-    //                 user: null
-    //             })
-    //         }
-    //     })
-    // };
-
-    _login(username) {
+    _login(username, password) {
         axios
-            .get('/api/login/?contact=' + username)
+            .get('/api/login/?contact=' + username + '&password=' + password)
             .then(response => {
-                console.log(response)
-                sessionStorage.setItem("user", response.data[0]._id);
-                console.log(sessionStorage.getItem("user"));
+                console.log(response.data)
+                if (!response.data.length) {
+                    alert("Incorrect username or password")
+                } else {
+                    this.setState({
+                        loggedIn: true,
+                        loggedInUser: response.data[0]
+                    })
+                }
+            })
+            .then(res => {
+                console.log("in redirect phase");
+                this.renderRedirect();
             })
     };
+
+    renderRedirect = () => {
+        if (this.state.loggedIn) {
+            console.log("redirecting to tech dashboard");
+            if (this.state.loggedInUser.permission === "tech") {
+                this.props.history.push("/TechDashboard2")
+            } else if (this.state.loggedInUser.permission === "admin") {
+                this.props.history.push("/MgrDashboard")
+            }            
+        }
+    }
 
 
     render() {
