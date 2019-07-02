@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const messagebird = require('messagebird')(`o1iRCJWUbe3c3smoFWogpPlwq`);
 const axios = require("axios");
 require("dotenv").config();
@@ -14,14 +16,20 @@ class ConfirmModal extends React.Component {
         this.confirmAndSendData = this.confirmAndSendData.bind(this);
         this.sendConfrimText = this.sendConfrimText.bind(this);
         this.sendConfirmEmail = this.sendConfirmEmail.bind(this);
+        this.notify = this.notify.bind(this);
 
         this.state = {
             show: false,
+            showConfrim: false
         };
     }
 
+
+    notify = () => toast.success("Thank you for your request!");
+
     handleClose() {
         this.setState({ show: false });
+        this.setState({ showConfrim: false })
     }
 
     handleShow() {
@@ -32,9 +40,10 @@ class ConfirmModal extends React.Component {
 
     confirmAndSendData = () => {
 
-
+        this.notify();
         this.props.sendData();
         this.setState({ show: false });
+        this.setState({ showConfrim: true })
         this.sendConfrimText();
         this.sendConfirmEmail();
 
@@ -75,10 +84,10 @@ class ConfirmModal extends React.Component {
             }
         }).then((response) => {
             if (response.data.msg === 'success') {
-                alert("Message Sent.");
+                console.log("Message Sent.");
 
             } else if (response.data.msg === 'fail') {
-                alert("Message failed to send.")
+                console.log("Message failed to send.")
             }
         })
     }
@@ -110,6 +119,21 @@ class ConfirmModal extends React.Component {
               </Button>
                         <Button variant="danger" onClick={this.handleClose}>
                             Cancel
+              </Button>
+                        <ToastContainer />
+                    </Modal.Footer>
+                </Modal>
+
+                <Modal show={this.state.showConfrim} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Thanks!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Thank you for your parts request!
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button className="myButton" variant="primary" onClick={this.handleClose}>
+                            Close
               </Button>
 
                     </Modal.Footer>

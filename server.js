@@ -18,6 +18,7 @@ if (process.env.NODE_ENV === "production") {
 // send confirmation email
 app.post('/api/sendEmail', (req, res) => {
     var data = req.body;
+    console.log("data " + data)
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SG_API_KEY);
     const msg = {
@@ -25,7 +26,7 @@ app.post('/api/sendEmail', (req, res) => {
         from: 'gutleberb@gmail.com',
         subject: 'We recived your parts request!',
 
-        html: `<p>Hello, ${data.name}</p>
+        html: `<p>Hello, ${data.firstName}</p>
       <p>  Thank yout for your Parts Request.  
       We will be in contact to complete your order within 24 hours. 
       Please review the your work order below and reply to this email with any questions or corrections.  
@@ -35,6 +36,7 @@ app.post('/api/sendEmail', (req, res) => {
     };
     sgMail.send(msg);
 });
+
 // Add routes, both API and view
 const routes = require("./routes");
 app.use(routes);
