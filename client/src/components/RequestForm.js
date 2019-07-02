@@ -38,7 +38,7 @@ class RequestForm extends Component {
 
         unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
             .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
-            .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
+            .header("X-RapidAPI-Key", process.env.VIN_CHECK_KEY)
             .end(function (result) {
                 if (result.success === true) {
                     return true
