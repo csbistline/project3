@@ -89,7 +89,7 @@ class RequestForm extends Component {
 
                         <ValidatorForm
                             ref="form"
-                            onSubmit={this.handleSubmit}
+                            
                             //onError={alert("Errors")}
                             
                         >
