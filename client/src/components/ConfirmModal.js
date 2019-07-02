@@ -63,15 +63,15 @@ class ConfirmModal extends React.Component {
             method: "POST",
             url: "/api/sendEmail",
             data: {
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                phoneNumber: this.state.phoneNumber,
-                email: this.state.email,
-                vin: this.state.vin,
-                year: this.state.year,
-                make: this.state.make,
-                model: this.state.model,
-                message: this.state.message
+                firstName: this.props.formData.firstName,
+                lastName: this.props.formData.lastName,
+                phoneNumber: this.props.formData.phoneNumber,
+                email: this.props.formData.email,
+                vin: this.props.formData.vin,
+                year: this.props.formData.year,
+                make: this.props.formData.make,
+                model: this.props.formData.model,
+                message: this.props.formData.message
             }
         }).then((response) => {
             if (response.data.msg === 'success') {
