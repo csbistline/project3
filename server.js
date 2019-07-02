@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const nodemailer = require("nodemailer")
 const PORT = process.env.PORT || 3001;
 const passport = require("./server/passport");
 
@@ -14,6 +15,26 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+// send confirmation email
+app.post('/api/sendEmail', (req, res) => {
+    var data = req.body;
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SG_API_KEY);
+    const msg = {
+        to: data.email,
+        from: 'gutleberb@gmail.com',
+        subject: 'We recived your parts request!',
+
+        html: `<p>Hello, ${data.name}</p>
+      <p>  Thank yout for your Parts Request.  
+      We will be in contact to complete your order within 24 hours. 
+      Please review the your work order below and reply to this email with any questions or corrections.  
+      We appreciate your Business and look forward to meeting all of your Parts and Service needs.</p>
+      <hr>
+      <p>Your request: ${data.message}</p>`,
+    };
+    sgMail.send(msg);
+});
 // Add routes, both API and view
 const routes = require("./routes");
 app.use(routes);
@@ -48,6 +69,8 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
         console.log("info: ", info);
     });
 });*/
+
+
 
 // Send every other request to the React app
 // Define any API routes before this runs

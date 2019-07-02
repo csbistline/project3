@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 const messagebird = require('messagebird')(`o1iRCJWUbe3c3smoFWogpPlwq`);
-const nodemailer = require("nodemailer");
+const axios = require("axios");
 require("dotenv").config();
 
 class ConfirmModal extends React.Component {
@@ -25,23 +25,13 @@ class ConfirmModal extends React.Component {
     }
 
     handleShow() {
-        if (this.validate())
-            this.setState({ show: true });
+
+        this.setState({ show: true });
     }
 
-    validate() {
-        if (
-            this.props.formData.firstName.trim() !== "" &&
-            this.props.formData.lastName.trim() !== "" &&
-            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.props.formData.email)
-        ) {
-            return true;
-        }
-        return false;
-    }
 
-    confirmAndSendData = event => {
-        event.preventDefault();
+    confirmAndSendData = () => {
+
 
         this.props.sendData();
         this.setState({ show: false });
@@ -68,45 +58,35 @@ class ConfirmModal extends React.Component {
     }
 
     sendConfirmEmail = () => {
-        console.log("email: " + process.env.EMAIL_USER);
-        console.log("pass: " + process.env.EMAIL_PASS);
 
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp.elasticemail.com",
-            port: 2525,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: process.env.EMAIL_USER, // generated ethereal user
-                pass: process.env.EMAIL_PASS // generated ethereal password
-            },
-            tls: {
-                rejectUnauthorized: false
+        axios({
+            method: "POST",
+            url: "/api/sendEmail",
+            data: {
+                firstName: this.props.formData.firstName,
+                lastName: this.props.formData.lastName,
+                phoneNumber: this.props.formData.phoneNumber,
+                email: this.props.formData.email,
+                vin: this.props.formData.vin,
+                year: this.props.formData.year,
+                make: this.props.formData.make,
+                model: this.props.formData.model,
+                message: this.props.formData.message
             }
-        });
+        }).then((response) => {
+            if (response.data.msg === 'success') {
+                alert("Message Sent.");
 
-        // send mail with defined transport object
-        let info = transporter.sendMail({
-            from: '"High 5 Productions!" <gutleberb@gmail.com>', // sender address
-            to: this.props.formData.email, // list of receivers
-            subject: "Parts Request Recieved ✔", // Subject line
-            text: "Hello world?", // plain text body
-            html: "<b>Hello world?</b>" // html body
-        });
-
-        console.log("Message sent: %s", info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-        // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+            } else if (response.data.msg === 'fail') {
+                alert("Message failed to send.")
+            }
+        })
     }
-
 
     render() {
         return (
             <>
-                <Button className="confirmBtn myButton" onClick={this.handleShow}>
+                <Button className="confirmBtn myButton" type="submit" onClick={this.handleShow}>
                     submit
           </Button>
                 <Modal show={this.state.show} onHide={this.handleClose}>

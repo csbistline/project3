@@ -43,27 +43,23 @@ const Contacts = () => {
                             </tr>
                         </tbody>
                     </table>
+                        <div className="ml-auto">
+                            <ButtonGroup >
+                                <Link to="/team"><Button variant="primary" className="myButton">Our Team</Button></Link>
+                                <Link to="/request"><Button variant="info" className="myButton">Request a Part</Button></Link>
+                                <Link to="/login"><Button variant="primary" className="myButton">Team Login</Button></Link>
+                            </ButtonGroup>
+                        </div>
+                        <div>
+                            <br />
+                            <h3>Franklin Chrysler Dodge Jeep Ram</h3>
+                            <address>
+                                1124 Murfreesboro Rd
+                                <br />
+                                Franklin, TN 37064
+                            </address>
+                        </div>
                 </div>
-            </div>
-            <div className="ml-auto">
-                <ButtonGroup >
-                    <Link to="/team"><Button variant="primary" className="myButton">Our Team</Button></Link>
-                    <Link to="/request"><Button variant="info" className="myButton">Request a Part</Button></Link>
-                    <Link to="/login"><Button variant="primary" className="myButton">Team Login</Button></Link>
-                </ButtonGroup>
-                {/* <Link to="/team"><Button variant="primary" className="mr-1">Meet the TEAM</Button></Link>
-                <Link to="/request"><Button variant="primary" className="mr-1">Request a Part</Button></Link>
-                <Link to="#"><Button variant="primary" className="mr-1">PARTS TEAM Login</Button></Link> */}
-            </div>
-            <div>
-                <br />
-                <h3>Franklin Chrysler Dodge Jeep Ram</h3>
-                <address>
-                    1124 Murfreesboro Rd
-                    <br />
-                    Franklin, TN 37064
-                </address>
-
             </div>
         </div>
     );

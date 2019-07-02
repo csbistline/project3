@@ -2,15 +2,24 @@ import axios from "axios";
 
 export default {
     // Gets all parts requests
-    getPartsRequests: function() {
-        return axios.get("/api/parts");
+    getPartsRequests: function(status) {
+        return axios.get("/api/parts?status=" + status);
+    },
+    getPartsRequestsByTech: function(tech) {
+        return axios.get("/api/parts?assignee=" + tech);
+    },
+    getPartsRequestsByTechAndStatus: function(tech, status) {
+        return axios.get("/api/parts?assignee=" + tech + "&status=" + status);
     },
     // Gets the parts request with the given id
     getPartsRequest: function(id) {
         return axios.get("/api/parts/" + id);
     },
-    updatePartsRequestAssigned: function(id, assignee) {
-        return axios.put("/api/parts/" + id, {assignee: assignee});
+    updatePartsRequestAssigned: function(id, assignee, assigneeName) {
+        return axios.put("/api/parts/" + id, {assignee: assignee, assigneeName: assigneeName,status: "assigned"});
+    },
+    updatePartsRequestCompleted: function(id) {
+        return axios.put("/api/parts/" + id, {status: "completed"});
     },
     // Deletes the parts request with the given id
     deletePartsRequest: function(id) {

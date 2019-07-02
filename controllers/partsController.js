@@ -3,6 +3,7 @@ const db = require("../models");
 // Defining methods for the partsController
 module.exports = {
     findAll: function (req, res) {
+        console.log(req.query);
         db.PartsRequest
             .find(req.query)
             .then(dbModel => res.json(dbModel))
@@ -22,7 +23,6 @@ module.exports = {
     },
     update: function (req, res) {
         console.log(req.body);
-        req.body.status = "assigned";
         db.PartsRequest
             .findOneAndUpdate({ _id: req.params.id }, {$set:req.body}, {new: true})
             .then(dbModel => res.json(dbModel))

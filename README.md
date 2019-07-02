@@ -2,12 +2,12 @@
 
 **Udpating the Parts Interface for Franklin Chrysler Dodge Jeep Ram Website by:**
 
-* Matching the Front End Style of the current site
-* Creating a Customer Query Form that takes in the customer and vehvile data
+* Creating a Customer Query Form that takes in the customer and vehicle data
 * Send collected data to the Parts Manager to be assigned to a specific Parts Specialist
 * The Parts Specialist recieves the assigned Query as a workorder
 * An auto generated email is sent to the customer when assigned with a time table to completion
 * Finally once Query has been completed it is reurned to the Parts Manger to be checked and deleted
+* All while matching the Front End Style of the current site
 * [Check Out the DataFlowChart & WireFrame](##-Data-Flow-and-Project-Wire-Frames)
 
 ![TeamLogo](https://github.com/csbistline/project3/blob/59ab4c928fa4b71d77a23fe75f12c78e5defcd78/client/public/assets/misc/Hi5.png)
@@ -36,16 +36,19 @@ _<https://parts-manager-hi5.herokuapp.com/>_
 * [Express](https://www.npmjs.com/package/express) - Used for routes, to handling requests, and views
 * [React](https://github.com/reactjs/reactjs.org) - The web framework used
 * [Node](https://www.npmjs.com/package/node) - Used for developing server-side and networking
-* [Axios](https://www.npmjs.com/package/axios) - Used for API
 * [React-Bootstrap](https://react-bootstrap.github.io/) - Used to generate front end styling
 * [Github-ProjectMgr](https://github.com/features/project-management/) - Used to assign roles, set benchmarks, manage code flow
 * [Adobe](https://www.adobe.io/apis/creativecloud/xd.html) - Used to generate design wireframes
 * [LucidChart](https://www.lucidchart.com/) - Used to generate Login DataFlow
-* [Code2Flow](https://code2flow.com/) - Used to generate Data flow chart
+* [Code2Flow](https://code2flow.com/) - Used to generate App Data flow chart
+* [Axios](https://www.npmjs.com/package/axios) - Used for API calls
 * [Heroku](https://devcenter.heroku.com/categories/reference) - Used for App deployment
-* [MessageBird](https://www.messagebird.com/en/) - Used to generate ext conformation
+* [MessageBird](https://www.messagebird.com/en/) - Used to generate text confirmation
 * [NodeMailer](https://nodemailer.com/about/) - Used to generate autoReply Email
+* [Unirest](http://unirest.io/nodejs.html) - Used in API call to verify Vin Data  
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) - Used for Authentication
+* [Passport](http://www.passportjs.org/) - Used for Node.js Authentication
+* [Moment](https://momentjs.com/) - Used for Tracking query lifecycle
 
 ## Data Flow and Project Wire Frames
 

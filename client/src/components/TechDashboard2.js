@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Nav, Image} from 'react-bootstrap'
+import { Nav, Image, ListGroup, Accordion, Card, Button} from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment';
 import 'moment-timezone';
 // import QueryCard from "./QueryCard"
 
-class TechDashboard extends Component {
+class TechDashboard2 extends Component {
 
     state = {
         techID: "5d0bedf59fd8049a01950f59",
@@ -83,48 +81,40 @@ class TechDashboard extends Component {
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
-                
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>Date Created</th>
-                            <th>Customer Name</th>
-                            <th>Customer Phone</th>
-                            <th>Customer Email</th>
-                            <th>VIN</th>
-                            <th>Vehicle Year</th>
-                            <th>Vehicle Make</th>
-                            <th>Vehicle Model</th>
-                            <th>Req Details</th>
-                            <th>Complete Order</th>
-                        </tr>
-                    </thead>
-                   
-                    <tbody>
-
-                        <tr style={{background: 'lightgray'}}>
-                            <td></td><td></td><td></td>
-                            <td></td><td></td><td></td>
-                            <td></td><td></td><td></td><td></td>
-                        </tr>
-
-                        {this.state.CusPartsQuery.map(Query => (
-                          
-                            <tr key={Query._id}>
-                                <td className="align-middle">
-                                    <Moment format="YYYY/MM/DD">
-                                        {Query.createdAt}
-                                    </Moment>
-                                </td>
-                                <td className="align-middle">{Query.firstName} {Query.lastName}</td>
-                                <td className="align-middle">{Query.phoneNumber}</td>
-                                <td className="align-middle">{Query.email}</td>
-                                <td className="align-middle">{Query.vin}</td>
-                                <td className="align-middle">{Query.year}</td>
-                                <td className="align-middle">{Query.make}</td>
-                                <td className="align-middle">{Query.model}</td>
-                                <td className="align-middle">{Query.message}</td>
-                                <td className="align-middle">
+               
+                {this.state.CusPartsQuery.map(Query => (
+                <Accordion defaultKey="0">
+                <Card>
+                    <Accordion.Toggle
+                     as={Card.Header} eventKey="0"
+                     >
+                        <Card.Header as="h5" style={{background: '#ffff'}}>
+                        Customer: {Query.firstName} {Query.lastName}<br /> 
+                        {`Submitted: `} 
+                            <Moment format="LLLL">
+                            {Query.createdAt}
+                            </Moment>
+                            <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                                click box to expand/collapse</p>
+                        </Card.Header>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                        <Card.Body>
+                            <ListGroup className="list-group">
+                                <ListGroup.Item>NAME: {Query.firstName} {Query.lastName}</ListGroup.Item>
+                                <ListGroup.Item>PHONE: {Query.phoneNumber}</ListGroup.Item>
+                                <ListGroup.Item>EMAIL: {Query.email}</ListGroup.Item>
+                                <ListGroup.Item>VIN: {Query.vin}</ListGroup.Item>
+                                <ListGroup.Item>YEAR: {Query.year}</ListGroup.Item>
+                                <ListGroup.Item>MAKE: {Query.make}</ListGroup.Item>
+                                <ListGroup.Item>MODEL: {Query.model}</ListGroup.Item>
+                                <ListGroup.Item>
+                                    ADDL INFO: {Query.message}
+                                </ListGroup.Item>
+                                <ListGroup.Item>TECH ASSIGNED: {Query.assigneeName}</ListGroup.Item>
+                             </ListGroup>
+                                <br></br>
+                                <div className="align-middle">
                                     {(Query.status === "completed") ? "COMPLETED" :
                                     <Button 
                                         className="btn btn-primary myButton" 
@@ -133,21 +123,20 @@ class TechDashboard extends Component {
                                     >
                                         Complete Order
                                     </Button>}
-                                </td>
-                           </tr>
-                        ))}
+                                </div>   
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+            </Accordion>
+            ))}
+        </div>
 
-                        <tr style={{background: 'lightgray'}}>
-                            <td></td><td></td><td></td>
-                            <td></td><td></td><td></td>
-                            <td></td><td></td><td></td><td></td>
-                        </tr>
-  
-                    </tbody>
-                </Table>
-            </div>
+
+
+            
         )
     }
 };
 
-export default TechDashboard;
+
+export default TechDashboard2;
