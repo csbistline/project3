@@ -89,13 +89,14 @@ class TechDashboard2 extends Component {
                      as={Card.Header} eventKey="0"
                      >
                         <Card.Header as="h5" style={{background: '#ffff'}}>
-                        Customer: {Query.firstName} {Query.lastName}<br /> 
+                        <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                                click box to expand/collapse</p>
+                        
                         {`Submitted: `} 
                             <Moment format="LLLL">
                             {Query.createdAt}
-                            </Moment>
-                            <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
-                                click box to expand/collapse</p>
+                            </Moment><br />
+                            Customer: {Query.firstName} {Query.lastName}<br /> 
                         </Card.Header>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">

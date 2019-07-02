@@ -8,7 +8,6 @@ import RequestForm from "./components/RequestForm";
 import SelectTech from "./components/SelectTech";
 import LoginForm from "./components/LoginForm";
 import MgrDashboard from "./components/MgrDashboard";
-import TechDashboard from "./components/TechDashboard";
 import WorkOrder from "./components/WorkOrder";
 import AutoReply from "./components/AutoReply";
 import Register from "./components/Register";
@@ -29,7 +28,6 @@ class App extends Component {
                             <Route exact path="/select" component={SelectTech} />
                             <Route exact path="/login" component={LoginForm} />
                             <Route exact path="/MgrDashboard" component={MgrDashboard} />
-                            <Route exact path="/TechDashboard" component={TechDashboard} />
                             <Route exact path="/AutoReply" component={AutoReply} />
                             <Route exact path="/WorkOrder" component={WorkOrder} />
                             <Route exact path="/register" component={Register} />
