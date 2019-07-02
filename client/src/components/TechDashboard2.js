@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Image, ListGroup, Accordion, Card} from 'react-bootstrap'
+import { Nav, Image, ListGroup, Accordion, Card, Button} from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment';
 import 'moment-timezone';
 // import QueryCard from "./QueryCard"

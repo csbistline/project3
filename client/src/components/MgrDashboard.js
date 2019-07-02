@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav, Image, Row, Col } from 'react-bootstrap'
+import { Nav, Image } from 'react-bootstrap'
 import QueryCard from "./QueryCard";
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
