@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Image, ListGroup, Accordion, Card, Button} from 'react-bootstrap'
+import { Nav, Image, ListGroup, Accordion, Card, Button, Form} from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
@@ -112,6 +112,17 @@ class TechDashboard2 extends Component {
                                     ADDL INFO: {Query.message}
                                 </ListGroup.Item>
                                 <ListGroup.Item>TECH ASSIGNED: {Query.assigneeName}</ListGroup.Item>
+                                <ListGroup.Item>
+                                    <Form>
+                                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>TECH NOTES:</Form.Label>
+                                            <Form.Control as="textarea" rows="3" />
+                                        </Form.Group>
+                                        <Button className="myButton" variant="primary" type="submit">
+                                            Submit
+                                        </Button>
+                                    </Form>
+                                </ListGroup.Item>
                              </ListGroup>
                                 <br></br>
                                 <div className="align-middle">
