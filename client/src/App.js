@@ -11,7 +11,8 @@ import MgrDashboard from "./components/MgrDashboard";
 import TechDashboard from "./components/TechDashboard";
 import WorkOrder from "./components/WorkOrder";
 import AutoReply from "./components/AutoReply";
-import Register from "./components/Register"
+import Register from "./components/Register";
+import TechDashboard2 from "./components/TechDashboard2";
 // import YOURCOMPONENT from "./components/YOURCOMPONENT";
 
 class App extends Component {
@@ -32,6 +33,8 @@ class App extends Component {
                             <Route exact path="/AutoReply" component={AutoReply} />
                             <Route exact path="/WorkOrder" component={WorkOrder} />
                             <Route exact path="/register" component={Register} />
+                            <Route exact path="/TechDashboard2" component={TechDashboard2} />
+
 
                             {/* <Route exact path="/YOURCOMPONENT" component={YOURCOMPONENT} /> */}
 
