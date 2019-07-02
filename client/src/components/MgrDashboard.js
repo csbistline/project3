@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav, Image, Row, Col } from 'react-bootstrap'
+import { Nav, Image } from 'react-bootstrap'
 import QueryCard from "./QueryCard";
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
@@ -47,7 +47,7 @@ class MgrDashboard extends Component {
                 </h1>
                 <hr className="my-4"></hr>
                 </div>
-                <Nav variant="tabs" defaultActiveKey="/requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
+                <Nav variant="tabs" defaultActiveKey="requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="requested"

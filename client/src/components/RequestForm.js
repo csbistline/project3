@@ -167,7 +167,7 @@ class RequestForm extends Component {
                             />
                             <div className="form-group">
                                 <label htmlFor="message">Write your message here...</label>
-                                <textarea className="form-control"
+                                <textarea  style={{borderRadius: '5px', padding: '.5%', boxShadow: '-1px -1px #696969'}} className="form-control"
                                     name="message"
                                     value={this.state.message}
                                     onChange={this.handleInputChange}
