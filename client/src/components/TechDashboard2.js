@@ -10,7 +10,7 @@ import 'moment-timezone';
 class TechDashboard2 extends Component {
 
     state = {
-        techID: "5d0bedf59fd8049a01950f59",
+        techID: sessionStorage.getItem("techID"),
         techObj: {},
         CusPartsQuery: []
     };

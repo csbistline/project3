@@ -7,6 +7,7 @@ import PartsTeam from "./components/PartsTeam";
 import RequestForm from "./components/RequestForm";
 import SelectTech from "./components/SelectTech";
 import LoginForm from "./components/LoginForm";
+import LoginForm2 from "./components/LoginForm2";
 import MgrDashboard from "./components/MgrDashboard";
 import WorkOrder from "./components/WorkOrder";
 import AutoReply from "./components/AutoReply";
@@ -27,6 +28,7 @@ class App extends Component {
                             <Route exact path="/request" component={RequestForm} />
                             <Route exact path="/select" component={SelectTech} />
                             <Route exact path="/login" component={LoginForm} />
+                            <Route exact path="/login2" component={LoginForm2} />
                             <Route exact path="/MgrDashboard" component={MgrDashboard} />
                             <Route exact path="/AutoReply" component={AutoReply} />
                             <Route exact path="/WorkOrder" component={WorkOrder} />
