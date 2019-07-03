@@ -21,6 +21,7 @@ class RequestForm extends Component {
         make: "",
         model: "",
         message: "",
+        vinValid: true
     }
 
     handleInputChange = event => {
