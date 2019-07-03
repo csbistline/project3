@@ -193,18 +193,19 @@ class RequestForm extends Component {
                                     id="message"
                                     rows="4"></textarea>
                             </div>
+                            {!(
+                                this.state.firstName &&
+                                this.state.lastName &&
+                                this.state.phoneNumber &&
+                                this.state.email &&
+                                this.state.vin &&
+                                this.state.year &&
+                                this.state.make &&
+                                this.state.model &&
+                                this.state.message
+                            )&&
                             <div style={{ color: 'red' }}
-                                display={!(
-                                    this.state.firstName &&
-                                    this.state.lastName &&
-                                    this.state.phoneNumber &&
-                                    this.state.email &&
-                                    this.state.vin &&
-                                    this.state.year &&
-                                    this.state.make &&
-                                    this.state.model &&
-                                    this.state.message
-                                )}> * all fields are required</div>
+                            > * all fields are required</div>}
                             <ConfirmModal type="submit" formData={this.state} sendData={this.sendFormData} />
 
                         </ValidatorForm>
