@@ -26,14 +26,14 @@ class SelectTechModal extends React.Component {
   
     render() {
       return (
-        <>
+        <div>
           <Button className="btn btn-primary myButton" onClick={this.handleShow}>
               Assign Tech
           </Button>
   
-          <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal size='lg' show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Parts Specialists</Modal.Title>
+              <Modal.Title><h4>Select Parts Specialist</h4></Modal.Title>
             </Modal.Header>
                 <Modal.Body>
                     <SelectTech 
@@ -47,7 +47,7 @@ class SelectTechModal extends React.Component {
              
             </Modal.Footer>
           </Modal>
-        </>
+        </div>
       );
     }
   }

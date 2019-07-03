@@ -49,6 +49,7 @@ function QueryCard(props) {
                                     ADDL INFO: {props.message}
                                 </ListGroup.Item>
                                 <ListGroup.Item>TECH ASSIGNED: {props.assigneeName}</ListGroup.Item>
+                                <ListGroup.Item>TECH NOTES: {props.note}</ListGroup.Item>
                              </ListGroup>
                                 <br></br>
                                 {modal}

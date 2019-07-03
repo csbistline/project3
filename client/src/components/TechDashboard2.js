@@ -10,7 +10,7 @@ import 'moment-timezone';
 class TechDashboard2 extends Component {
 
     state = {
-        techID: "5d0bedf59fd8049a01950f59",
+        techID: sessionStorage.getItem("techID"),
         techObj: {},
         CusPartsQuery: []
     };
@@ -47,15 +47,16 @@ class TechDashboard2 extends Component {
         
         return (
             <div className="containerFluid"  style={{marginTop: '5%'}}>
+                 <hr className="my-4"></hr>
                 <div className="d-flex flex-wrap">
                 <br />
                 <Image
-                    style={{width: '5rem', height: 'auto', margin: '.5%'}} 
+                    style={{width: '6rem', height: 'auto', margin: '2%', marginTop: '2%'}} 
                     alt={this.state.techObj.name}
                     src={this.state.techObj.image2}
                     roundedCircle
                 />
-                <h1 style={{marginLeft: '1%', marginTop: '2%'}}>
+                <h1 style={{marginLeft: '1%', marginTop: '5%'}}>
                     {this.state.techObj.name}'s Dashboard
                 </h1>
                 <hr className="my-4"></hr>
@@ -89,13 +90,14 @@ class TechDashboard2 extends Component {
                      as={Card.Header} eventKey="0"
                      >
                         <Card.Header as="h5" style={{background: '#ffff'}}>
-                        Customer: {Query.firstName} {Query.lastName}<br /> 
+                        <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                                click box to expand/collapse</p>
+                        
                         {`Submitted: `} 
                             <Moment format="LLLL">
                             {Query.createdAt}
-                            </Moment>
-                            <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
-                                click box to expand/collapse</p>
+                            </Moment><br />
+                            Customer: {Query.firstName} {Query.lastName}<br /> 
                         </Card.Header>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">

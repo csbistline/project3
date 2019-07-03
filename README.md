@@ -14,7 +14,7 @@
 
 ## Authors
 
-* **Chris Blistine** - *React Architect* - [Csbistline github](https://github.com/csbistline)
+* **Chris Bistline** - *React Architect* - [Csbistline github](https://github.com/csbistline)
 
 * **Kevin Bailey** - *Authentication Master* - [RedSW20 github](https://github.com/redSW20)
 
