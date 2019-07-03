@@ -35,11 +35,12 @@ class SelectTech extends Component {
     render() {
         return (
             <div className="pt-4">
-                <h4>Select Parts Specialist</h4>
+                
                 <Table striped bordered>
                     <thead>
                         <tr>
                             <th style={{width:"20px"}}></th>
+                            <th></th>
                             <th>Name</th>
                             <th>Specialty</th>
                             <th>Contact</th>
@@ -60,7 +61,10 @@ class SelectTech extends Component {
                                         Select
                                     </Button>
                                 </td>
-                                <td className="align-middle">{tech.name}</td>
+                                <td className="align-middle"></td>
+                                <td className="align-middle">
+                                <img src={tech.image2} alt={tech.name} style={{width: '5rem', height: 'auto', marginRight: '1%'}} />
+                                 {tech.name}</td>
                                 <td className="align-middle">{tech.specialty}</td>
                                 <td className="align-middle">{tech.contact}</td>
                             </tr>

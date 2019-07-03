@@ -8,7 +8,7 @@ class TextValidator extends ValidatorComponent {
  
         return (
             <div>
-                <input
+                <input style={{width: '100%', borderRadius: '5px', padding: '.5%'}}
                     {...rest}
                     ref={(r) => { this.input = r; }}
                 />

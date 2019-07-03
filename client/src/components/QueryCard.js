@@ -22,13 +22,17 @@ function QueryCard(props) {
                      as={Card.Header} eventKey="0"
                      >
                         <Card.Header as="h5" style={{background: '#ffff'}}>
-                        Customer: {props.firstName} {props.lastName}<br /> 
+                        <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                                click box to expand/collapse</p>
                         {`Submitted: `} 
                             <Moment format="LLLL">
                             {props.createdAt}
-                            </Moment>
-                            <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
-                                click box to expand/collapse</p>
+                            </Moment> <br />
+                            Customer: {props.firstName} {props.lastName}<br />
+
+                            {(props.status === "requested")? "Request Not Assigned" :
+                            `Tech Assigned: ${props.assigneeName}`} <br />
+                         
                         </Card.Header>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
@@ -45,6 +49,7 @@ function QueryCard(props) {
                                     ADDL INFO: {props.message}
                                 </ListGroup.Item>
                                 <ListGroup.Item>TECH ASSIGNED: {props.assigneeName}</ListGroup.Item>
+                                <ListGroup.Item>TECH NOTES: {props.note}</ListGroup.Item>
                              </ListGroup>
                                 <br></br>
                                 {modal}

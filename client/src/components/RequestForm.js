@@ -38,7 +38,7 @@ class RequestForm extends Component {
 
         unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
             .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
-            .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
+            .header("X-RapidAPI-Key", process.env.VIN_CHECK_KEY)
             .end(function (result) {
                 if (result.success === true) {
                     return true
@@ -89,8 +89,9 @@ class RequestForm extends Component {
 
                         <ValidatorForm
                             ref="form"
-                            onSubmit={this.handleSubmit}
+                            
                             //onError={alert("Errors")}
+                            
                         >
                             First Name
                                 <TextValidator
@@ -166,7 +167,7 @@ class RequestForm extends Component {
                             />
                             <div className="form-group">
                                 <label htmlFor="message">Write your message here...</label>
-                                <textarea className="form-control"
+                                <textarea  style={{borderRadius: '5px', padding: '.5%', boxShadow: '-1px -1px #696969'}} className="form-control"
                                     name="message"
                                     value={this.state.message}
                                     onChange={this.handleInputChange}
