@@ -64,10 +64,10 @@ router.post("/signup", (req,res) => {
             })
         };
         
-        db.Tech
-            .create(newUser)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+        // db.Tech
+        //     .create(newUser)
+        //     .then(dbModel => res.json(dbModel))
+        //     .catch(err => res.status(422).json(err));
         
 
         newUser.save((err, savedUser) =>{

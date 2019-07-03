@@ -9,9 +9,12 @@ const userSchema = new Schema({
 	lastName: { type: String, unique: false },
 	local: {
 		username: { type: String, unique: false, required: false },
-		password: { type: String, unique: false, required: false }
-	},
-	photos: []
+		password: { type: String, unique: false, required: false },
+		specialty: { type: String, unique: false, required: false },
+		name: { type: String, unique: false, required: false },
+		permission: { type: String, unique: false, required: false },
+		image: { type: String, unique: false, required: false }
+		},
 	
 });
 
