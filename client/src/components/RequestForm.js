@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
+import { Button, Modal } from 'react-bootstrap';
 import ConfirmModal from "./ConfirmModal"
 import { ValidatorForm } from 'react-form-validator-core';
 import TextValidator from "./TextValidate"
@@ -11,20 +12,26 @@ const unirest = require("unirest");
 
 class RequestForm extends Component {
 
-    state = {
 
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        email: "",
-        vin: "",
-        year: "",
-        make: "",
-        model: "",
-        message: "",
-        vinValid: true
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleClose = this.handleClose.bind(this);
+
+        this.state = {
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email: "",
+            vin: "",
+            year: "",
+            make: "",
+            model: "",
+            message: "",
+            vinInvalid: false
+        }
     }
-
+    
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = event.target;
@@ -33,6 +40,10 @@ class RequestForm extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    handleClose() {
+        this.setState({ vinInvalid: false })
     }
 
 
@@ -46,10 +57,10 @@ class RequestForm extends Component {
                     this.setState({ year: result.body.specification.year })
                     this.setState({ make: result.body.specification.make })
                     this.setState({ model: result.body.specification.model })
-                    this.setState({ vinValid: true })
+                    this.setState({ vinInvalid: false })
                     return true
                 } else {
-                    this.setState({ vinValid: false })
+                    this.setState({ vinInvalid: true })
                     return false
                 }
             });
@@ -193,8 +204,24 @@ class RequestForm extends Component {
                 <div className="col-md-4 pt-4">
                     <Contacts />
                 </div>
-            </div>
 
+
+                <Modal show={this.state.vinInvalid} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Vin number not found.</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        We could not find any records of that vin number. Please enter in a valid vin number.
+                        This ensures we are finding the correct parts for your vehicle
+</Modal.Body>
+                    <Modal.Footer>
+                        <Button className="myButton" variant="primary" onClick={this.handleClose}>
+                            Close
+</Button>
+
+                    </Modal.Footer>
+                </Modal>
+            </div>
         );
     }
 }
