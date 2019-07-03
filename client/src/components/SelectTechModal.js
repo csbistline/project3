@@ -31,7 +31,7 @@ class SelectTechModal extends React.Component {
               Assign Tech
           </Button>
   
-          <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal size='lg' show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Parts Specialists</Modal.Title>
             </Modal.Header>

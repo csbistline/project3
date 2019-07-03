@@ -30,7 +30,9 @@ class VinModal extends React.Component {
               Locate VIN #
           </Button>
   
-          <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal show={this.state.show} 
+            onHide={this.handleClose}
+            size='lg'>
             <Modal.Header closeButton>
               <Modal.Title>Common Vin # Locations</Modal.Title>
             </Modal.Header>
