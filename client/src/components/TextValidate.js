@@ -15,7 +15,9 @@ class TextValidator extends ValidatorComponent {
                 {this.errorText()}
             </div>
         );
+        
     }
+    
  
     errorText() {
         const { isValid } = this.state;
