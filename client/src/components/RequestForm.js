@@ -5,6 +5,7 @@ import partsAPI from "../utils/partsAPI"
 import ConfirmModal from "./ConfirmModal"
 import { ValidatorForm } from 'react-form-validator-core';
 import TextValidator from "./TextValidate"
+require("dotenv").config();
 const unirest = require("unirest");
 
 
@@ -33,24 +34,29 @@ class RequestForm extends Component {
             [name]: value
         });
     }
-    
 
-    vinCheck = (vinNum) => {
 
-        unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
+    vinCheck = () => {
+
+        unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${this.state.vin}`)
             .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
-            .header("X-RapidAPI-Key", process.env.VIN_CHECK_KEY)
-            .end(function (result) {
-                if (result.success === true) {
+            .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
+            .end((result) => {
+                if (result.body.success === true) {
+                    this.setState({ year: result.body.specification.year })
+                    this.setState({ make: result.body.specification.make })
+                    this.setState({ model: result.body.specification.model })
+                    this.setState({ vinValid: true })
                     return true
                 } else {
+                    this.setState({ vinValid: false })
                     return false
                 }
             });
     }
 
     sendFormData = () => {
- 
+
         partsAPI.savePartsRequest({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -90,9 +96,9 @@ class RequestForm extends Component {
 
                         <ValidatorForm
                             ref="form"
-                            
-                            //onError={alert("Errors")}
-                            
+
+                        //onError={alert("Errors")}
+
                         >
                             First Name
                                 <TextValidator
@@ -133,6 +139,7 @@ class RequestForm extends Component {
                             VIN # <VinModal></VinModal>
                             <TextValidator
                                 onChange={this.handleInputChange}
+                                onBlur={this.vinCheck}
                                 label="vin "
                                 name="vin"
                                 value={this.state.vin}
@@ -168,7 +175,7 @@ class RequestForm extends Component {
                             />
                             <div className="form-group">
                                 <label htmlFor="message">Write your message here...</label>
-                                <textarea  style={{borderRadius: '5px', padding: '.5%', boxShadow: '-1px -1px #696969'}} className="form-control"
+                                <textarea style={{ borderRadius: '5px', padding: '.5%', boxShadow: '-1px -1px #696969' }} className="form-control"
                                     name="message"
                                     value={this.state.message}
                                     onChange={this.handleInputChange}
