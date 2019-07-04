@@ -5,18 +5,18 @@ import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
 import Moment from 'react-moment';
 import 'moment-timezone';
-// import QueryCard from "./QueryCard"
+import TechQueryCard from "./TechQueryCard"
 
 class TechDashboard2 extends Component {
 
     state = {
         techID: sessionStorage.getItem("techID"),
         techObj: {},
-        CusPartsQuery: [],
-        note: ""
+        CusPartsQuery: []
+        //note: ""
     };
 
-    handleInputChange = event => {
+    /*handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = event.target;
 
@@ -24,7 +24,7 @@ class TechDashboard2 extends Component {
         this.setState({
             [name]: value
         });
-    }
+    }*/
 
     componentDidMount() {
         this.loadTech(this.state.techID);
@@ -48,7 +48,7 @@ class TechDashboard2 extends Component {
         
     };
 
-    updateParts = (id) => {
+    /*updateParts = (id) => {
         partsAPI.updatePartsRequestCompleted(id)
           .then(res => {
               console.log(res);
@@ -60,7 +60,7 @@ class TechDashboard2 extends Component {
           .then(res => {
               console.log(res);
           });
-    }
+    }*/
 
     render() {
         
@@ -102,7 +102,8 @@ class TechDashboard2 extends Component {
                 </Nav>
                
                 {this.state.CusPartsQuery.map(Query => (
-                    
+                    <TechQueryCard>{Query}</TechQueryCard>
+                /*    
                 <Accordion defaultkey="0">
                 <Card>
                     <Accordion.Toggle
@@ -172,7 +173,7 @@ class TechDashboard2 extends Component {
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
-            </Accordion>
+            </Accordion>*/
             ))}
         </div>
 
