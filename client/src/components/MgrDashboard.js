@@ -80,6 +80,7 @@ class MgrDashboard extends Component {
                     <QueryCard
                         {...Query}
                         key={Query._id}
+                        loadQuery={this.loadQuery}
                     />
                 ))}
             </div>

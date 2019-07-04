@@ -38,13 +38,11 @@ class SelectTechModal extends React.Component {
                 <Modal.Body>
                     <SelectTech 
                     {...this.props}
+                    handleClose={this.handleClose}
                     />
                 </Modal.Body>
             <Modal.Footer>
-              {/* <Button variant="primary" onClick={this.handleClose}>
-                Close
-              </Button> */}
-             
+
             </Modal.Footer>
           </Modal>
         </div>
