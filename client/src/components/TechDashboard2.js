@@ -46,17 +46,16 @@ class TechDashboard2 extends Component {
     render() {
         
         return (
-            <div className="containerFluid"  style={{marginTop: '5%'}}>
+            <div >
                  <hr className="my-4"></hr>
                 <div className="d-flex flex-wrap">
-                <br />
                 <Image
-                    style={{width: '6rem', height: 'auto', margin: '2%', marginTop: '2%'}} 
+                    style={{width: '7rem', height: '7rem', margin: '2%'}} 
                     alt={this.state.techObj.name}
                     src={this.state.techObj.image2}
-                    roundedCircle
+                    thumbnail
                 />
-                <h1 style={{marginLeft: '1%', marginTop: '5%'}}>
+                <h1 style={{ marginTop: '5%'}}>
                     {this.state.techObj.name}'s Dashboard
                 </h1>
                 <hr className="my-4"></hr>
@@ -104,8 +103,8 @@ class TechDashboard2 extends Component {
                         <Card.Body>
                             <ListGroup className="list-group">
                                 <ListGroup.Item>NAME: {Query.firstName} {Query.lastName}</ListGroup.Item>
-                                <ListGroup.Item>PHONE: {Query.phoneNumber}</ListGroup.Item>
-                                <ListGroup.Item>EMAIL: {Query.email}</ListGroup.Item>
+                                <ListGroup.Item>PHONE: <a href="sms://"{...Query.phoneNumber}>{Query.phoneNumber}</a></ListGroup.Item>
+                                <ListGroup.Item>EMAIL: <a href="mailto:"{...Query.email}>{Query.email}</a></ListGroup.Item>
                                 <ListGroup.Item>VIN: {Query.vin}</ListGroup.Item>
                                 <ListGroup.Item>YEAR: {Query.year}</ListGroup.Item>
                                 <ListGroup.Item>MAKE: {Query.make}</ListGroup.Item>
