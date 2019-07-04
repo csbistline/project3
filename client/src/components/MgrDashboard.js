@@ -36,18 +36,18 @@ class MgrDashboard extends Component {
             <div  >
                 <hr className="my-4"></hr>
                 <div className="d-flex flex-wrap">
-                <Image
-                    style={{width: '7rem', height: '7rem', margin: '2%'}} 
-                    alt={this.state.techObj.name}
-                    src={this.state.techObj.image2}
-                    thumbnail
-                />
-                <h1 style={{  marginTop: '5%'}}>
-                    {this.state.techObj.name}'s Dashboard
+                    <Image
+                        style={{ width: '7rem', height: '7rem', margin: '2%' }}
+                        alt={this.state.techObj.name}
+                        src={this.state.techObj.image2}
+                        thumbnail
+                    />
+                    <h1 style={{ marginTop: '5%' }}>
+                        {this.state.techObj.name}'s Dashboard
                 </h1>
-                <hr className="my-4"></hr>
+                    <hr className="my-4"></hr>
                 </div>
-                <Nav variant="tabs" defaultActiveKey="requested" style={{background:'url(./assets/img/partsBackdrop.jpg)'}}>
+                <Nav variant="tabs" defaultActiveKey="requested" style={{ background: 'url(./assets/img/partsBackdrop.jpg)' }}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="requested"
@@ -78,7 +78,21 @@ class MgrDashboard extends Component {
                 </Nav>
                 {this.state.assignTech.map(Query => (
                     <QueryCard
-                        {...Query}
+                        status={Query.status}
+                        assignee={Query.assignee}
+                        assigneeName={Query.assigneeName}
+                        firstName={Query.firstName}
+                        lastName={Query.lastName}
+                        phoneNumber={Query.phoneNumber}
+                        email={Query.email}
+                        vin={Query.vin}
+                        year={Query.year}
+                        make={Query.make}
+                        model={Query.model}
+                        message={Query.message}
+                        note={(Query.note && Query.note.body) ? Query.note.body : ""}
+                        key={Query._id}
+                        loadQuery={this.loadQuery}
                         key={Query._id}
                         loadQuery={this.loadQuery}
                     />
