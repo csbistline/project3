@@ -39,8 +39,8 @@ function QueryCard(props) {
                         <Card.Body>
                             <ListGroup className="list-group">
                                 <ListGroup.Item>NAME: {props.firstName} {props.lastName}</ListGroup.Item>
-                                <ListGroup.Item>PHONE: {props.phoneNumber}</ListGroup.Item>
-                                <ListGroup.Item>EMAIL: {props.email}</ListGroup.Item>
+                                <ListGroup.Item>PHONE: <a href="sms://"{...props.phoneNumber}>{props.phoneNumber}</a></ListGroup.Item>
+                                <ListGroup.Item>EMAIL: <a href="mailto:"{...props.email}>{props.email}</a></ListGroup.Item>
                                 <ListGroup.Item>VIN: {props.vin}</ListGroup.Item>
                                 <ListGroup.Item>YEAR: {props.year}</ListGroup.Item>
                                 <ListGroup.Item>MAKE: {props.make}</ListGroup.Item>

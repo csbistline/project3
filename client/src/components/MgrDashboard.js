@@ -33,17 +33,16 @@ class MgrDashboard extends Component {
 
     render() {
         return (
-            <div  style={{ marginTop: '5%'}}>
+            <div  >
                 <hr className="my-4"></hr>
                 <div className="d-flex flex-wrap">
-                <br />
                 <Image
-                    style={{width: '6rem', height: 'auto', margin: '1%'}} 
+                    style={{width: '7rem', height: '7rem', margin: '2%'}} 
                     alt={this.state.techObj.name}
                     src={this.state.techObj.image2}
-                    roundedCircle
+                    thumbnail
                 />
-                <h1 style={{marginLeft: '1%',  marginTop: '1%'}}>
+                <h1 style={{  marginTop: '5%'}}>
                     {this.state.techObj.name}'s Dashboard
                 </h1>
                 <hr className="my-4"></hr>
