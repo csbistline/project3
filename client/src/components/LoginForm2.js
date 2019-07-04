@@ -63,7 +63,7 @@ class LoginForm extends Component {
                 this.props.history.push("/TechDashboard2")
             } else if (this.state.loggedInUser.permission === "admin") {
                 this.props.history.push("/MgrDashboard")
-            }            
+            }
         }
     }
 

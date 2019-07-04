@@ -8,35 +8,35 @@ import axios from "axios"
 
 class LoginForm extends Component {
 
-  state = {
+    state = {
 
-    loggedIn: false,
-    username: "",
-    password: ""
+        loggedIn: false,
+        username: "",
+        password: ""
 
-  }
+    }
 
-  handleInputChange = event => {
-      // Getting the value and name of the input which triggered the change
-      const { name, value } = event.target;
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const { name, value } = event.target;
 
-      // Updating the input's state
-      this.setState({
-          [name]: value
-      });
-  };
+        // Updating the input's state
+        this.setState({
+            [name]: value
+        });
+    };
 
-  sendFormData = event => {
-      event.preventDefault();
+    sendFormData = event => {
+        event.preventDefault();
         console.log('handleSubmit')
         console.log(this.state.username);
-        console.log(this.state.password);      
-		this._login(this.state.username, this.state.password)
-		this.setState({
-			redirectTo: '/'
-		})
+        console.log(this.state.password);
+        this._login(this.state.username, this.state.password)
+        this.setState({
+            redirectTo: '/'
+        })
     };
-    
+
     componentDidMount() {
         axios.get('/auth/user').then(response => {
             console.log(response.data)
@@ -54,7 +54,7 @@ class LoginForm extends Component {
             }
         })
     };
-    
+
     _logout(event) {
         event.preventDefault()
         console.log('logging out')
@@ -68,7 +68,7 @@ class LoginForm extends Component {
             }
         })
     };
-    
+
     _login(username, password) {
         axios
             .post('/auth/login', {
@@ -86,79 +86,79 @@ class LoginForm extends Component {
                 }
             })
     };
-      /*partsAPI.savePartsRequest({
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          phoneNumber: this.state.phoneNumber,
-          email: this.state.email,
-          vin: this.state.vin,
-          year: this.state.year,
-          make: this.state.make,
-          model: this.state.model,
-          message: this.state.firstName
-      })
-          .catch(err => console.log(err));*/
+    /*partsAPI.savePartsRequest({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        phoneNumber: this.state.phoneNumber,
+        email: this.state.email,
+        vin: this.state.vin,
+        year: this.state.year,
+        make: this.state.make,
+        model: this.state.model,
+        message: this.state.firstName
+    })
+        .catch(err => console.log(err));*/
 
 
 
-  render() {
-      return (
-          <div>
-              <div className="row pt-4" >
-                  <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around  animated bounceInUp">
+    render() {
+        return (
+            <div>
+                <div className="row pt-4" >
+                    <div className="col-md-8 pt-4 d-flex flex-wrap justify-content-around  animated bounceInUp">
 
-                      <div className="jumbotron">
-                          <h1 className="display-4"><b>Team Login Form</b></h1>
-                          <p className="lead">Enter your username/password below to login.</p>
-                          <hr className="my-4"></hr>
-                          <form>
+                        <div className="jumbotron">
+                            <h1 className="display-4"><b>Team Login Form</b></h1>
+                            <p className="lead">Enter your username/password below to login.</p>
+                            <hr className="my-4"></hr>
+                            <form>
 
-                              <div className="form-group">
+                                <div className="form-group">
 
-                                  <label htmlFor="username">UserName</label>
+                                    <label htmlFor="username">UserName</label>
 
-                                  <input type="text"
-                                      className="form-control"
-                                      name="username"
-                                      value={this.state.username}
-                                      onChange={this.handleInputChange}
-                                      id="username"
-                                      placeholder="Username">
+                                    <input type="text"
+                                        className="form-control"
+                                        name="username"
+                                        value={this.state.username}
+                                        onChange={this.handleInputChange}
+                                        id="username"
+                                        placeholder="Username">
 
-                                  </input>
-                              </div>
+                                    </input>
+                                </div>
 
-                              <div className="form-group">
-                                  <label htmlFor="password">Password</label>
+                                <div className="form-group">
+                                    <label htmlFor="password">Password</label>
 
-                                  <input type="password"
+                                    <input type="password"
 
-                                      className="form-control"
-                                      name="password"
-                                      value={this.state.password}
-                                      onChange={this.handleInputChange}
-                                      id="password"
-                                      placeholder="Password">
+                                        className="form-control"
+                                        name="password"
+                                        value={this.state.password}
+                                        onChange={this.handleInputChange}
+                                        id="password"
+                                        placeholder="Password">
 
-                                  </input>
-                              </div>
+                                    </input>
+                                </div>
 
-                              <button type="submit"
-                                  className="btn btn-primary myButton"
-                                  // do we want to have the button disabled if all fields are not filled in? disabled={}
-                                  onClick={this.sendFormData}
-                              >Submit</button>
-                          </form>
+                                <button type="submit"
+                                    className="btn btn-primary myButton"
+                                    // do we want to have the button disabled if all fields are not filled in? disabled={}
+                                    onClick={this.sendFormData}
+                                >Submit</button>
+                            </form>
 
-                      </div>
-                  </div>
-                  <div className="col-md-4 pt-4">
-                      <Contacts />
-                  </div>
-              </div>
-          </div>
-      );
-  }
+                        </div>
+                    </div>
+                    <div className="col-md-4 pt-4">
+                        <Contacts />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
 
 

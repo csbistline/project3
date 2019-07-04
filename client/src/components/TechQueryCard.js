@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Image, ListGroup, Accordion, Card, Button, Form} from 'react-bootstrap'
+import { ListGroup, Accordion, Card, Button, Form } from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import 'moment-timezone';
 // import QueryCard from "./QueryCard"
 
 class TechQueryCard extends Component {
-    
+
     state = {
         Query: this.props.children,
         note: (this.props.children.note) ? this.props.children.note.body : ""
@@ -24,34 +24,34 @@ class TechQueryCard extends Component {
         });
     }
 
-    addComment = (id,note) => {
-        partsAPI.updatePartsRequestNote(id,note)
-          .then(res => {
-              console.log(res);
-          });
+    addComment = (id, note) => {
+        partsAPI.updatePartsRequestNote(id, note)
+            .then(res => {
+                console.log(res);
+            });
     }
     updateParts = (id) => {
         partsAPI.updatePartsRequestCompleted(id)
-          .then(res => {
-              console.log(res);
-          });
-      };
+            .then(res => {
+                console.log(res);
+            });
+    };
     render() {
         return (
             <Accordion defaultkey="0">
                 <Card>
                     <Accordion.Toggle
-                    as={Card.Header} eventKey="0"
+                        as={Card.Header} eventKey="0"
                     >
-                        <Card.Header as="h5" style={{background: '#ffff'}}>
-                        <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                        <Card.Header as="h5" style={{ background: '#ffff' }}>
+                            <p style={{ fontSize: '.75rem', color: 'lightgrey' }}>
                                 click box to expand/collapse</p>
-                        
-                        {`Submitted: `} 
+
+                            {`Submitted: `}
                             <Moment format="LLLL">
-                            {this.state.Query.createdAt}
+                                {this.state.Query.createdAt}
                             </Moment><br />
-                            Customer: {this.state.Query.firstName} {this.state.Query.lastName}<br /> 
+                            Customer: {this.state.Query.firstName} {this.state.Query.lastName}<br />
                         </Card.Header>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
@@ -72,38 +72,38 @@ class TechQueryCard extends Component {
                                     <Form>
                                         <Form.Group controlId="exampleForm.ControlTextarea1">
                                             <Form.Label>TECH NOTES: (adding a note will overwrite the last note)</Form.Label>
-                                            <Form.Control 
-                                                as="textarea" 
-                                                rows="3" 
+                                            <Form.Control
+                                                as="textarea"
+                                                rows="3"
                                                 onChange={this.handleInputChange}
                                                 label="note"
                                                 name="note"
                                                 value={this.state.note}
-                                                //placeholder={(Query.note) ? Query.note.body : ""}
+                                            //placeholder={(Query.note) ? Query.note.body : ""}
                                             />
                                         </Form.Group>
-                                        <Button 
-                                            className="myButton" 
-                                            variant="primary" 
+                                        <Button
+                                            className="myButton"
+                                            variant="primary"
                                             type="submit"
-                                            onClick={() => this.addComment(this.state.Query._id,this.state.note)}
+                                            onClick={() => this.addComment(this.state.Query._id, this.state.note)}
                                         >
                                             Submit
                                         </Button>
                                     </Form>
                                 </ListGroup.Item>
                             </ListGroup>
-                                <br></br>
-                                <div className="align-middle">
-                                    {(this.state.Query.status === "completed") ? "COMPLETED" :
-                                    <Button 
-                                        className="btn btn-primary myButton" 
+                            <br></br>
+                            <div className="align-middle">
+                                {(this.state.Query.status === "completed") ? "COMPLETED" :
+                                    <Button
+                                        className="btn btn-primary myButton"
                                         size="sm"
                                         onClick={() => this.updateParts(this.state.Query._id)}
                                     >
                                         Complete Order
                                     </Button>}
-                                </div>   
+                            </div>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

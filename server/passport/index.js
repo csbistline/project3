@@ -6,7 +6,7 @@ passport.serializeUser((user, done) => {
     console.log("serialize ... caled");    
     console.log(user);
     console.log("==========");
-    done(null, {_id: user._id})
+    done(null, {_id: user._id});
 });
 
 passport.deserializeUser((id, done) =>{
@@ -18,11 +18,11 @@ passport.deserializeUser((id, done) =>{
             console.log("======DESERIALIZE USER CALLED======");
             console.log(user);
             console.log("===========");
-            done(null, user)            
+            done(null, user);            
         }
-    )    
+    );    
 });
 
-passport.use(LocalStrategy)
+passport.use(LocalStrategy);
 
-module.exports = passport
+module.exports = passport;

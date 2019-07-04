@@ -25,7 +25,7 @@ module.exports = {
     update: function (req, res) {
         console.log(req.body);
         db.PartsRequest
-            .findOneAndUpdate({ _id: req.params.id }, {$set:req.body}, {new: true})
+            .findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -34,7 +34,7 @@ module.exports = {
         console.log(req.params.id);
         db.Note.create(req.body)
             .then(dbNote => {
-            return db.PartsRequest.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+                return db.PartsRequest.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
             })
             .then(dbPartsRequest => res.json(dbPartsRequest))
             .catch(err => res.json(err));

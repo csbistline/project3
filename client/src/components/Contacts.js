@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button"
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 const Contacts = () => {
     return (
@@ -43,22 +43,22 @@ const Contacts = () => {
                             </tr>
                         </tbody>
                     </table>
-                        <div className="ml-auto">
-                            <ButtonGroup >
-                                <Link to="/team"><Button variant="primary" className="myButton">Our Team</Button></Link>
-                                <Link to="/request"><Button variant="info" className="myButton">Request a Part</Button></Link>
-                                <Link to="/login2"><Button variant="primary" className="myButton">Team Login</Button></Link>
-                            </ButtonGroup>
-                        </div>
-                        <div>
-                            <br />
-                            <h3>Franklin Chrysler Dodge Jeep Ram</h3>
-                            <address>
+                    <div className="ml-auto">
+                        <ButtonGroup >
+                            <Link to="/team"><Button variant="primary" className="myButton">Our Team</Button></Link>
+                            <Link to="/request"><Button variant="info" className="myButton">Request a Part</Button></Link>
+                            <Link to="/login2"><Button variant="primary" className="myButton">Team Login</Button></Link>
+                        </ButtonGroup>
+                    </div>
+                    <div>
+                        <br />
+                        <h3>Franklin Chrysler Dodge Jeep Ram</h3>
+                        <address>
                                 1124 Murfreesboro Rd
-                                <br />
+                            <br />
                                 Franklin, TN 37064
-                            </address>
-                        </div>
+                        </address>
+                    </div>
                 </div>
             </div>
         </div>

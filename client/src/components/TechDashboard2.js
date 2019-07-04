@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Image, ListGroup, Accordion, Card, Button, Form} from 'react-bootstrap'
+import { Nav, Image } from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
@@ -45,7 +45,7 @@ class TechDashboard2 extends Component {
                 console.log(res.data);
                 this.setState({ techObj: res.data })
             })
-        
+
     };
 
     /*updateParts = (id) => {
@@ -63,23 +63,23 @@ class TechDashboard2 extends Component {
     }*/
 
     render() {
-        
+
         return (
             <div >
-                 <hr className="my-4"></hr>
-                <div className="d-flex flex-wrap">
-                <Image
-                    style={{width: '7rem', height: '7rem', margin: '2%'}} 
-                    alt={this.state.techObj.name}
-                    src={this.state.techObj.image2}
-                    thumbnail
-                />
-                <h1 style={{ marginTop: '5%'}}>
-                    {this.state.techObj.name}'s Dashboard
-                </h1>
                 <hr className="my-4"></hr>
+                <div className="d-flex flex-wrap">
+                    <Image
+                        style={{ width: '7rem', height: '7rem', margin: '2%' }}
+                        alt={this.state.techObj.name}
+                        src={this.state.techObj.image2}
+                        thumbnail
+                    />
+                    <h1 style={{ marginTop: '5%' }}>
+                        {this.state.techObj.name}'s Dashboard
+                </h1>
+                    <hr className="my-4"></hr>
                 </div>
-                <Nav variant="tabs" defaultActiveKey="assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)'}}>
+                <Nav variant="tabs" defaultActiveKey="assigned" style={{ background: 'url(./assets/img/partsBackdrop.jpg)' }}>
                     <Nav.Item className="tabs">
                         <Nav.Link
                             eventKey="assigned"
@@ -100,86 +100,86 @@ class TechDashboard2 extends Component {
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
-               
+
                 {this.state.CusPartsQuery.map(Query => (
                     <TechQueryCard>{Query}</TechQueryCard>
-                /*    
-                <Accordion defaultkey="0">
-                <Card>
-                    <Accordion.Toggle
-                     as={Card.Header} eventKey="0"
-                     >
-                        <Card.Header as="h5" style={{background: '#ffff'}}>
-                        <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
-                                click box to expand/collapse</p>
-                        
-                        {`Submitted: `} 
-                            <Moment format="LLLL">
-                            {Query.createdAt}
-                            </Moment><br />
-                            Customer: {Query.firstName} {Query.lastName}<br /> 
-                        </Card.Header>
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="0">
-                        <Card.Body>
-                            <ListGroup className="list-group">
-                                <ListGroup.Item>NAME: {Query.firstName} {Query.lastName}</ListGroup.Item>
-                                <ListGroup.Item>PHONE: <a href="sms://"{...Query.phoneNumber}>{Query.phoneNumber}</a></ListGroup.Item>
-                                <ListGroup.Item>EMAIL: <a href="mailto:"{...Query.email}>{Query.email}</a></ListGroup.Item>
-                                <ListGroup.Item>VIN: {Query.vin}</ListGroup.Item>
-                                <ListGroup.Item>YEAR: {Query.year}</ListGroup.Item>
-                                <ListGroup.Item>MAKE: {Query.make}</ListGroup.Item>
-                                <ListGroup.Item>MODEL: {Query.model}</ListGroup.Item>
-                                <ListGroup.Item>
-                                    ADDL INFO: {Query.message}
-                                </ListGroup.Item>
-                                <ListGroup.Item>TECH ASSIGNED: {Query.assigneeName}</ListGroup.Item>
-                                <ListGroup.Item>
-                                    <Form>
-                                        <Form.Group controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>TECH NOTES: (adding a note will overwrite the last note)</Form.Label>
-                                            <Form.Control 
-                                                as="textarea" 
-                                                rows="3" 
-                                                onChange={this.handleInputChange}
-                                                label="note"
-                                                name="note"
-                                                value={this.state.note}
-                                                placeholder={(Query.note) ? Query.note.body : ""}
-                                            />
-                                        </Form.Group>
+                    /*    
+                    <Accordion defaultkey="0">
+                    <Card>
+                        <Accordion.Toggle
+                         as={Card.Header} eventKey="0"
+                         >
+                            <Card.Header as="h5" style={{background: '#ffff'}}>
+                            <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                                    click box to expand/collapse</p>
+                            
+                            {`Submitted: `} 
+                                <Moment format="LLLL">
+                                {Query.createdAt}
+                                </Moment><br />
+                                Customer: {Query.firstName} {Query.lastName}<br /> 
+                            </Card.Header>
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body>
+                                <ListGroup className="list-group">
+                                    <ListGroup.Item>NAME: {Query.firstName} {Query.lastName}</ListGroup.Item>
+                                    <ListGroup.Item>PHONE: <a href="sms://"{...Query.phoneNumber}>{Query.phoneNumber}</a></ListGroup.Item>
+                                    <ListGroup.Item>EMAIL: <a href="mailto:"{...Query.email}>{Query.email}</a></ListGroup.Item>
+                                    <ListGroup.Item>VIN: {Query.vin}</ListGroup.Item>
+                                    <ListGroup.Item>YEAR: {Query.year}</ListGroup.Item>
+                                    <ListGroup.Item>MAKE: {Query.make}</ListGroup.Item>
+                                    <ListGroup.Item>MODEL: {Query.model}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        ADDL INFO: {Query.message}
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>TECH ASSIGNED: {Query.assigneeName}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Form>
+                                            <Form.Group controlId="exampleForm.ControlTextarea1">
+                                                <Form.Label>TECH NOTES: (adding a note will overwrite the last note)</Form.Label>
+                                                <Form.Control 
+                                                    as="textarea" 
+                                                    rows="3" 
+                                                    onChange={this.handleInputChange}
+                                                    label="note"
+                                                    name="note"
+                                                    value={this.state.note}
+                                                    placeholder={(Query.note) ? Query.note.body : ""}
+                                                />
+                                            </Form.Group>
+                                            <Button 
+                                                className="myButton" 
+                                                variant="primary" 
+                                                type="submit"
+                                                onClick={() => this.addComment(Query._id,this.state.note)}
+                                            >
+                                                Submit
+                                            </Button>
+                                        </Form>
+                                    </ListGroup.Item>
+                                 </ListGroup>
+                                    <br></br>
+                                    <div className="align-middle">
+                                        {(Query.status === "completed") ? "COMPLETED" :
                                         <Button 
-                                            className="myButton" 
-                                            variant="primary" 
-                                            type="submit"
-                                            onClick={() => this.addComment(Query._id,this.state.note)}
+                                            className="btn btn-primary myButton" 
+                                            size="sm"
+                                            onClick={() => this.updateParts(Query._id)}
                                         >
-                                            Submit
-                                        </Button>
-                                    </Form>
-                                </ListGroup.Item>
-                             </ListGroup>
-                                <br></br>
-                                <div className="align-middle">
-                                    {(Query.status === "completed") ? "COMPLETED" :
-                                    <Button 
-                                        className="btn btn-primary myButton" 
-                                        size="sm"
-                                        onClick={() => this.updateParts(Query._id)}
-                                    >
-                                        Complete Order
-                                    </Button>}
-                                </div>   
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-            </Accordion>*/
-            ))}
-        </div>
+                                            Complete Order
+                                        </Button>}
+                                    </div>   
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>
+                </Accordion>*/
+                ))}
+            </div>
 
 
 
-            
+
         )
     }
 };

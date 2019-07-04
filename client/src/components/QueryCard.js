@@ -1,38 +1,38 @@
 import React from "react";
-import {ListGroup, Accordion} from 'react-bootstrap'
+import { ListGroup, Accordion } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import SelectTechModal from './SelectTechModal';
-import Moment from 'react-moment';
-import 'moment-timezone';
+import SelectTechModal from "./SelectTechModal";
+import Moment from "react-moment";
+import "moment-timezone";
 
 
 
 function QueryCard(props) {
     let modal;
-    if(!props.assignee){
-        modal = <SelectTechModal 
-        {...props}
-        />
+    if (!props.assignee) {
+        modal = <SelectTechModal
+            {...props}
+        />;
     }
-    return(
+    return (
         <div >
             <Accordion defaultKey="0">
                 <Card>
                     <Accordion.Toggle
-                     as={Card.Header} eventKey="0"
-                     >
-                        <Card.Header as="h5" style={{background: '#ffff'}}>
-                        <p style={{fontSize: '.75rem', color: 'lightgrey'}}>
+                        as={Card.Header} eventKey="0"
+                    >
+                        <Card.Header as="h5" style={{ background: "#ffff" }}>
+                            <p style={{ fontSize: ".75rem", color: "lightgrey" }}>
                                 click box to expand/collapse</p>
-                        {`Submitted: `} 
+                            {"Submitted: "}
                             <Moment format="LLLL">
-                            {props.createdAt}
+                                {props.createdAt}
                             </Moment> <br />
                             Customer: {props.firstName} {props.lastName}<br />
 
-                            {(props.status === "requested")? "Request Not Assigned" :
-                            `Tech Assigned: ${props.assigneeName}`} <br />
-                         
+                            {(props.status === "requested") ? "Request Not Assigned" :
+                                `Tech Assigned: ${props.assigneeName}`} <br />
+
                         </Card.Header>
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
@@ -50,14 +50,15 @@ function QueryCard(props) {
                                 </ListGroup.Item>
                                 <ListGroup.Item>TECH ASSIGNED: {props.assigneeName}</ListGroup.Item>
                                 <ListGroup.Item>TECH NOTES: {props.note}</ListGroup.Item>
-                             </ListGroup>
-                                <br></br>
-                                {modal}
+                            </ListGroup>
+                            <br></br>
+                            {modal}
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
             </Accordion>
         </div>
-    )};
+    );
+}
 
-    export default QueryCard;
+export default QueryCard;
