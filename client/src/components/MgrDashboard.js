@@ -93,8 +93,6 @@ class MgrDashboard extends Component {
                         note={(Query.note && Query.note.body) ? Query.note.body : ""}
                         key={Query._id}
                         loadQuery={this.loadQuery}
-                        key={Query._id}
-                        loadQuery={this.loadQuery}
                     />
                 ))}
             </div>

@@ -34,11 +34,12 @@ class TechQueryCard extends Component {
         partsAPI.updatePartsRequestCompleted(id)
             .then(res => {
                 console.log(res);
+                this.props.loadPartsQuery(this.props.techID, "assigned")
             });
     };
     render() {
         return (
-            <Accordion defaultkey="0">
+            <Accordion defaultKey="0">
                 <Card>
                     <Accordion.Toggle
                         as={Card.Header} eventKey="0"
@@ -58,8 +59,8 @@ class TechQueryCard extends Component {
                         <Card.Body>
                             <ListGroup className="list-group">
                                 <ListGroup.Item>NAME: {this.state.Query.firstName} {this.state.Query.lastName}</ListGroup.Item>
-                                <ListGroup.Item>PHONE: <a href="sms://"{...this.state.Query.phoneNumber}>{this.state.Query.phoneNumber}</a></ListGroup.Item>
-                                <ListGroup.Item>EMAIL: <a href="mailto:"{...this.state.Query.email}>{this.state.Query.email}</a></ListGroup.Item>
+                                <ListGroup.Item>PHONE: <a href={`sms://${this.state.Query.phoneNumber}`}>{this.state.Query.phoneNumber}</a></ListGroup.Item>
+                                <ListGroup.Item>EMAIL: <a href={`mailto:${this.state.Query.email}`}>{this.state.Query.email}</a></ListGroup.Item>
                                 <ListGroup.Item>VIN: {this.state.Query.vin}</ListGroup.Item>
                                 <ListGroup.Item>YEAR: {this.state.Query.year}</ListGroup.Item>
                                 <ListGroup.Item>MAKE: {this.state.Query.make}</ListGroup.Item>
