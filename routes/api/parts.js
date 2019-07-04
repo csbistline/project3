@@ -19,4 +19,7 @@ router
     .put(partsController.update)
     .delete(partsController.remove);
 
+router.route("/note/:id")
+    .put(partsController.addNote);
+
 module.exports = router;
