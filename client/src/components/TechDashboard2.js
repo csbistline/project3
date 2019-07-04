@@ -12,8 +12,19 @@ class TechDashboard2 extends Component {
     state = {
         techID: sessionStorage.getItem("techID"),
         techObj: {},
-        CusPartsQuery: []
+        CusPartsQuery: [],
+        note: ""
     };
+
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const { name, value } = event.target;
+
+        // Updating the input's state
+        this.setState({
+            [name]: value
+        });
+    }
 
     componentDidMount() {
         this.loadTech(this.state.techID);
@@ -42,6 +53,13 @@ class TechDashboard2 extends Component {
               console.log(res);
           });
       };
+
+    addComment = (id,note) => {
+        partsAPI.updatePartsRequestNote(id,note)
+          .then(res => {
+              console.log(res);
+          });
+    }
 
     render() {
         
@@ -83,7 +101,7 @@ class TechDashboard2 extends Component {
                 </Nav>
                
                 {this.state.CusPartsQuery.map(Query => (
-                <Accordion defaultKey="0">
+                <Accordion defaultkey="0">
                 <Card>
                     <Accordion.Toggle
                      as={Card.Header} eventKey="0"
@@ -116,10 +134,22 @@ class TechDashboard2 extends Component {
                                 <ListGroup.Item>
                                     <Form>
                                         <Form.Group controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>TECH NOTES:</Form.Label>
-                                            <Form.Control as="textarea" rows="3" />
+                                            <Form.Label>TECH NOTES: (adding a note will overwrite the last note)</Form.Label>
+                                            <Form.Control 
+                                                as="textarea" 
+                                                rows="3" 
+                                                onChange={this.handleInputChange}
+                                                label="note"
+                                                name="note"
+                                                value={this.state.note}
+                                            />
                                         </Form.Group>
-                                        <Button className="myButton" variant="primary" type="submit">
+                                        <Button 
+                                            className="myButton" 
+                                            variant="primary" 
+                                            type="submit"
+                                            onClick={() => this.addComment(Query._id,this.state.note)}
+                                        >
                                             Submit
                                         </Button>
                                     </Form>

@@ -28,6 +28,16 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    addNote: function (req, res) {
+        console.log(req.body);
+        console.log(req.params.id);
+        db.Note.create(req.body)
+            .then(dbNote => {
+            return db.PartsRequest.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+            })
+            .then(dbPartsRequest => res.json(dbPartsRequest))
+            .catch(err => res.json(err));
+    },
     remove: function (req, res) {
         db.PartsRequest
             .findById({ _id: req.params.id })

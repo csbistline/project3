@@ -21,6 +21,9 @@ export default {
     updatePartsRequestCompleted: function(id) {
         return axios.put("/api/parts/" + id, {status: "completed"});
     },
+    updatePartsRequestNote: function(id, note) {
+        return axios.put("/api/parts/note/" + id, {note: note});
+    },
     // Deletes the parts request with the given id
     deletePartsRequest: function(id) {
         return axios.delete("/api/parts/" + id);
