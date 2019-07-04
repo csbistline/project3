@@ -22,7 +22,7 @@ export default {
         return axios.put("/api/parts/" + id, {status: "completed"});
     },
     updatePartsRequestNote: function(id, note) {
-        return axios.put("/api/parts/note/" + id, {note: note});
+        return axios.put("/api/parts/note/" + id, {body: note});
     },
     // Deletes the parts request with the given id
     deletePartsRequest: function(id) {
