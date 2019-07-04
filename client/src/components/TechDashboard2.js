@@ -45,6 +45,7 @@ class TechDashboard2 extends Component {
                 console.log(res.data);
                 this.setState({ techObj: res.data })
             })
+        
     };
 
     updateParts = (id) => {
@@ -102,6 +103,7 @@ class TechDashboard2 extends Component {
                 </Nav>
                
                 {this.state.CusPartsQuery.map(Query => (
+                    
                 <Accordion defaultkey="0">
                 <Card>
                     <Accordion.Toggle
@@ -143,6 +145,7 @@ class TechDashboard2 extends Component {
                                                 label="note"
                                                 name="note"
                                                 value={this.state.note}
+                                                placeholder={(Query.note) ? Query.note.body : ""}
                                             />
                                         </Form.Group>
                                         <Button 
