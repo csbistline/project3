@@ -26,6 +26,8 @@ class SelectTech extends Component {
     };
 
     updateParts = (id, assignee, assigneeName) => {
+        console.log("updateParts args", id, assignee, assigneeName);
+        
         partsAPI.updatePartsRequestAssigned(id, assignee, assigneeName)
             .then(res => {
                 console.log(res);

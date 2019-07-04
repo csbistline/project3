@@ -78,6 +78,7 @@ class MgrDashboard extends Component {
                 </Nav>
                 {this.state.assignTech.map(Query => (
                     <QueryCard
+                        _id={Query._id}
                         status={Query.status}
                         assignee={Query.assignee}
                         assigneeName={Query.assigneeName}
