@@ -10,13 +10,13 @@ const Footer = () => {
         
         
         <Navbar.Brand>
-            <Image
+            {/* <Image
              style={{ width: '2rem', height: '2rem' }}
             alt="logo"
-            src="./assets/misc/Hi5.jpg"
+            src="./assets/img/Hi5.jpg"
             rounded
-            />
-      {' Hi5Productions 2019'}
+            /> */}
+      {'Hi5Productions 2019'}
     </Navbar.Brand>
   </Navbar>
      )};
