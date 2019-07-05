@@ -24,9 +24,9 @@ function QueryCard(props) {
                         <Card.Header as="h5" style={{ background: "#ffff" }}>
                             <p style={{ fontSize: ".75rem", color: "lightgrey" }}>
                                 click box to expand/collapse</p>
-                            {"Submitted: "}
+                                {(props.status === "completed") ? "Completed: " : "Submitted: "} 
                             <Moment format="LLLL">
-                                {props.createdAt}
+                                {(props.status === "completed") ? props.updatedAt : props.createdAt}
                             </Moment> <br />
                             Customer: {props.firstName} {props.lastName}<br />
 

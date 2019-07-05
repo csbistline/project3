@@ -48,20 +48,6 @@ class TechDashboard2 extends Component {
 
     };
 
-    /*updateParts = (id) => {
-        partsAPI.updatePartsRequestCompleted(id)
-          .then(res => {
-              console.log(res);
-          });
-      };
-
-    addComment = (id,note) => {
-        partsAPI.updatePartsRequestNote(id,note)
-          .then(res => {
-              console.log(res);
-          });
-    }*/
-
     render() {
 
         return (

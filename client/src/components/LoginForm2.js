@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import axios from "axios";
-import { Redirect } from 'react-router';
-
-// import Wrapper from "./Wrapper";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-
 
 class LoginForm extends Component {
 
