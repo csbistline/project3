@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
+import {Navbar, Image} from "react-bootstrap";
 
 
 
@@ -7,14 +7,13 @@ import Navbar from "react-bootstrap/Navbar";
 const Footer = () => {
     return ( 
     <Navbar bg="light" variant="light" fixedBottom>
-        <Navbar.Brand href="#home">
-            <img
-            alt=""
-            src="/client/public/assets/img/dodge.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-bottom"
-        />
+        <Navbar.Brand>
+            <Image
+             style={{ width: '2rem', height: '2rem', margin: '2%' }}
+            alt="logo"
+            src="./assets/misc/Hi5.jpg"
+            thumbnail
+            />
       {' Hi5Productions 2019'}
     </Navbar.Brand>
   </Navbar>
