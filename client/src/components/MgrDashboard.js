@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav, Image } from 'react-bootstrap'
+import { Nav, Image, Button } from 'react-bootstrap'
 import QueryCard from "./QueryCard";
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
@@ -74,6 +74,14 @@ class MgrDashboard extends Component {
                         >
                             Completed
                         </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item className='tabs'>
+                        <Button 
+                            variant="outline-primary" 
+                            size="sm" 
+                            href="/login2"
+                            style={{padding: '.5%'}}>Sign Off
+                        </Button>
                     </Nav.Item>
                 </Nav>
                 {this.state.assignTech.map(Query => (
