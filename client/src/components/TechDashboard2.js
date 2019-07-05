@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Nav, Image } from 'react-bootstrap'
+import { Nav, Image, Button } from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
 import techAPI from "../utils/techsAPI";
 // import { Link } from "react-router-dom";
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import 'moment-timezone';
 import TechQueryCard from "./TechQueryCard"
 
@@ -98,6 +98,14 @@ class TechDashboard2 extends Component {
                         >
                             Completed
                         </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item className='tabs'>
+                        <Button 
+                            variant="outline-primary" 
+                            size="sm" 
+                            href="/login2"
+                            style={{padding: '.5%'}}>Sign Off
+                        </Button>
                     </Nav.Item>
                 </Nav>
 
