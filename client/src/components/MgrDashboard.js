@@ -78,6 +78,7 @@ class MgrDashboard extends Component {
                 </Nav>
                 {this.state.assignTech.map(Query => (
                     <QueryCard
+                        _id={Query._id}
                         status={Query.status}
                         assignee={Query.assignee}
                         assigneeName={Query.assigneeName}
@@ -91,8 +92,6 @@ class MgrDashboard extends Component {
                         model={Query.model}
                         message={Query.message}
                         note={(Query.note && Query.note.body) ? Query.note.body : ""}
-                        key={Query._id}
-                        loadQuery={this.loadQuery}
                         key={Query._id}
                         loadQuery={this.loadQuery}
                     />

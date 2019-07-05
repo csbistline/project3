@@ -18,7 +18,7 @@ sendConfirmEmail = () => {
 
     // send mail with defined transport object
     let info = transporter.sendMail({
-        from: '"High 5 Productions!" <gutleberb@gmail.com>', // sender address
+        from: "\"High 5 Productions!\" <gutleberb@gmail.com>", // sender address
         to: this.props.formData.email, // list of receivers
         subject: "Parts Request Recieved ✔", // Subject line
         text: "Hello world?", // plain text body
@@ -31,6 +31,6 @@ sendConfirmEmail = () => {
     // Preview only available when sending through an Ethereal account
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-}
+};
 
-module.exports = router;
+export default router;

@@ -203,9 +203,9 @@ class RequestForm extends Component {
                                 this.state.make &&
                                 this.state.model &&
                                 this.state.message
-                            )&&
-                            <div style={{ color: 'red' }}
-                            > * all fields are required</div>}
+                            ) &&
+                                <div style={{ color: 'red' }}
+                                > * all fields are required</div>}
                             <ConfirmModal type="submit" formData={this.state} sendData={this.sendFormData} />
 
                         </ValidatorForm>

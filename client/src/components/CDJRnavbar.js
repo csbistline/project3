@@ -1,7 +1,7 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 
 const CDJRnavbar = () => {
@@ -31,18 +31,18 @@ const CDJRnavbar = () => {
                     <Nav className="navbar-text">
                         <div className="ml-auto">
                             <div className="ml-2">
-                            {/* <i className="fa fa-calendar"></i> SERVICE___/___  
+                                {/* <i className="fa fa-calendar"></i> SERVICE___/___  
                             <i className="fa fa-map-marker"></i> MAP___/___
                             <i className="fa fa-envelope"></i> CONTACT__ */}
-                            <Breadcrumb>
-                            <Breadcrumb.Item active><i className="fas fa-phone-square"></i> Parts: 615-538-9033 </Breadcrumb.Item>
-                                <Breadcrumb.Item active><i className="fa fa-calendar"></i> SERVICE </Breadcrumb.Item>
-                                <Breadcrumb.Item active><i className="fa fa-map-marker"></i> MAP </Breadcrumb.Item>
-                                <Breadcrumb.Item active><i className="fa fa-envelope"></i> CONTACT </Breadcrumb.Item>
-                            </Breadcrumb>
+                                <Breadcrumb>
+                                    <Breadcrumb.Item active><i className="fas fa-phone-square"></i> Parts: 615-538-9033 </Breadcrumb.Item>
+                                    <Breadcrumb.Item active><i className="fa fa-calendar"></i> SERVICE </Breadcrumb.Item>
+                                    <Breadcrumb.Item active><i className="fa fa-map-marker"></i> MAP </Breadcrumb.Item>
+                                    <Breadcrumb.Item active><i className="fa fa-envelope"></i> CONTACT </Breadcrumb.Item>
+                                </Breadcrumb>
                             </div>
                         </div>
-                            {/* <div className="ml-2" role="group" aria-label="First group">
+                        {/* <div className="ml-2" role="group" aria-label="First group">
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-calendar"> SERVICE</i></button>
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-map-marker"> MAP</i></button>
                                 <button type="button" className="btn btn-outline-secondary"><i className="fa fa-envelope"> CONTACT</i></button>
