@@ -8,12 +8,6 @@ import "moment-timezone";
 
 
 function QueryCard(props) {
-    let modal;
-    if (!props.assignee) {
-        modal = <SelectTechModal
-            {...props}
-        />;
-    }
     return (
         <div >
             <Accordion defaultKey="0">
@@ -52,7 +46,9 @@ function QueryCard(props) {
                                 <ListGroup.Item>TECH NOTES: {props.note}</ListGroup.Item>
                             </ListGroup>
                             <br></br>
-                            {modal}
+                            <SelectTechModal
+                                {...props}
+                            />
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
