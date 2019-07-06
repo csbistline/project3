@@ -90,6 +90,8 @@ class MgrDashboard extends Component {
                         status={Query.status}
                         assignee={Query.assignee}
                         assigneeName={Query.assigneeName}
+                        createdAt={Query.createdAt}
+                        updatedAt={Query.updatedAt}
                         firstName={Query.firstName}
                         lastName={Query.lastName}
                         phoneNumber={Query.phoneNumber}

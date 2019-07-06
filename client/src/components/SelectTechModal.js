@@ -27,10 +27,11 @@ class SelectTechModal extends React.Component {
     render() {
         return (
             <div>
-                <Button className="btn btn-primary myButton" onClick={this.handleShow}>
-                    Assign Tech
-                </Button>
-
+                {(this.props.status === "completed") ? "" : 
+                    <Button className="btn btn-primary myButton" onClick={this.handleShow}>
+                        {(this.props.assignee) ? "Change Tech" : "Assign Tech" }
+                    </Button>
+                }
                 <Modal size='lg' show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title><h4>Select Parts Specialist</h4></Modal.Title>

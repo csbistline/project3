@@ -8,12 +8,6 @@ import "moment-timezone";
 
 
 function QueryCard(props) {
-    let modal;
-    if (!props.assignee) {
-        modal = <SelectTechModal
-            {...props}
-        />;
-    }
     return (
         <div >
             <Accordion defaultKey="0">
@@ -24,9 +18,9 @@ function QueryCard(props) {
                         <Card.Header as="h5" style={{ background: "#ffff" }}>
                             <p style={{ fontSize: ".75rem", color: "lightgrey" }}>
                                 click box to expand/collapse</p>
-                            {"Submitted: "}
+                                {(props.status === "completed") ? "Completed: " : "Submitted: "} 
                             <Moment format="LLLL">
-                                {props.createdAt}
+                                {(props.status === "completed") ? props.updatedAt : props.createdAt}
                             </Moment> <br />
                             Customer: {props.firstName} {props.lastName}<br />
 
@@ -52,7 +46,9 @@ function QueryCard(props) {
                                 <ListGroup.Item>TECH NOTES: {props.note}</ListGroup.Item>
                             </ListGroup>
                             <br></br>
-                            {modal}
+                            <SelectTechModal
+                                {...props}
+                            />
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { ListGroup, Accordion, Card, Button, Form } from 'react-bootstrap'
 import partsAPI from "../utils/partsAPI";
-import techAPI from "../utils/techsAPI";
-// import { Link } from "react-router-dom";
 import Moment from 'react-moment';
 import 'moment-timezone';
-// import QueryCard from "./QueryCard"
 
 class TechQueryCard extends Component {
 
@@ -47,10 +44,9 @@ class TechQueryCard extends Component {
                         <Card.Header as="h5" style={{ background: '#ffff' }}>
                             <p style={{ fontSize: '.75rem', color: 'lightgrey' }}>
                                 click box to expand/collapse</p>
-
-                            {`Submitted: `}
+                            {(this.state.Query.status === "completed") ? "Completed: " : "Submitted: "}
                             <Moment format="LLLL">
-                                {this.state.Query.createdAt}
+                                {(this.state.Query.status === "completed") ? this.state.Query.updatedAt : this.state.Query.createdAt}
                             </Moment><br />
                             Customer: {this.state.Query.firstName} {this.state.Query.lastName}<br />
                         </Card.Header>
