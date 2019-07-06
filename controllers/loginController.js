@@ -5,7 +5,7 @@ module.exports = {
 
     findByLogin: function (req, res) {
         console.log(req.query);
-        
+
 
         db.Tech
             .find(req.query)

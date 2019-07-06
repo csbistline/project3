@@ -44,11 +44,12 @@ _<https://parts-manager-hi5.herokuapp.com/>_
 * [Axios](https://www.npmjs.com/package/axios) - Used for API calls
 * [Heroku](https://devcenter.heroku.com/categories/reference) - Used for App deployment
 * [MessageBird](https://www.messagebird.com/en/) - Used to generate text confirmation
-* [NodeMailer](https://nodemailer.com/about/) - Used to generate autoReply Email
+* [SendGrid/Mail](https://www.npmjs.com/package/sendgrid) - Used to generate autoReply Email
 * [Unirest](http://unirest.io/nodejs.html) - Used in API call to verify Vin Data  
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) - Used for Authentication
 * [Passport](http://www.passportjs.org/) - Used for Node.js Authentication
 * [Moment](https://momentjs.com/) - Used for Tracking query lifecycle
+* [React-Form_Validator-Core](https://www.npmjs.com/package/react-form-validator-core) - Used for Request Form Validation
 
 ## Data Flow and Project Wire Frames
 

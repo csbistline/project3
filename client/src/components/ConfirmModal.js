@@ -90,7 +90,20 @@ class ConfirmModal extends React.Component {
     render() {
         return (
             <>
-                <Button className="confirmBtn myButton" type="submit" onClick={this.handleShow}>
+                <Button className="confirmBtn myButton" 
+                type="submit" 
+                onClick={this.handleShow}
+                disabled={!(
+                    this.props.formData.firstName&& 
+                    this.props.formData.lastName&&
+                    this.props.formData.phoneNumber&&
+                    this.props.formData.email&&
+                    this.props.formData.vin&&
+                    this.props.formData.year&&
+                    this.props.formData.make&&
+                    this.props.formData.model&&
+                    this.props.formData.message
+                    )}>
                     submit
           </Button>
                 <Modal show={this.state.show} onHide={this.handleClose}>

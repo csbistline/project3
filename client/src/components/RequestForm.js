@@ -2,25 +2,34 @@ import React, { Component } from 'react';
 import Contacts from "./Contacts";
 import VinModal from "./vinModal";
 import partsAPI from "../utils/partsAPI"
+import { Button, Modal } from 'react-bootstrap';
 import ConfirmModal from "./ConfirmModal"
 import { ValidatorForm } from 'react-form-validator-core';
 import TextValidator from "./TextValidate"
+require("dotenv").config();
 const unirest = require("unirest");
 
 
 class RequestForm extends Component {
 
-    state = {
 
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        email: "",
-        vin: "",
-        year: "",
-        make: "",
-        model: "",
-        message: "",
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleClose = this.handleClose.bind(this);
+
+        this.state = {
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email: "",
+            vin: "",
+            year: "",
+            make: "",
+            model: "",
+            message: "",
+            vinInvalid: false
+        }
     }
 
     handleInputChange = event => {
@@ -32,24 +41,33 @@ class RequestForm extends Component {
             [name]: value
         });
     }
-    
 
-    vinCheck = (vinNum) => {
+    handleClose() {
+        this.setState({ vinInvalid: false })
+    }
 
-        unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${vinNum}`)
+
+    vinCheck = () => {
+
+        unirest.get(`https://vindecoder.p.rapidapi.com/decode_vin?vin=${this.state.vin}`)
             .header("X-RapidAPI-Host", "vindecoder.p.rapidapi.com")
-            .header("X-RapidAPI-Key", process.env.VIN_CHECK_KEY)
-            .end(function (result) {
-                if (result.success === true) {
+            .header("X-RapidAPI-Key", "8da2207bdbmsh250beb71e2b17aep1c86a9jsn3a30757a482c")
+            .end((result) => {
+                if (result.body.success === true) {
+                    this.setState({ year: result.body.specification.year })
+                    this.setState({ make: result.body.specification.make })
+                    this.setState({ model: result.body.specification.model })
+                    this.setState({ vinInvalid: false })
                     return true
                 } else {
+                    this.setState({ vinInvalid: true })
                     return false
                 }
             });
     }
 
     sendFormData = () => {
- 
+
         partsAPI.savePartsRequest({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -89,9 +107,9 @@ class RequestForm extends Component {
 
                         <ValidatorForm
                             ref="form"
-                            
-                            //onError={alert("Errors")}
-                            
+
+                        //onError={alert("Errors")}
+
                         >
                             First Name
                                 <TextValidator
@@ -132,6 +150,7 @@ class RequestForm extends Component {
                             VIN # <VinModal></VinModal>
                             <TextValidator
                                 onChange={this.handleInputChange}
+                                onBlur={this.vinCheck}
                                 label="vin "
                                 name="vin"
                                 value={this.state.vin}
@@ -167,14 +186,26 @@ class RequestForm extends Component {
                             />
                             <div className="form-group">
                                 <label htmlFor="message">Write your message here...</label>
-                                <textarea  style={{borderRadius: '5px', padding: '.5%', boxShadow: '-1px -1px #696969'}} className="form-control"
+                                <textarea style={{ borderRadius: '5px', padding: '.5%', boxShadow: '-1px -1px #696969' }} className="form-control"
                                     name="message"
                                     value={this.state.message}
                                     onChange={this.handleInputChange}
                                     id="message"
                                     rows="4"></textarea>
                             </div>
-
+                            {!(
+                                this.state.firstName &&
+                                this.state.lastName &&
+                                this.state.phoneNumber &&
+                                this.state.email &&
+                                this.state.vin &&
+                                this.state.year &&
+                                this.state.make &&
+                                this.state.model &&
+                                this.state.message
+                            ) &&
+                                <div style={{ color: 'red' }}
+                                > * all fields are required</div>}
                             <ConfirmModal type="submit" formData={this.state} sendData={this.sendFormData} />
 
                         </ValidatorForm>
@@ -185,8 +216,24 @@ class RequestForm extends Component {
                 <div className="col-md-4 pt-4">
                     <Contacts />
                 </div>
-            </div>
 
+
+                <Modal show={this.state.vinInvalid} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Vin number not found.</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        We could not find any records of that vin number. Please enter in a valid vin number.
+                        This ensures we are finding the correct parts for your vehicle
+</Modal.Body>
+                    <Modal.Footer>
+                        <Button className="myButton" variant="primary" onClick={this.handleClose}>
+                            Close
+</Button>
+
+                    </Modal.Footer>
+                </Modal>
+            </div>
         );
     }
 }

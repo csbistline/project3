@@ -4,13 +4,13 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var PartsRequestSchema = new Schema({
-    status:{
-        type: String, default: "requested" 
+    status: {
+        type: String, default: "requested"
     },
-    assignee:{
-        type: String, default: null 
+    assignee: {
+        type: String, default: null
     },
-    assigneeName:{
+    assigneeName: {
         type: String, default: null
     },
     firstName: {
@@ -54,7 +54,7 @@ var PartsRequestSchema = new Schema({
     note: {
         type: Schema.Types.ObjectId,
         ref: "Note"
-    } 
+    }
 },
 {
     timestamps: true

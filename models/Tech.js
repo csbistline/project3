@@ -8,10 +8,11 @@ const TechSchema = new Schema({
     specialty: { type: String, required: true },
     contact: { type: String, required: true },
     permission: { type: String, required: true },
-    password: {type: String, required: true}
+    password: { type: String, required: true }
 },
-{ 
-    collection: "Tech" });
+{
+    collection: "Tech"
+});
 
 const Tech = mongoose.model("Tech", TechSchema);
 

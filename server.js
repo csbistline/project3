@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 const PORT = process.env.PORT || 3001;
 const passport = require("./server/passport");
 
@@ -16,15 +16,15 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // send confirmation email
-app.post('/api/sendEmail', (req, res) => {
+app.post("/api/sendEmail", (req, res) => {
     var data = req.body;
-    console.log("data " + data)
-    const sgMail = require('@sendgrid/mail');
+    console.log("name " + data.firstName);
+    const sgMail = require("@sendgrid/mail");
     sgMail.setApiKey(process.env.SG_API_KEY);
     const msg = {
         to: data.email,
-        from: 'gutleberb@gmail.com',
-        subject: 'We recived your parts request!',
+        from: "gutleberb@gmail.com",
+        subject: "We recived your parts request!",
 
         html: `<p>Hello, ${data.firstName}</p>
       <p>  Thank yout for your Parts Request.  

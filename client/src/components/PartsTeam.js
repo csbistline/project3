@@ -29,16 +29,16 @@ class PartsTeam extends Component {
             <div>
                 <div className="row pt-lg-4" >
                     <div className="col-md-8 pt-lg-4 d-flex flex-wrap justify-content-around animated bounceInDown">
-                            {this.state.team.map(tech => (
-                                <PartsSpecCard
-                                    id={tech.id}
-                                    key={tech.id}
-                                    name={tech.name}
-                                    image={tech.image}
-                                    specialty={tech.specialty}
-                                    contact={tech.contact}
-                                />
-                            ))}
+                        {this.state.team.map(tech => (
+                            <PartsSpecCard
+                                id={tech.id}
+                                key={tech.id}
+                                name={tech.name}
+                                image={tech.image}
+                                specialty={tech.specialty}
+                                contact={tech.contact}
+                            />
+                        ))}
                     </div>
 
                     <div className="col-md-4 pt-4">

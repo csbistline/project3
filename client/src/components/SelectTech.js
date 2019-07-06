@@ -25,21 +25,25 @@ class SelectTech extends Component {
             .catch(err => console.log(err));
     };
 
-    updateParts = (id,assignee,assigneeName) => {
-        partsAPI.updatePartsRequestAssigned(id,assignee,assigneeName)
+    updateParts = (id, assignee, assigneeName) => {
+        console.log("updateParts args", id, assignee, assigneeName);
+        
+        partsAPI.updatePartsRequestAssigned(id, assignee, assigneeName)
             .then(res => {
                 console.log(res);
+                this.props.handleClose();
+                this.props.loadQuery("requested");
             })
     }
 
     render() {
         return (
             <div className="pt-4">
-                
+
                 <Table striped bordered>
                     <thead>
                         <tr>
-                            <th style={{width:"20px"}}></th>
+                            <th style={{ width: "20px" }}></th>
                             <th></th>
                             <th>Name</th>
                             <th>Specialty</th>
@@ -52,19 +56,19 @@ class SelectTech extends Component {
                             <tr
                                 key={tech._id}>
                                 <td className="align-middle">
-                                    <Button 
-                                        className="btn btn-primary myButton" 
-                                        size="sm" 
+                                    <Button
+                                        className="btn btn-primary myButton"
+                                        size="sm"
                                         data-id={tech._id}
-                                        onClick={() => this.updateParts(this.state.selectedRequest,tech._id,tech.name)}
+                                        onClick={() => this.updateParts(this.state.selectedRequest, tech._id, tech.name)}
                                     >
                                         Select
                                     </Button>
                                 </td>
                                 <td className="align-middle"></td>
                                 <td className="align-middle">
-                                <img src={tech.image2} alt={tech.name} style={{width: '5rem', height: 'auto', marginRight: '1%'}} />
-                                 {tech.name}</td>
+                                    <img src={tech.image2} alt={tech.name} style={{ width: '5rem', height: 'auto', marginRight: '1%' }} />
+                                    {tech.name}</td>
                                 <td className="align-middle">{tech.specialty}</td>
                                 <td className="align-middle">{tech.contact}</td>
                             </tr>

@@ -1,13 +1,13 @@
 import React from "react";
-import {ListGroup, Button, Card} from 'react-bootstrap'
+import {ListGroup, Button, Card} from "react-bootstrap";
 
 
 function AssignedQueryCard(props) {
     return(
         <div className="col-md-10 pt-4 d-flex flex-wrap justify-content-around">
 
-        <Card style={{ width: '80%' }}>
-            <Card.Header as="h5"></Card.Header>
+            <Card style={{ width: "80%" }}>
+                <Card.Header as="h5"></Card.Header>
                 <Card.Body>
                     <Card.Title as="h5">Customer Parts Query</Card.Title>
                     <ListGroup className="list-group">
@@ -27,9 +27,9 @@ function AssignedQueryCard(props) {
                     <Button className="btn btn-primary myButton">
                         Complete Work Order
                     </Button>
-            </Card.Body>
-        </Card>
+                </Card.Body>
+            </Card>
         </div>
-    )};
+    );}
 
-    export default AssignedQueryCard;
+export default AssignedQueryCard;
