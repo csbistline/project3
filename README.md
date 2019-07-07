@@ -8,7 +8,7 @@
 * An auto generated email is sent to the customer when assigned with a time table to completion
 * Finally once Query has been completed it is reurned to the Parts Manger to be checked and deleted
 * All while matching the Front End Style of the current site
-* [Check Out the DataFlowChart & WireFrame](##-Data-Flow-and-Project-Wire-Frames)
+* [Check Out the DataFlowChart & WireFrames](##data-flow-and-project-wire-frames)
 
 ![TeamLogo](https://github.com/csbistline/project3/blob/59ab4c928fa4b71d77a23fe75f12c78e5defcd78/client/public/assets/misc/Hi5.png)
 
